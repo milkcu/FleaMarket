@@ -31,6 +31,15 @@
 				<?php if(! $this->aauth->is_loggedin()) : ?>
 				<li class="active"><a href="<?= site_url('user/login') ?>"><i class="fa fa-sign-in"></i>登录</a></li>
 				<?php else : ?>
+                <li class="">
+                <a href="<?= site_url('message/index/inbox') ?>">
+                    <i class="fa fa-envelope-o"></i>
+                    <?php $pmnum = $this->aauth->count_unread_pms() ?>
+                    <?php if($pmnum > 0) : ?>
+                    <span class="badge pm-nav"><?= $pmnum ?></span>
+                    <?php endif; ?>
+                </a>
+                </li>
 				<li class="dropdown active">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						<?php $jsdnuinfo = $this->aauth->get_user_var('sdnuinfo') ?>

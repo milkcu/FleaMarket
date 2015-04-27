@@ -16,6 +16,7 @@
         	<a href="<?= site_url('message/index/outbox') ?>">发件箱</a>
         </li>
         <?php endif; ?>
+        <a href="<?= site_url('message/index/' . $type) ?>" class="btn btn-success btn-sm pull-right">刷新</a>
     </ul>
     <table class="table" style="table-layout: fixed;">
         <thead>
