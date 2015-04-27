@@ -6,4 +6,7 @@ class Page extends CI_Controller {
 		$data['categories'] = $this->categories->get_categories();
 		$this->load->view('page/index', $data);
 	}
+    public function phone() {
+        $this->load->view('page/phone');
+    }
 }

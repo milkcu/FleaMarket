@@ -9,5 +9,7 @@
 </div>
 <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
 <script src="<?= base_url('assets/js/main.js') ?>"></script>
+<script src="http://siteapp.baidu.com/static/webappservice/uaredirect.js" type="text/javascript"></script>
+<script type="text/javascript">uaredirect("<?= site_url('page/phone') ?>");</script>
 </body>
 </html>
