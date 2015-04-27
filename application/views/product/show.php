@@ -55,18 +55,18 @@
 				<div class="product-statistics">
 					<p><?= $product->views ?> 次浏览 · <?php $product->state ? print('已经') : print('尚未') ?>成交</p>
 				</div>
-				
+
 				<div class="product-line">
 					<div class="product-key"><span class="label label-primary">交易地点</span></div>
-					<span><?= $product->place ?></span>
+					<div class="product-value"><?= $product->place ?></div>
 				</div>
 				<div class="product-line">
 					<div class="product-key"><span class="label label-primary">发布时间</span></div>
-					<span><?= $product->created ?></span>
+					<div class="product-value"><?= $product->created ?></div>
 				</div>
 				<div class="product-line">
 					<div class="product-key"><span class="label label-primary">商品分类<span></div>
-					<span><?= $product->category->name ?></span>
+					<div class="product-value"><?= $product->category->name ?></div>
 				</div>
 				<div class="row">
 					<div class="product-jiathis">
@@ -123,6 +123,7 @@
 					<p><i class="fa fa-qq"></i><?= substr($contact->qq, 0, 6) ?>****</p>
 					<p><?= substr($contact->email, 0, 3) ?>****<?= strstr($contact->email, '@') ?></p>
 					<?php endif; ?>
+                    <p>联系方式登录才可查看</p>
 				</div>
 			</div>
 		</div>

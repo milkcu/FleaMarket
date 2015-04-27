@@ -12,7 +12,7 @@
 		<?php foreach($products as $p) : ?>
 		<div class="col-md-3">
 			<div class="thumbnail">
-				<a href="<?= site_url('product/show/' . $p->pid) ?>">
+            <a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>">
 					<img style="width: 100%" src="<?= $prefix . $p->images[0] . $suffix ?>" alt="thumbnail">
 				</a>
 				<div class="caption">

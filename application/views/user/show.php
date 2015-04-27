@@ -68,7 +68,7 @@
 		                <?php else : ?>
 		                <?php foreach($products as $p) : ?>
 		                <tr>
-		                    <td><a href="<?= site_url('product/show/' . $p->pid) ?>"><?= $p->title ?></a></td>
+                            <td><a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>"><?= $p->title ?></a></td>
 		                    <td><?= $p->created ?></td>
 		                    <td><?= $p->place ?></td>
 		                    <td><?= $p->category->name ?></td>
