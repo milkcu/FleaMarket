@@ -15,14 +15,14 @@ class User extends CI_Controller {
 		$data['sdnuinfo'] = json_decode($jsdnuinfo);
 		$this->load->model('products');
 		$data['products_num'] = $this->products->get_num_by_uid($uid);
-		
+
 		$this->load->library('pagination');
 		$config['uri_segment'] = 3;
 		$config['base_url'] = site_url('user/show/');
 		$config['total_rows'] = $this->products->get_num_by_uid($uid);
 		$config['per_page'] = 12;
 		$this->pagination->initialize($config);
-		
+
 		$page = $this->uri->segment(3);
 		$offset = $page ? ($page - 1) * 12 : 0;
 		$data['products'] = $this->products->get_products_by_uid($uid, $config['per_page'], $offset);
@@ -43,14 +43,14 @@ class User extends CI_Controller {
 		$data['sdnuinfo'] = json_decode($jsdnuinfo);
 		$this->load->model('products');
 		$data['products_num'] = $this->products->get_num_by_uid($uid);
-		
+
 		$this->load->library('pagination');
 		$config['base_url'] = site_url('user/follow');
 		$config['uri_segment'] = 3;
 		$config['per_page'] = 12;
 		$config['total_rows'] = $this->products->get_num_by_uid($uid);
 		$this->pagination->initialize($config);
-		
+
 		$page = $this->uri->segment(3);
 		$offset = $page ? ($page - 1) * 12 : 0;
 		$data['products'] = $this->products->get_products_by_uid($uid, $config['per_page'], $offset);
@@ -164,7 +164,7 @@ class User extends CI_Controller {
 		$_FILES['files']['name'][0] = $filename;
 		$this->load->library('UploadHandler');
 		// upload to qiniu
-		$conf = array('ak' => 'A2o1e1u2qqPQECn3VWxL5BcGGmSWX3n2KhXgK7Rx', 
+		$conf = array('ak' => 'A2o1e1u2qqPQECn3VWxL5BcGGmSWX3n2KhXgK7Rx',
 						'sk' => 'EUkbMnHf2BNrqOx49-VGz7cUhiwd52Y82mne1zaL',
 						'bucket' => 'milkcu',
 						'auth' => 'public');

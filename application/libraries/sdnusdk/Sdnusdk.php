@@ -26,7 +26,7 @@ class Sdnusdk extends CI_Controller {
         ?>
 <script type="text/javascript">
     if (location.href.indexOf('#') >= 0) {
-        location.href = location.href.replace('#', '?'); 
+        location.href = location.href.replace('#', '?');
     }
 </script>
         <?php

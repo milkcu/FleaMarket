@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://www.mysdnu.com/';
+$config['base_url']	= 'http://local.mysdnu.com/';
 
 /*
 |--------------------------------------------------------------------------

@@ -17,10 +17,10 @@
 				<li><a href="<?= site_url('product/index/5') ?>">衣物百货</a></li>
 				<li><a href="<?= site_url('product/index/6') ?>">生活娱乐</a></li>
 			</ul>
-			
+
 			<form class="navbar-form pull-left" action="<?= site_url('product/search') ?>" method="post">
 				<div class="input-group">
-					<input type="text" name="q" class="form-control" placeholder="宝贝搜索">
+					<input type="text" name="q" class="form-control" placeholder="宝贝搜索" required>
 					<span class="input-group-btn">
 						<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
 					</span>

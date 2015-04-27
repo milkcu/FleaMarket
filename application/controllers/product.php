@@ -26,6 +26,9 @@ class Product extends CI_Controller {
 			redirect('product/search/' . $q);
 		}
 		$q = urldecode($this->uri->segment(3));
+        if($q == '') {
+            redirect();
+        }
 		$page = $this->uri->segment(4);
 		$offset = $page ? ($page - 1) * 12 : 0;
 		$this->load->model('products');
@@ -106,7 +109,7 @@ class Product extends CI_Controller {
 		$_FILES['files']['name'][0] = $filename;
 		$this->load->library('UploadHandler');
 		// upload to qiniu
-		$conf = array('ak' => 'A2o1e1u2qqPQECn3VWxL5BcGGmSWX3n2KhXgK7Rx', 
+		$conf = array('ak' => 'A2o1e1u2qqPQECn3VWxL5BcGGmSWX3n2KhXgK7Rx',
 						'sk' => 'EUkbMnHf2BNrqOx49-VGz7cUhiwd52Y82mne1zaL',
 						'bucket' => 'milkcu',
 						'auth' => 'public');
@@ -120,7 +123,7 @@ class Product extends CI_Controller {
 		$filename = $this->kindeditorjson->process($this->aauth->get_user_id());
 		//$filename = $this->kindeditorjson->get_filename();
 		// upload to qiniu
-		$conf = array('ak' => 'A2o1e1u2qqPQECn3VWxL5BcGGmSWX3n2KhXgK7Rx', 
+		$conf = array('ak' => 'A2o1e1u2qqPQECn3VWxL5BcGGmSWX3n2KhXgK7Rx',
 						'sk' => 'EUkbMnHf2BNrqOx49-VGz7cUhiwd52Y82mne1zaL',
 						'bucket' => 'milkcu',
 						'auth' => 'public');
