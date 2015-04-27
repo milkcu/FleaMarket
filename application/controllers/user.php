@@ -169,7 +169,11 @@ class User extends CI_Controller {
 						'bucket' => 'milkcu',
 						'auth' => 'public');
 		$this->load->library('qiniu', $conf);
-		$ret = $this->qiniu->upload->upload(dirname($_SERVER['SCRIPT_FILENAME']) . '/files/' . $filename, 'sdnuflea/' . $filename);
+        $localfile = dirname($_SERVER['SCRIPT_FILENAME']) . '/files/' . $filename;
+		$ret = $this->qiniu->upload->upload($localfile, 'sdnuflea/' . $filename);
 		// delete the file in local server
+        if(! unlink($localfile)) {
+            echo 'file process error.';
+        }
 	}
 }
