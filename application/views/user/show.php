@@ -1,26 +1,26 @@
 <?php $this->load->view('layout/header', ['title' => '宝贝管理']) ?>
 <div class="row">
 	<div class="container user-show-info">
-	    <div class="col-md-2">
+	    <div class="col-xs-2">
 	    	<?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
 	    	<?php $suffix = '?imageView2/1/w/140/h/140' ?>
 	        <img class="img-thumbnail" src="<?= $prefix . $avatar . $suffix ?>" alt=".img-thumbnail">
 	    </div>
-	    <div class="col-md-3">
+	    <div class="col-xs-3">
 	        <p><?= $sdnuinfo->name ?> （第<?= $user->id ?>位用户）</p>
 	        <p>学院：<?= $sdnuinfo->organization_name ?></p>
 	        <p>邮箱：<?= $contact->email ?></p>
 	        <p>手机号：<?= $contact->phone ?></p>
 	        <p>QQ：<?= $contact->qq ?></p>
 	    </div>
-	    <div class="col-md-3">
+	    <div class="col-xs-3">
 	        <p>用户编号：<?= $sdnuinfo->user_id ?></p>
 	        <p>用户类别：本科生</p>
 	        <p>登录IP：<?= $user->ip_address ?></p>
 	        <p>注册时间：<?= $user->created_on ?></p>
 	        <p>最后登录：<?= $user->last_login ?></p>
 	    </div>
-	    <div class="col-md-4">
+	    <div class="col-xs-4">
 	        <div class="alert alert-info">
 	        	<h4>这里是系统公告栏</h4>
 	            <p>系统公告。系统公告。系统公告。系统公告。系统公告。系统公告。系统公告。系统公告。系统公告。</p>
@@ -33,7 +33,7 @@
 <script src="<?= base_url('assets/js/modal.js') ?>"></script>
 -->
 	<div class="container">
-		<div class="col-md-12">
+		<div class="col-xs-12">
 			<!--
 			<ul class="nav nav-tabs">
 		        <li class="active">
@@ -52,14 +52,14 @@
 		        <table class="table table-hover" style="table-layout: fixed;">
 		            <thead>
 		                <tr>
-		                    <th class="col-md-3">宝贝名称</th>
-		                    <th class="col-md-2">发布时间</th>
-		                    <th class="col-md-2">交易地点</th>
-		                    <th class="col-md-1">分类</th>
-		                    <th class="col-md-1">价格</th>
-		                    <th class="col-md-1">浏览</th>
-		                    <th class="col-md-1">状态</th>
-		                    <th class="col-md-1">删除</th>
+		                    <th class="col-xs-3">宝贝名称</th>
+		                    <th class="col-xs-2">发布时间</th>
+		                    <th class="col-xs-2">交易地点</th>
+		                    <th class="col-xs-1">分类</th>
+		                    <th class="col-xs-1">价格</th>
+		                    <th class="col-xs-1">浏览</th>
+		                    <th class="col-xs-1">状态</th>
+		                    <th class="col-xs-1">删除</th>
 		                </tr>
 		            </thead>
 		            <tbody>

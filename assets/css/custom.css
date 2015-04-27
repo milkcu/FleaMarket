@@ -1,6 +1,9 @@
 /*
  * basic style
  */
+.container {
+    width: 1170px !important;
+}
 table td {
     white-space: nowrap;
     overflow: hidden;

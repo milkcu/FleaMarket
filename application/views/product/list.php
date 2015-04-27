@@ -1,7 +1,7 @@
 <?php $this->load->view('layout/header', ['title' => $category->name]) ?>
 <?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
 <?php $suffix = '?imageView2/1/w/245/h/245' ?>
-<div class="col-md-12">
+<div class="col-xs-12">
 	<ul class="breadcrumb">
 		<li><a href="<?= site_url() ?>">跳蚤市场</a></li>
 		<li class="active"><?= $category->name ?></li>
@@ -10,7 +10,7 @@
 <div class="row">
 	<div class="container">
 		<?php foreach($products as $p) : ?>
-		<div class="col-md-3">
+		<div class="col-xs-3">
 			<div class="thumbnail">
             <a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>">
 					<img style="width: 100%" src="<?= $prefix . $p->images[0] . $suffix ?>" alt="thumbnail">

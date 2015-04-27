@@ -1,12 +1,12 @@
 <?php $this->load->view('layout/header', ['title' => $product->title . ' - ' . $product->category->name]) ?>
-<div class="col-md-12">
+<div class="col-xs-12">
 	<ul class="breadcrumb">
 		<li><a href="<?= site_url() ?>">跳蚤市场</a></li>
 		<li><a href="<?= site_url('product/index/' . $product->category->cid) ?>"><?= $product->category->name ?></a></li>
 		<li class="active"><?= $product->title ?></li>
 	</ul>
 </div>
-<div class="col-md-6">
+<div class="col-xs-6">
 	<div class="carousel slide" id="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
@@ -39,9 +39,9 @@
 		</a>
 	</div>
 </div>
-<div class="col-md-6">
+<div class="col-xs-6">
 	<div class="row">
-		<div class="col-md-7">
+		<div class="col-xs-7">
 			<div class="alert alert-info product-info">
 				<div class="product-title"><h2><?= $product->title ?></h2></div>
 				<div class="product-price">
@@ -89,7 +89,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-5">
+		<div class="col-xs-5">
 			<div class="alert alert-success product-user">
 				<div>
 					<?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
@@ -129,7 +129,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-xs-12">
 			<form method="post" action="<?= site_url('message/send/outbox') ?>">
 				<div class="panel panel-warning product-user-chat">
 				    <div class="panel-heading">
@@ -156,7 +156,7 @@
 		</div>
 	</div>
 </div>
-<div class="col-md-12">
+<div class="col-xs-12">
 	<div class="well product-detail">
 		<p><?= $product->detail ?></p>
 	</div>

@@ -1,14 +1,9 @@
 <header class="navbar navbar-inverse navbar-static-top">
 	<div class="container">
 		<div class="navbar-header">
-			<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
 			<a href="<?php echo site_url(); ?>" class="navbar-brand">跳蚤市场</a>
 		</div>
-		<nav class="collapse navbar-collapse">
+		<nav>
 			<ul class="nav navbar-nav">
 				<li><a href="<?= site_url('product/index/1') ?>">图书教材</a></li>
 				<li><a href="<?= site_url('product/index/2') ?>">手机数码</a></li>

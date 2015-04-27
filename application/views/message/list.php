@@ -1,5 +1,5 @@
 <?php $this->load->view('layout/header', ['title' => '私信列表']) ?>
-<div class="col-md-9">
+<div class="col-xs-9">
 	<ul class="nav nav-tabs">
 		<?php if($type == 'outbox') : ?>
         <li>
@@ -22,15 +22,15 @@
         <thead>
             <tr>
             	<?php if($type == 'inbox') : ?>
-                <th class="col-md-1">发件人</th>
-                <th class="col-md-2">发件人编号</th>
+                <th class="col-xs-1">发件人</th>
+                <th class="col-xs-2">发件人编号</th>
                 <?php elseif($type == 'outbox') : ?>
-                <th class="col-md-1">收件人</th>
-                <th class="col-md-2">收件人编号</th>
+                <th class="col-xs-1">收件人</th>
+                <th class="col-xs-2">收件人编号</th>
                 <?php endif; ?>
-                <th class="col-md-4">标题</th>
-                <th class="col-md-2">相关宝贝</th>
-                <th class="col-md-3">发送时间</th>
+                <th class="col-xs-4">标题</th>
+                <th class="col-xs-2">相关宝贝</th>
+                <th class="col-xs-3">发送时间</th>
             </tr>
         </thead>
         <tbody>
@@ -63,7 +63,7 @@
 		<?php echo $this->pagination->create_links() ?>
 	</div>
 </div>
-<div class="col-md-3">
+<div class="col-xs-3">
 	 <div class="list-group">
 	 	<?php if($type == 'inbox') : ?>
 	 	<a href="<?= site_url('message/index/inbox') ?>" class="list-group-item active">收件箱</a>

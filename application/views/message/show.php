@@ -1,16 +1,16 @@
 <?php $this->load->view('layout/header', ['title' => '私信详情']) ?>
-<div class="col-md-9 pm-show">
+<div class="col-xs-9 pm-show">
 	<?php //print_r($pm) ?>
-	<div class="col-md-12 pm-title">
+	<div class="col-xs-12 pm-title">
 		<h3><?= $new_title ?></h3>
 		<hr>
 	</div>
-	<div class="col-md-1">
+	<div class="col-xs-1">
 		<?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
 	    <?php $suffix = '?imageView2/1/w/48/h/48' ?>
 		<img src="<?= $prefix . $other_avatar . $suffix ?>" class="thumbnail">
 	</div>
-	<div class="col-md-11">
+	<div class="col-xs-11">
 		<form method="post" action="<?= site_url('message/send/inbox') ?>">
 			<div class="pm-info">
 				<span>与 <?= $other_sdnuinfo->name ?>(<?= $other_sdnuinfo->user_id ?>) 的私信对话</span>
@@ -43,7 +43,7 @@
 		<div class="well well-sm"><?= $pm->message ?></div>
 	</div>
 </div>
-<div class="col-md-3">
+<div class="col-xs-3">
 	<div class="list-group">
 	 	<a href="<?= site_url('message/index/inbox') ?>" class="list-group-item">收件箱</a>
 	 	<a href="<?= site_url('message/index/outbox') ?>" class="list-group-item">发件箱</a>

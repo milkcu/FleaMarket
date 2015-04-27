@@ -1,19 +1,19 @@
 <?php $this->load->view('layout/header', ['title' => '首页']) ?>
 <div class="container">
-	<div class="col-md-12 index-sdnu-head">
+	<div class="col-xs-12 index-sdnu-head">
 		<img src="http://milkcu.qiniudn.com/sdnuflea/2015040518504149-3.jpg">
 		<span>跳蚤市场</span>
 	</div>
 </div>
 <div class="container">
-	<div class="col-md-9">
+	<div class="col-xs-9">
 		<div class="well">
 			<div class="row index-feature-all">
-				<div class="col-md-7">
+				<div class="col-xs-7">
 					<p class="index-feature-first">闲置市场，最爱跳蚤</p>
 					<p class="index-feature-second">用着不对，卖了重配</p>
 				</div>
-				<div class="col-md-5">
+				<div class="col-xs-5">
 					<ul>
 						<li class="list-unstyled index-feature-quick">
 							<i class="fa fa-clock-o"></i>
@@ -39,7 +39,7 @@
 			<?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
 			<?php $suffix = '?imageView2/1/w/100/h/100' ?>
 			<?php foreach($categories as $c) : ?>
-			<div class="col-md-6">
+			<div class="col-xs-6">
 				<div class="well index-category-all">
 					<a href="<?= site_url('product/index/' . $c->cid) ?>">
 						<img src="<?= $prefix . $c->icon . $suffix ?>">
@@ -51,7 +51,7 @@
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<div class="col-md-3">
+	<div class="col-xs-3">
 		<div class="well index-welcome">
 			<!--
 			<ul class="list-group">
@@ -71,7 +71,7 @@
 			<?php endif; ?>
 		</div>
 		<div class="loggedin">
-			
+
 		</div>
 		<div class="well index-qrcode-app">
 			<h4>扫一扫下载手机客户端</h4>
