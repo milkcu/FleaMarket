@@ -12,6 +12,10 @@
 			uploadJson : '<?= site_url('product/kindeditor') ?>',
 			fileManagerJson : '',
 			allowFileManager : false,
+            items : [
+                'undo', 'redo','|', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', 'subscript', 'superscript',  '|', 'table', 'image', 'link', 'unlink', '|', 'preview', 'fullscreen'],
 			afterCreate : function() {
 				var self = this;
 				K.ctrl(document, 13, function() {
