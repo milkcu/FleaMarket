@@ -81,7 +81,8 @@
 							<a class="jiathis_counter_style"></a>
 						</div>
 						<script type="text/javascript">
-						var jiathis_config = {data_track_clickback:'true'};
+                        var jiathis_config = {data_track_clickback:'true', title: '#来自mysdnu跳蚤市场的分享#',
+                            summary: '我发现了二手宝贝【<?= $product->title ?>】，快来看看吧！', shortUrl: false};
 						</script>
 						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1636645" charset="utf-8"></script>
 						<!-- JiaThis Button END -->
@@ -123,7 +124,7 @@
 					<p><i class="fa fa-qq"></i><?= substr($contact->qq, 0, 6) ?>****</p>
 					<p><?= substr($contact->email, 0, 3) ?>****<?= strstr($contact->email, '@') ?></p>
 					<?php endif; ?>
-                    <p>联系方式登录才可查看</p>
+                    <p>（推荐使用私信聊聊）</p>
 				</div>
 			</div>
 		</div>
