@@ -121,11 +121,11 @@ class User extends CI_Controller {
 			redirect('user/login');
 			return;
 		}
-		if($this->input->post()) {
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('phone', '手机', 'required|integer');
+		$this->form_validation->set_rules('qq', 'QQ', 'required|integer');
+		if($this->input->post() && $this->form_validation->run()) {
 			// process the form
-			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-			$this->form_validation->set_rules('phone', '手机', 'required|integer');
-			$this->form_validation->set_rules('qq', 'QQ', 'required|integer');
 			$contact['email'] = $this->input->post('email');
 			$contact['phone'] = $this->input->post('phone');
 			$contact['qq'] = $this->input->post('qq');
@@ -142,7 +142,8 @@ class User extends CI_Controller {
 				redirect('user/show/' . $id);
 			} else {
 				// create user failure
-				redirect('user/login');
+				//redirect('user/login');
+                redirect('user/complete');
 			}
 		} else {
 			// show the form

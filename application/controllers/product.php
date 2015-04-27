@@ -65,9 +65,9 @@ class Product extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('title' , '标题', 'required');
-		$this->form_validation->set_rules('cid', '分类', 'is_natural_no_zero');
-		$this->form_validation->set_rules('original', '原价', 'required');
-		$this->form_validation->set_rules('current', '现价', 'required');
+		$this->form_validation->set_rules('cid', '分类', 'required|is_natural_no_zero');
+		$this->form_validation->set_rules('original', '原价', 'required|numeric');
+		$this->form_validation->set_rules('current', '现价', 'required|numeric');
 		$this->form_validation->set_rules('place', '交易地点', 'required');
 		$this->form_validation->set_rules('detail', '描述', 'required');
 		$this->form_validation->set_rules('images', '图片', 'required');

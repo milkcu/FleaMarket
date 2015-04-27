@@ -16,15 +16,15 @@
     </div>
     <div class="row form-group">
         <div class="col-md-1 col-md-offset-4"><label>邮箱</label></div>
-        <div class="col-md-3"><input name="email" value="<?= $contact->email ?>" type="text" class="form-control"></div>
+        <div class="col-md-3"><input name="email" value="<?= $contact->email ?>" type="text" class="form-control" autocomplete="off"></div>
     </div>
     <div class="row form-group">
         <div class="col-md-1 col-md-offset-4"><label>手机</label></div>
-        <div class="col-md-3"><input name="phone" value="<?= $contact->phone ?>" type="text" class="form-control"></div>
+        <div class="col-md-3"><input name="phone" value="<?= $contact->phone ?>" type="text" class="form-control" autocomplete="off"></div>
     </div>
     <div class="row form-group">
         <div class="col-md-1 col-md-offset-4"><label>QQ</label></div>
-        <div class="col-md-3"><input name="qq" value="<?= $contact->qq ?>" type="text" class="form-control"></div>
+        <div class="col-md-3"><input name="qq" value="<?= $contact->qq ?>" type="text" class="form-control" autocomplete="off"></div>
     </div>
     <div class="row form-group">
         <div class="col-md-1 col-md-offset-4"><label>头像</label></div>

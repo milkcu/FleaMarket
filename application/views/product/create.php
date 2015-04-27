@@ -3,7 +3,7 @@
     <form method="post" action="create" name="creator">
         <div class="row form-group">
             <div class="col-md-10">
-                <input name="title" value="<?= set_value('title') ?>" type="text" class="form-control" placeholder="请输入宝贝名称" required>
+                <input name="title" value="<?= set_value('title') ?>" type="text" class="form-control" placeholder="请输入宝贝名称" autocomplete="off" required>
             </div>
             <div class="col-md-2">
                 <input type="submit" value="发布" class="form-control btn btn-primary">
@@ -12,29 +12,29 @@
         <div class="row form-group">
             <div class="col-md-3">
                 <select name="cid" class="form-control">
-                    <option value="0" selected>请选择分类</option>
+                    <option value="0" <?= set_select('cid', '0', TRUE) ?>>请选择分类</option>
                     <option value="1" <?= set_select('cid', '1') ?>>图书教材</option>
-                    <option value="2" <?= set_select('cid', '1') ?>>手机数码</option>
-                    <option value="3" <?= set_select('cid', '1') ?>>电脑配件</option>
-                    <option value="4" <?= set_select('cid', '1') ?>>运动户外</option>
-                    <option value="5" <?= set_select('cid', '1') ?>>衣物百货</option>
-                    <option value="6" <?= set_select('cid', '1') ?>>生活娱乐</option>
+                    <option value="2" <?= set_select('cid', '2') ?>>手机数码</option>
+                    <option value="3" <?= set_select('cid', '3') ?>>电脑配件</option>
+                    <option value="4" <?= set_select('cid', '4') ?>>运动户外</option>
+                    <option value="5" <?= set_select('cid', '5') ?>>衣物百货</option>
+                    <option value="6" <?= set_select('cid', '6') ?>>生活娱乐</option>
                 </select>
             </div>
             <div class="col-md-2">
                 <div class="input-group">
-                	<input name="original" value="<?= set_value('original') ?>" type="text" class="form-control" placeholder="原价" required>
+                	<input name="original" value="<?= set_value('original') ?>" type="text" class="form-control" placeholder="原价" autocomplete="off" required>
                 	<span class="input-group-addon">元</span>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="input-group">
-                	<input name="current" value="<?= set_value('current') ?>" type="text" class="form-control" placeholder="现价" required>
+                	<input name="current" value="<?= set_value('current') ?>" type="text" class="form-control" placeholder="现价" autocomplete="off" required>
                 	<span class="input-group-addon">元</span>
                 </div>
             </div>
             <div class="col-md-3">
-                <input name="place" value="<?= set_value('place') ?>" type="text" class="form-control" placeholder="交易地点" required>
+                <input name="place" value="<?= set_value('place') ?>" type="text" class="form-control" placeholder="交易地点" autocomplete="off" required>
             </div>
             <div class="col-md-2">
                 <a class="form-control btn btn-primary" href="javascript:void(0)" onclick="javascript:document.getElementById('product-image-upload').click()">上传图片</a>
