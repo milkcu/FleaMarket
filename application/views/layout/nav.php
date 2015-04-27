@@ -24,7 +24,7 @@
 
 			<ul class="nav navbar-nav navbar-right nav-user-manager">
 				<?php if(! $this->aauth->is_loggedin()) : ?>
-				<li class="active"><a href="<?= site_url('user/login') ?>"><i class="fa fa-sign-in"></i>登录</a></li>
+				<li class="active"><a href="#modal-login" data-toggle="modal"><i class="fa fa-sign-in"></i>登录</a></li>
 				<?php else : ?>
                 <li class="">
                 <a href="<?= site_url('message/index/inbox') ?>">
@@ -52,7 +52,23 @@
 				</li>
 				<?php endif; ?>
 			</ul>
-
 		</nav>
 	</div>
 </header>
+<div id="modal-login" class="modal fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" class="close">×</button>
+                <h4 class="modal-title">登录提示</h4>
+            </div>
+            <div class="modal-body">
+                跳蚤市场仅限校内用户使用，请点击登录跳转到授权页面，使用智慧山师账号登录！
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                <a href="<?= site_url('user/login') ?>" class="btn btn-primary">登录</a>
+            </div>
+        </div>
+    </div>
+</div>
