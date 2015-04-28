@@ -44,6 +44,9 @@
 	</div>
 </div>
 <div class="col-xs-3">
+    <div class="alert alert-info">
+        欢迎使用私信功能，私信交流能够有效保证交易安全哦！
+    </div>
 	<div class="list-group">
 	 	<a href="<?= site_url('message/index/inbox') ?>" class="list-group-item">收件箱</a>
 	 	<a href="<?= site_url('message/index/outbox') ?>" class="list-group-item">发件箱</a>

@@ -16,7 +16,7 @@
         	<a href="<?= site_url('message/index/outbox') ?>">发件箱</a>
         </li>
         <?php endif; ?>
-        <a href="<?= site_url('message/index/' . $type) ?>" class="btn btn-success btn-sm pull-right">刷新</a>
+        <a href="<?= site_url('message/index/' . $type) ?>" class="btn btn-success btn-sm pull-right"><i class="fa fa-refresh"></i> 刷新</a>
     </ul>
     <table class="table" style="table-layout: fixed;">
         <thead>
@@ -64,6 +64,9 @@
 	</div>
 </div>
 <div class="col-xs-3">
+    <div class="alert alert-info">
+        欢迎使用私信功能，私信交流能够有效保证交易安全哦！
+    </div>
 	 <div class="list-group">
 	 	<?php if($type == 'inbox') : ?>
 	 	<a href="<?= site_url('message/index/inbox') ?>" class="list-group-item active">收件箱</a>

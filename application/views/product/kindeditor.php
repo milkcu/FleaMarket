@@ -31,4 +31,4 @@
 		prettyPrint();
 	});
 </script>
-<textarea name="detail" class="form-control"><?= set_value('detail') ?></textarea>
+<textarea name="detail" class="form-control" rows="16"><?= set_value('detail') ?></textarea>

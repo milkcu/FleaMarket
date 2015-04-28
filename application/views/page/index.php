@@ -74,7 +74,7 @@
 
 		</div>
 		<div class="well index-qrcode-app">
-			<h4>扫一扫下载手机客户端</h4>
+			<h4>移动客户端正在开发中</h4>
 			<img src="http://milkcu.qiniudn.com/sdnuflea/2015040623253232-3.jpg?imageView2/1/h/208/w/208">
 		</div>
 		<div class="index-feedback">
