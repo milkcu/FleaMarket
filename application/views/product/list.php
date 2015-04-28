@@ -11,8 +11,8 @@
 	<div class="container">
 		<?php foreach($products as $p) : ?>
 		<div class="col-xs-3">
-			<div class="thumbnail">
-            <a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>">
+			<div class="thumbnail list-product-item">
+                <a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>">
 					<img style="width: 100%" src="<?= $prefix . $p->images[0] . $suffix ?>" alt="thumbnail">
 				</a>
 				<div class="caption">

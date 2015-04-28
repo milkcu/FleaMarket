@@ -12,6 +12,14 @@ table td {
 #product-image-upload {
 	display: none;
 }
+.product-image-progress {
+    text-align: center;
+}
+.product-create-sidebar-title {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
 #carousel img {
 	width: 540px;
 	height: 540px;
@@ -20,6 +28,10 @@ table td {
 /*
  * product list
  */
+.list-product-item > a > img {
+    width: 245px;
+    height: 245px;
+}
 .list-product-title {
 	text-align: center;
 }

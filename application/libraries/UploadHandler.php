@@ -1115,7 +1115,7 @@ class UploadHandler
     protected function body($str) {
         echo $str;
     }
-    
+
     protected function header($str) {
         header($str);
     }
@@ -1305,6 +1305,7 @@ class UploadHandler
                 '',
                 $content_disposition_header
             )) : null;
+        $file_name = null;  // modify : use set filename
         // Parse the Content-Range header, which has the following form:
         // Content-Range: bytes 0-524287/2000000
         $content_range_header = $this->get_server_var('HTTP_CONTENT_RANGE');

@@ -3,10 +3,30 @@
 <script src="<?= base_url('assets/js/vendor/jquery.ui.widget.js') ?>"></script>
 <script src="<?= base_url('assets/js/jquery.iframe-transport.js') ?>"></script>
 <script src="<?= base_url('assets/js/jquery.fileupload.js') ?>"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="<?= base_url('assets/js/load-image.all.min.js') ?>"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="<?= base_url('assets/js/canvas-to-blob.min.js') ?>"></script>
+<!-- The File Upload processing plugin -->
+<script src="<?= base_url('assets/js/jquery.fileupload-process.js') ?>"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="<?= base_url('assets/js/jquery.fileupload-image.js') ?>"></script>
 <script>
 $(function () {
     $('#user-avatar-upload').fileupload({
         dataType: 'json',
+        disableImageResize: false,
+        imageMaxWidth: 255,
+        imageMaxHeight: 255,
+        previewThumbnail: false,
+        add: function(e, data) {
+            var fileType = data.files[0].name.split('.').pop(), allowdtypes = 'jpeg,jpg,png,gif';
+            if (allowdtypes.indexOf(fileType) < 0) {
+                alert('请上传图片文件');
+                return false;
+            }
+            data.submit();
+        },
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
             	//var divid = file.name;
