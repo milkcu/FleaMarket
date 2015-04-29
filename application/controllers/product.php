@@ -49,6 +49,10 @@ class Product extends CI_Controller {
 		$pid = $this->uri->segment(3);
 		$this->load->model('products');
 		$product = $this->products->get_product($pid, true);
+        if( ! $product) {
+            $this->load->view('page/product_delete');
+            return;
+        }
 		$data['product'] = $product;
 		$jcontact = $this->aauth->get_user_var('contact', $product->uid);
 		$data['contact']= json_decode($jcontact);

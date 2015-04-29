@@ -7,8 +7,8 @@ class Products extends CI_Model {
 	}
 	public function get_product($pid, $cnt = false) {
 		$r = $this->db->get_where('products', ['pid' => $pid])->row();
-		if($r->isdel == 1) {
-			return null;
+		if($r->isdel != 0) {
+			return false;
 		}
 		$r->images = json_decode($r->images);
 		$this->load->model('categories');
