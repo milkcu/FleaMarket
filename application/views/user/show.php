@@ -55,11 +55,11 @@
 		                    <th class="col-xs-3">宝贝名称</th>
 		                    <th class="col-xs-2">发布时间</th>
 		                    <th class="col-xs-2">交易地点</th>
-		                    <th class="col-xs-1">分类</th>
-		                    <th class="col-xs-1">价格</th>
-		                    <th class="col-xs-1">浏览</th>
-		                    <th class="col-xs-1">状态</th>
-		                    <th class="col-xs-1">删除</th>
+		                    <th class="col-xs-1">宝贝分类</th>
+		                    <th class="col-xs-1">现在价格</th>
+		                    <th class="col-xs-1">浏览次数</th>
+		                    <th class="col-xs-1">宝贝状态</th>
+		                    <th class="col-xs-1">删除操作</th>
 		                </tr>
 		            </thead>
 		            <tbody>
@@ -73,7 +73,7 @@
 		                    <td><?= $p->place ?></td>
 		                    <td><?= $p->category->name ?></td>
 		                    <td><?= $p->current ?>元</td>
-		                    <td><?= $p->follows ?> / <?= $p->views ?></td>
+		                    <td><?= $p->views ?>次</td>
 		                    <td>
 		                    	<?php if($p->state == 0) : ?>
 		                    	<a class="btn btn-success btn-xs" href="#modal-done-<?= $p->pid ?>" data-toggle="modal">点击成交</a>
@@ -82,7 +82,7 @@
 		                    	<?php endif; ?>
 		                    </td>
 		                    <td>
-		                    	<a class="btn btn-danger btn-xs" href="#modal-delete-<?= $p->pid ?>" data-toggle="modal">删除</a>
+		                    	<a class="btn btn-danger btn-xs" href="#modal-delete-<?= $p->pid ?>" data-toggle="modal">删除宝贝</a>
 		                    </td>
 		                </tr>
 		                <div id="modal-done-<?= $p->pid ?>" class="modal fade" style="display: none;" aria-hidden="true">

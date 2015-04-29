@@ -82,12 +82,18 @@
 				<div class="panel panel-warning">
 					<div class="panel-heading">
 						 用户反馈
+                        <!--
 						<input class="btn btn-warning btn-xs pull-right" type="submit" value="发送">
+                        -->
 					</div>
 					<div class="panel-body">
 						<input type="hidden" value="3" name="receiver_id">
 						<input type="hidden" value="来自首页的用户反馈" name="title">
+                        <!--
 						<textarea class="form-control" placeholder="不足之处请反馈" name="message"></textarea>
+                        -->
+                        <p><i class="fa fa-qq"></i> <a href="tencent://message/?uin=184324224" style="font-weight: 700; color: #8a6d3b">184324224</a><p>
+                        <p><i class="fa fa-home"></i> <a href="http://www.sintune.net/" target="_blank" style="font-weight: 700; color: #8a6d3b">www.sintune.net</a></p>
 					</div>
 				</div>
 			</form>

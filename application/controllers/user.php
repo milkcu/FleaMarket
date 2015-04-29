@@ -104,6 +104,9 @@ class User extends CI_Controller {
 		$id = $this->aauth->get_user_id_by_name($sdnuinfo['user_id']);
 		if($id) {
 			// not the first time
+            if($this->aauth->is_banned($id)) {
+                redirect('page/ban');
+            }
 			$user = $this->aauth->get_user($id);
 			$this->aauth->login($user->email, $sdnuinfo['user_id']);
 			redirect('user/show');

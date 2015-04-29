@@ -47,6 +47,9 @@
 						<li><a href="<?= site_url('user/show') ?>"><i class="fa fa-book"></i>宝贝管理</a></li>
 						<li><a href="<?= site_url('message/index/inbox') ?>"><i class="fa fa-envelope"></i>我的私信</a></li>
 						<li><a href="<?= site_url('user/modify') ?>"><i class="fa fa-user"></i>资料修改</a></li>
+                        <?php if($this->aauth->is_admin()) : ?>
+						<li><a href="#modal-admin" data-toggle="modal"><i class="fa fa-line-chart"></i>后台管理</a></li>
+                        <?php endif; ?>
 						<li><a href="<?= site_url('user/logout') ?>"><i class="fa fa-sign-out"></i>用户退出</a></li>
 					</ul>
 				</li>
@@ -68,6 +71,23 @@
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
                 <a href="<?= site_url('user/login') ?>" class="btn btn-primary">登录</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-admin" class="modal fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" class="close">×</button>
+                <h4 class="modal-title">后台管理提示</h4>
+            </div>
+            <div class="modal-body">
+                您的用户身份为【管理员】，通过后台管理页面能够对系统中所有用户及其发布的宝贝进行管理，操作请慎重！
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                <a href="<?= site_url('admin/product') ?>" class="btn btn-primary">进入</a>
             </div>
         </div>
     </div>

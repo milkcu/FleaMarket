@@ -9,4 +9,7 @@ class Page extends CI_Controller {
     public function phone() {
         $this->load->view('page/phone');
     }
+    public function ban() {
+        $this->load->view('page/ban');
+    }
 }
