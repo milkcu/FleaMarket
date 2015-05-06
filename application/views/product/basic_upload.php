@@ -1,4 +1,4 @@
-<input id="product-image-upload" type="file" accept="image/*" data-url="upload" multiple>  <!-- delete name="files[]" -->
+<input id="product-image-upload" type="file" accept="image/*" capture="camera" data-url="upload" multiple>  <!-- delete name="files[]" -->
 <!-- use after jquery -->
 <script src="<?= base_url('assets/js/vendor/jquery.ui.widget.js') ?>"></script>
 <script src="<?= base_url('assets/js/jquery.iframe-transport.js') ?>"></script>
@@ -16,12 +16,13 @@ $(function () {
     $('#product-image-upload').fileupload({
         dataType: 'json',
         disableImageResize: false,
-        imageMaxWidth: 1024,
-        imageMaxHeight: 1024,
+        imageMaxWidth: 800,
+        imageMaxHeight: 800,
         previewThumbnail: false,
-        acceptFileTypes: /(\.|\/)(jpg)$/i,
+        //acceptFileTypes: /(\.|\/)(jpg)$/i,
         //disableImageHead: true,
-        //imageCrop: true,
+        imageCrop: true,
+        /*
         add: function (e, data) {
             var progress = 0;
             $('#progress .bar').css(
@@ -35,6 +36,7 @@ $(function () {
             }
             data.submit();
         },
+        */
         progress: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
             $('#progress .bar').css(

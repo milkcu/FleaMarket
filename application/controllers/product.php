@@ -82,6 +82,10 @@ class Product extends CI_Controller {
 			$data['created'] = date("Y-m-d H:i:s");
 			$data['ip'] = $this->input->ip_address();
 			$data['ua'] = $this->input->user_agent();
+            if($data['detail'] == '') {
+                $data['detail'] = $data['detail_m'];
+            }
+            unset($data['detail_m']);
 			$this->load->model('products');
 			$pid = $this->products->add_product($data);
 			redirect('product/show/' . $pid);

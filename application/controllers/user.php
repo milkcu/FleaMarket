@@ -1,6 +1,31 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class User extends CI_Controller {
+    public function index() {
+        if( ! $this->aauth->is_loggedin()) {
+            redirect('user/login');
+        }
+		$uid = $this->aauth->get_user_id();
+		$jcontact = $this->aauth->get_user_var('contact', $uid);
+		$jsdnuinfo = $this->aauth->get_user_var('sdnuinfo', $uid);
+        $avatar = $this->aauth->get_user_var('avatar', $uid);
+		$data['contact'] = json_decode($jcontact);
+		$data['sdnuinfo'] = json_decode($jsdnuinfo);
+        $data['avatar'] = $avatar;
+        $this->load->view('user/index', $data);
+    }
+    public function info() {
+        if( ! $this->aauth->is_loggedin()) {
+            redirect('user/login');
+        }
+		$uid = $this->aauth->get_user_id();
+		$jcontact = $this->aauth->get_user_var('contact', $uid);
+		$jsdnuinfo = $this->aauth->get_user_var('sdnuinfo', $uid);
+		$data['user'] = $this->aauth->get_user($uid);
+		$data['contact'] = json_decode($jcontact);
+		$data['sdnuinfo'] = json_decode($jsdnuinfo);
+        $this->load->view('user/info', $data);
+    }
 	public function show() {
 		// show the user info and products
 		if( ! $this->aauth->is_loggedin()) {
@@ -65,8 +90,8 @@ class User extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		$this->form_validation->set_rules('phone', '手机', 'required|integer');
-		$this->form_validation->set_rules('qq', 'QQ', 'required|integer');
+		$this->form_validation->set_rules('phone', '手机', 'required|integer|exact_length[11]');
+		$this->form_validation->set_rules('qq', 'QQ', 'required|integer|min_lenght[5]|max_length[10]');
 		$this->form_validation->set_rules('avatar', '头像', 'required');
 		if($this->input->post() && $this->form_validation->run()) {
 			$contact['email'] = $this->input->post('email');
@@ -125,8 +150,8 @@ class User extends CI_Controller {
 			return;
 		}
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		$this->form_validation->set_rules('phone', '手机', 'required|integer');
-		$this->form_validation->set_rules('qq', 'QQ', 'required|integer');
+		$this->form_validation->set_rules('phone', '手机', 'required|integer|exact_length[11]');
+		$this->form_validation->set_rules('qq', 'QQ', 'required|integer|min_lenght[5]|max_lenght[10]');
 		if($this->input->post() && $this->form_validation->run()) {
 			// process the form
 			$contact['email'] = $this->input->post('email');
@@ -142,7 +167,7 @@ class User extends CI_Controller {
 				$this->aauth->set_user_var('contact', $jcontact, $id);
 				$this->aauth->set_user_var('sdnuinfo', $jsdnuinfo, $id);
 				$this->aauth->login($contact['email'], $sdnuinfo['user_id']);
-				redirect('user/show/' . $id);
+				redirect('user/show');
 			} else {
 				// create user failure
 				//redirect('user/login');

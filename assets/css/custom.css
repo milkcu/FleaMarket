@@ -1,9 +1,6 @@
 /*
  * basic style
  */
-.container {
-    width: 1170px !important;
-}
 table td {
     white-space: nowrap;
     overflow: hidden;
@@ -15,22 +12,25 @@ table td {
 .product-image-progress {
     text-align: center;
 }
+#carousel img {
+	width: 100%;
+	height: 100%;
+}
+/*
+ * product create
+ */
 .product-create-sidebar-title {
     text-align: center;
     font-size: 18px;
     margin-bottom: 15px;
-}
-#carousel img {
-	width: 540px;
-	height: 540px;
 }
 
 /*
  * product list
  */
 .list-product-item > a > img {
-    width: 245px;
-    height: 245px;
+    width: 100%;
+    height: 100%;
 }
 .list-product-title {
 	text-align: center;
@@ -50,6 +50,10 @@ table td {
 /*
  * product show
  */
+#carousel {
+    margin-bottom: 20px;
+    //height: 555px;
+}
 .product-detail {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -102,11 +106,18 @@ table td {
 	margin-left: 15px;
 }
 .product-info {
-	height: 375px;
+	height: 385px;
+}
+.product-info-and-user {
+    margin-top: 20px;
 }
 .product-user {
 	text-align: center;
-	height: 375px;
+	height: 385px;
+}
+.product-user img {
+    width: 100%;
+    height: 100%;
 }
 .product-user-name {
 	margin-top: 8px;
@@ -114,14 +125,16 @@ table td {
 	margin-bottom: 0px;
 }
 .product-user-chat {
-	margin-bottom: 0px;
-	height: 144px;
+	height: 150px;
 }
 .product-user-chat-unloggedin {
 	font-size: 24px;
 	text-align: center;
 	vertical-align: middle;
 	margin-top: 10px;
+}
+.product-detail {
+    margin-top: 0px;
 }
 /*
  * user show
@@ -159,7 +172,7 @@ table td {
  * index
  */
 .index-sdnu-head img { 
-	width: 1110px;
+	width: 1140px;
 	height: 230px;
 }
 .index-sdnu-head span {

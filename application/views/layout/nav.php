@@ -1,9 +1,14 @@
-<header class="navbar navbar-inverse navbar-static-top">
+<header class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
+			<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
 			<a href="<?php echo site_url(); ?>" class="navbar-brand">跳蚤市场</a>
 		</div>
-		<nav>
+		<nav class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="<?= site_url('product/index/1') ?>">图书教材</a></li>
 				<li><a href="<?= site_url('product/index/2') ?>">手机数码</a></li>
@@ -13,7 +18,7 @@
 				<li><a href="<?= site_url('product/index/6') ?>">生活娱乐</a></li>
 			</ul>
 
-			<form class="navbar-form pull-left" action="<?= site_url('product/search') ?>" method="post">
+			<form class="navbar-form pull-left hidden-xs" action="<?= site_url('product/search') ?>" method="post">
 				<div class="input-group">
 					<input type="text" name="q" class="form-control" placeholder="宝贝搜索" required>
 					<span class="input-group-btn">
@@ -22,7 +27,7 @@
 				</div>
 			</form>
 
-			<ul class="nav navbar-nav navbar-right nav-user-manager">
+			<ul class="nav navbar-nav navbar-right nav-user-manager hidden-xs">
 				<?php if(! $this->aauth->is_loggedin()) : ?>
 				<li class="active"><a href="#modal-login" data-toggle="modal"><i class="fa fa-sign-in"></i>登录</a></li>
 				<?php else : ?>

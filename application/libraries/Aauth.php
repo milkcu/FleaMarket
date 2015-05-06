@@ -1,9 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Aauth is a User Authorization Library for CodeIgniter 2.x, which aims to make 
- * easy some essential jobs such as login, permissions and access operations. 
- * Despite ease of use, it has also very advanced features like private messages, 
+ * Aauth is a User Authorization Library for CodeIgniter 2.x, which aims to make
+ * easy some essential jobs such as login, permissions and access operations.
+ * Despite ease of use, it has also very advanced features like private messages,
  * groupping, access management, public access etc..
  *
  * @author      Emre Akay <emreakayfb@hotmail.com>
@@ -106,7 +106,7 @@ class Aauth {
 
         $this->CI->input->set_cookie($cookie);
 
- 
+
         /*
         *
         * User Verification
@@ -165,14 +165,14 @@ class Aauth {
         // to find user id, create sessions and cookies
         $query = $this->CI->db->where('email', $email);
         $query = $this->CI->db->get($this->config_vars['users']);
-        
+
         if($query->num_rows() == 0){
             $this->error($this->CI->lang->line('wrong'));
             return false;
         }
-        
+
         $user_id = $query->row()->id;
-        
+
         $query = null;
         $query = $this->CI->db->where('email', $email);
 
@@ -192,7 +192,7 @@ class Aauth {
                 return false;
             }
         }
-     
+
         // if email and pass matches and not banned
         if ( $query->num_rows() > 0 ) {
 
@@ -237,7 +237,7 @@ class Aauth {
             $this->update_last_login($row->id);
             $this->update_activity();
             $this->reset_login_attempts($row->id);
-            
+
             return TRUE;
         }
         // if not matches
@@ -509,9 +509,9 @@ class Aauth {
     /**
      * Update remember
      * Update amount of time a user is remembered for
-     * @param int $user_id User id to update 
+     * @param int $user_id User id to update
      * @param int $expression
-     * @param int $expire 
+     * @param int $expire
      * @return bool Update fails/succeeds
      */
     public function update_remember($user_id, $expression=null, $expire=null) {
@@ -924,10 +924,10 @@ class Aauth {
         }
         return $query->row()->id;
     }
-	
+
 	/**
      * Get user id
-     * Get user id from name, if par. 
+     * Get user id from name, if par.
      * @param string $name name for user
      * @return int User id
      */
@@ -1052,7 +1052,7 @@ class Aauth {
     public function delete_group($group_par) {
 
         $group_id = $this->get_group_id($group_par);
-        
+
     $this->CI->db->where('id',$group_id);
     $query = $this->CI->db->get($this->config_vars['groups']);
     if ($query->num_rows() == 0){
@@ -1572,6 +1572,7 @@ class Aauth {
         if( $sender_id != false ){
             $query = $this->CI->db->where('sender_id', $sender_id);
         }
+        $query = $this->CI->db->where('read !=', 2);
 
         $query = $this->CI->db->order_by('id','DESC');
         $query = $this->CI->db->get( $this->config_vars['pms'], $limit, $offset);
@@ -1589,15 +1590,17 @@ class Aauth {
     public function get_pm($pm_id, $set_as_read = true){
 
         $query = $this->CI->db->where('id', $pm_id);
+        $query = $this->CI->db->where('read !=', 2);
         $query = $this->CI->db->get( $this->config_vars['pms'] );
 
         if ($query->num_rows() < 1) {
             $this->error( $this->CI->lang->line('no_pm') );
+            return false;
         }
-		
+
 		// author control
 		if($query->row()->receiver_id != $this->get_user_id() && $query->row()->sender_id != $this->get_user_id()) {
-			return;
+			return false;
 		}
 
         if ($set_as_read) $this->set_as_read_pm($pm_id);
@@ -1614,8 +1617,10 @@ class Aauth {
      * @return bool Delete success/failure
      */
     public function delete_pm($pm_id){
-        
-        return $this->CI->db->delete( $this->config_vars['pms'], array('id' => $pm_id) );
+        $data = array('read' => 2);
+        return $this->CI->db->update( $this->config_vars['pms'], $data, "id = $pm_id");
+
+        //return $this->CI->db->delete( $this->config_vars['pms'], array('id' => $pm_id) );
     }
 
     //tested
@@ -1637,7 +1642,7 @@ class Aauth {
 
         return $query->num_rows();
     }
-	
+
 	public function count_outbox_pms($sender_id=false){
 
         if(!$sender_id){
@@ -1645,11 +1650,12 @@ class Aauth {
         }
 
         $query = $this->CI->db->where('sender_id', $sender_id);
+        $query = $this->CI->db->where('read !=', 2);
         $query = $this->CI->db->get( $this->config_vars['pms'] );
 
         return $query->num_rows();
     }
-	
+
 	public function count_inbox_pms($receiver_id=false){
 
         if(!$receiver_id){
@@ -1657,6 +1663,7 @@ class Aauth {
         }
 
         $query = $this->CI->db->where('receiver_id', $receiver_id);
+        $query = $this->CI->db->where('read !=', 2);
         $query = $this->CI->db->get( $this->config_vars['pms'] );
 
         return $query->num_rows();
@@ -1914,8 +1921,8 @@ class Aauth {
         }
 
     }
-    
-   
+
+
     /**
      * List User Variable Keys by UserID
      * Return array of variable keys or false
@@ -2021,7 +2028,7 @@ class Aauth {
             return $row->value;
         }
     }
-    
+
      /**
      * List System Variable Keys
      * Return array of variable keys or false

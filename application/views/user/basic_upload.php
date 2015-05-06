@@ -1,4 +1,4 @@
-<input id="user-avatar-upload" type="file" data-url="upload" style="display: none"  multiple>  <!-- delete name="files[]" -->
+<input id="user-avatar-upload" type="file" accept="image/*" capture="camera" data-url="upload" style="display: none"  multiple>  <!-- delete name="files[]" -->
 <!-- use after jquery -->
 <script src="<?= base_url('assets/js/vendor/jquery.ui.widget.js') ?>"></script>
 <script src="<?= base_url('assets/js/jquery.iframe-transport.js') ?>"></script>
@@ -19,6 +19,8 @@ $(function () {
         imageMaxWidth: 255,
         imageMaxHeight: 255,
         previewThumbnail: false,
+        imageCrop: true,
+        /*
         add: function(e, data) {
             var fileType = data.files[0].name.split('.').pop(), allowdtypes = 'jpeg,jpg,png,gif';
             if (allowdtypes.indexOf(fileType) < 0) {
@@ -27,12 +29,13 @@ $(function () {
             }
             data.submit();
         },
+        */
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
             	//var divid = file.name;
             	var divid = 'avatar-upload';
             	var tmp = '\
-            		<img src="http://milkcu.qiniudn.com/sdnuflea/' + file.name + '?imageView2/1/w/250/h/250">\
+            		<img src="http://milkcu.qiniudn.com/sdnuflea/' + file.name + '?imageView2/1/w/250/h/250" style="width: 100%; height: 100%">\
 					<input type="hidden" name="avatar" value="' + file.name + '">';
                 $('<div id="' + divid + '"/>').text('').appendTo(document.getElementById('user-avatar-preview'));
                 document.getElementById(divid).innerHTML = tmp;

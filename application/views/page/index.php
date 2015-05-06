@@ -1,19 +1,19 @@
 <?php $this->load->view('layout/header', ['title' => '首页']) ?>
-<div class="container">
-	<div class="col-xs-12 index-sdnu-head">
+<div class="row hidden-xs">
+	<div class="col-lg-12 index-sdnu-head">
 		<img src="http://milkcu.qiniudn.com/sdnuflea/2015040518504149-3.jpg">
 		<span>跳蚤市场</span>
 	</div>
 </div>
-<div class="container">
-	<div class="col-xs-9">
-		<div class="well">
+<div class="row">
+	<div class="col-lg-9 col-xs-12">
+		<div class="well hidden-xs">
 			<div class="row index-feature-all">
-				<div class="col-xs-7">
+				<div class="col-lg-7">
 					<p class="index-feature-first">闲置市场，最爱跳蚤</p>
 					<p class="index-feature-second">用着不对，卖了重配</p>
 				</div>
-				<div class="col-xs-5">
+				<div class="col-lg-5">
 					<ul>
 						<li class="list-unstyled index-feature-quick">
 							<i class="fa fa-clock-o"></i>
@@ -39,7 +39,7 @@
 			<?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
 			<?php $suffix = '?imageView2/1/w/100/h/100' ?>
 			<?php foreach($categories as $c) : ?>
-			<div class="col-xs-6">
+			<div class="col-lg-6 col-xs-12">
 				<div class="well index-category-all">
 					<a href="<?= site_url('product/index/' . $c->cid) ?>">
 						<img src="<?= $prefix . $c->icon . $suffix ?>">
@@ -51,17 +51,8 @@
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<div class="col-xs-3">
+	<div class="col-lg-3 col-xs-12 hidden-xs">
 		<div class="well index-welcome">
-			<!--
-			<ul class="list-group">
-				<li class="list-group-item"><a>宝贝管理</a></li>
-				<li class="list-group-item"><a>发布宝贝</a></li>
-				<li class="list-group-item"><a>我的宝贝</a></li>
-				<li class="list-group-item"><a>我的私信</a></li>
-				<li class="list-group-item"><a>资料修改</a></li>
-			</ul>
-			-->
 			<h2>欢迎来到跳蚤市场</h2>
 			<p>一个接地气的二手市场，专注于闲置物品的校园交易。</p>
 			<?php if($this->aauth->is_loggedin()) : ?>
@@ -73,7 +64,7 @@
 		<div class="loggedin">
 
 		</div>
-		<div class="well index-qrcode-app">
+		<div class="well index-qrcode-app hidden-xs">
 			<h4>移动客户端正在开发中</h4>
 			<img src="http://milkcu.qiniudn.com/sdnuflea/2015040623253232-3.jpg?imageView2/1/h/208/w/208">
 		</div>
@@ -100,4 +91,4 @@
 		</div>
 	</div>
 </div>
-<?php $this->load->view('layout/footer') ?>
+<?php $this->load->view('layout/footer', ['tab' => '1']) ?>

@@ -50,6 +50,7 @@ class Products extends CI_Model {
 		$cnt = count($r);
 		$this->load->model('categories');
 		for($i = 0; $i < $cnt; $i++) {
+            $r[$i]->images = json_decode($r[$i]->images);
 			$r[$i]->category = $this->categories->get_category($r[$i]->cid);
             $jsdnuinfo = $this->aauth->get_user_var('sdnuinfo', $r[$i]->uid);
             $r[$i]->sdnuinfo = json_decode($jsdnuinfo);

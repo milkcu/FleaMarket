@@ -3,5 +3,9 @@ RewriteEngine on
 #Any HTTP request other than those for index.php, assets folder, files folder and robots.txt
 #is treated as a request for your index.php file.
 
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
 RewriteCond $1 !^(index\.php|assets|files|robots\.txt)
 RewriteRule ^(.*)$ index.php/$1 [L]
+
