@@ -240,7 +240,7 @@
 <div class="row">
     <div class="hidden-lg col-xs-12">
         <div class="list-group">
-            <span class="list-group-item active">主人信息</span>
+            <span class="list-group-item active" style="z-index: auto">主人信息</span>
             <span class="list-group-item">姓名： <?= $sdnuinfo->name ?></span>
             <span class="list-group-item">学院： <?= $sdnuinfo->organization_name ?></span>
             <span class="list-group-item">邮箱： <?= $contact->email ?></span>
