@@ -20,7 +20,7 @@
                 <div class="list-product-title"><h3><?= $p->title ?></h3></div>
                 <p>
                     <?php if($p->state) : ?>
-                    <a class="btn btn-warning">已成交</a>
+                    <a class="btn btn-warning"><span class="hidden-xs">已</span>成交</a>
                     <?php else : ?>
                     <a class="btn btn-danger">￥<?= $p->current ?><span class="hidden-xs">元</span></a>
                     <?php endif; ?>
