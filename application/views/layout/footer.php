@@ -9,24 +9,24 @@
 </div>
 <div id="footer-tab" class="visible-xs">
     <?php if( ! $this->aauth->is_loggedin()) : ?>
-        <a href="<?= site_url() ?>">宝贝浏览</a>
-        <a href="#modal-login" data-toggle="modal">我的私信</a>
-        <a href="#modal-login" data-toggle="modal">用户中心</a>
+        <a href="<?= site_url() ?>" style="background: #333333">宝贝浏览</a>
+        <a href="#modal-login" data-toggle="modal" style="background: #222222">我的私信</a>
+        <a href="#modal-login" data-toggle="modal" style="background: #222222">用户中心</a>
     <?php elseif( ! isset($tab)) : ?>
         <a href="<?= site_url() ?>">宝贝浏览</a>
         <a href="<?= site_url('message/index/inbox') ?>">我的私信</a>
         <a href="<?= site_url('user/index') ?>">用户中心</a>
     <?php elseif($tab == 1) : ?>
         <a href="<?= site_url() ?>" style="background: #333333">宝贝浏览</a>
-        <a href="<?= site_url('message/index/inbox') ?>">我的私信</a>
-        <a href="<?= site_url('user/index') ?>">用户中心</a>
+        <a href="<?= site_url('message/index/inbox') ?>" style="background: #222222">我的私信</a>
+        <a href="<?= site_url('user/index') ?>" style="background: #222222">用户中心</a>
     <?php elseif($tab == 2) : ?>
-        <a href="<?= site_url() ?>">宝贝浏览</a>
+        <a href="<?= site_url() ?>" style="background: #222222">宝贝浏览</a>
         <a href="<?= site_url('message/index/inbox') ?>" style="background: #333333">我的私信</a>
-        <a href="<?= site_url('user/index') ?>">用户中心</a>
+        <a href="<?= site_url('user/index') ?>" style="background: #222222">用户中心</a>
     <?php elseif($tab == 3) : ?>
-        <a href="<?= site_url() ?>">宝贝浏览</a>
-        <a href="<?= site_url('message/index/inbox') ?>">我的私信</a>
+        <a href="<?= site_url() ?>" style="background: #222222">宝贝浏览</a>
+        <a href="<?= site_url('message/index/inbox') ?>" style="background: #222222">我的私信</a>
         <a href="<?= site_url('user/index') ?>" style="background: #333333">用户中心</a>
     <?php endif; ?>
 </div>
