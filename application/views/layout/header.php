@@ -16,8 +16,8 @@
     <script src="<?= base_url('assets/js/respond.min.js') ?>"></script>
 <![endif]-->
 <!-- CSS Library End -->
-<link href="<?= base_url('assets/css/main.css') ?>" rel="stylesheet" media="screen">
-<link href="<?= base_url('assets/css/custom.css') ?>" rel="stylesheet" media="screen">
+<link href="<?= base_url('assets/css/main.css?v=201505061656') ?>" rel="stylesheet" media="screen">
+<link href="<?= base_url('assets/css/custom.css?v=201505061656') ?>" rel="stylesheet" media="screen">
 <script src="<?= base_url('assets/js/jquery.min.js') ?>"></script>
 </head>
 <body>
