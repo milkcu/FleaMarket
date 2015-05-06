@@ -99,6 +99,7 @@ class Products extends CI_Model {
         } else {
             return;
         }
+        $this->aauth->delete_pm_by_title($pid);
 		$this->db->where('pid', $pid);
 		$this->db->update('products', $data);
 	}

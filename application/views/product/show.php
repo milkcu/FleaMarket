@@ -68,7 +68,7 @@
                 <div class="product-key"><span class="label label-primary">商品分类<span></div>
                 <div class="product-value"><?= $product->category->name ?></div>
             </div>
-            <div class="row">
+            <div class="row hidden-xs">
                 <div class="product-jiathis">
                     <!-- JiaThis Button BEGIN -->
                     <div class="jiathis_style_32x32">

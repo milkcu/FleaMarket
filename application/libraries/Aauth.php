@@ -1572,7 +1572,7 @@ class Aauth {
         if( $sender_id != false ){
             $query = $this->CI->db->where('sender_id', $sender_id);
         }
-        $query = $this->CI->db->where('read !=', 2);
+        $query = $this->CI->db->where("isread = 0 or isread = 1");
 
         $query = $this->CI->db->order_by('id','DESC');
         $query = $this->CI->db->get( $this->config_vars['pms'], $limit, $offset);
@@ -1589,8 +1589,11 @@ class Aauth {
      */
     public function get_pm($pm_id, $set_as_read = true){
 
+        /*
         $query = $this->CI->db->where('id', $pm_id);
         $query = $this->CI->db->where('read !=', 2);
+        */
+        $query = $this->CI->db->where("id = $pm_id and (isread = 0 or isread = 1)");
         $query = $this->CI->db->get( $this->config_vars['pms'] );
 
         if ($query->num_rows() < 1) {
@@ -1617,10 +1620,20 @@ class Aauth {
      * @return bool Delete success/failure
      */
     public function delete_pm($pm_id){
-        $data = array('read' => 2);
+        $data = array('isread' => 2);
         return $this->CI->db->update( $this->config_vars['pms'], $data, "id = $pm_id");
 
         //return $this->CI->db->delete( $this->config_vars['pms'], array('id' => $pm_id) );
+    }
+    public function delete_pm_by_title($pm_title){
+        $query = $this->CI->db->where("title = $pm_title and (isread =  0 or isread = 1)");
+        $query = $this->CI->db->get( $this->config_vars['pms'] );
+        $pms = $query->result();
+        foreach($pms as $pm) {
+            $data = array('isread' => 3);
+            $pm_id = $pm->id;
+            $this->CI->db->update( $this->config_vars['pms'], $data, "id = $pm_id");
+        }
     }
 
     //tested
@@ -1637,7 +1650,7 @@ class Aauth {
         }
 
         $query = $this->CI->db->where('receiver_id', $receiver_id);
-        $query = $this->CI->db->where('read', 0);
+        $query = $this->CI->db->where('isread', 0);
         $query = $this->CI->db->get( $this->config_vars['pms'] );
 
         return $query->num_rows();
@@ -1649,8 +1662,11 @@ class Aauth {
             $sender_id = $this->CI->session->userdata('id');
         }
 
+        /*
         $query = $this->CI->db->where('sender_id', $sender_id);
         $query = $this->CI->db->where('read !=', 2);
+        */
+        $query = $this->CI->db->where("sender_id = $sender_id and (isread = 0 or isread = 1)");
         $query = $this->CI->db->get( $this->config_vars['pms'] );
 
         return $query->num_rows();
@@ -1662,8 +1678,11 @@ class Aauth {
             $receiver_id = $this->CI->session->userdata('id');
         }
 
+        /*
         $query = $this->CI->db->where('receiver_id', $receiver_id);
-        $query = $this->CI->db->where('read !=', 2);
+        $query = $this->CI->db->where('isread !=', 2);
+        */
+        $query = $this->CI->db->where("receiver_id = $receiver_id and (isread = 0 or isread = 1)");
         $query = $this->CI->db->get( $this->config_vars['pms'] );
 
         return $query->num_rows();
@@ -1678,7 +1697,7 @@ class Aauth {
     public function set_as_read_pm($pm_id){
 
         $data = array(
-            'read' => 1,
+            'isread' => 1,
         );
 
         $this->CI->db->update( $this->config_vars['pms'], $data, "id = $pm_id");

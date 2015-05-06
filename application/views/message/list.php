@@ -39,9 +39,9 @@
                 <tr><td colspan="5">信息为空</td></tr>
                 <?php else : ?>
                 <?php foreach($pms as $pm) : ?>
-                <?php if($pm->read == 0) : ?>
+                <?php if($pm->isread == 0) : ?>
                 <tr class="active">
-                <?php elseif($pm->read == 1) : ?>
+                <?php elseif($pm->isread == 1) : ?>
                 <tr>
                 <?php endif; ?>
                     <?php if($type == 'outbox') : ?>
