@@ -1,5 +1,5 @@
 <?php $this->load->view('layout/header', ['title' => $category->name]) ?>
-<?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
+<?php $prefix = img_url() ?>
 <?php $suffix = '?imageView2/1/w/245/h/245' ?>
 <div class="row">
     <div class="col-lg-12 col-xs-12">

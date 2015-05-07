@@ -1,7 +1,7 @@
 <?php $this->load->view('layout/header', ['title' => '首页']) ?>
 <div class="row hidden-xs">
 	<div class="col-lg-12 index-sdnu-head">
-		<img src="http://milkcu.qiniudn.com/sdnuflea/2015040518504149-3.jpg">
+        <img src="<?= img_url('mysdnu-index-head.jpg') ?>">
 		<span>跳蚤市场</span>
 	</div>
 </div>
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
+			<?php $prefix = img_url() ?>
 			<?php $suffix = '?imageView2/1/w/100/h/100' ?>
 			<?php foreach($categories as $c) : ?>
 			<div class="col-lg-6 col-xs-12">
@@ -66,7 +66,7 @@
 		</div>
 		<div class="well index-qrcode-app hidden-xs">
 			<h4>移动客户端正在开发中</h4>
-			<img src="http://milkcu.qiniudn.com/sdnuflea/2015040623253232-3.jpg?imageView2/1/h/208/w/208">
+            <img src="<?= img_url('mysdnu-index-weixin-sintune.jpg') ?>?imageView2/1/h/208/w/208">
 		</div>
 		<div class="index-feedback">
 			<form>

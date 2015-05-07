@@ -4,7 +4,7 @@
         <div class="well well-sm">
             <div class="row">
                 <div class="col-xs-4">
-                    <img src="http://milkcu.qiniudn.com/sdnuflea/<?= $avatar ?>?imageView2/1/w/100/h/100" class="pull-left img-rounded" style="width: 100%; height: 100%">
+                    <img src="<?= img_url() . $avatar ?>?imageView2/1/w/100/h/100" class="pull-left img-rounded" style="width: 100%; height: 100%">
                 </div>
                 <div class="col-xs-8">
                     <h3><?= $sdnuinfo->name ?></h3>

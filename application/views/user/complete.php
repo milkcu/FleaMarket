@@ -26,7 +26,7 @@
                 <div class="col-lg-3 col-xs-3"><label>QQ</label></div>
                 <div class="col-lg-9 col-xs-9"><input name="qq" type="text" value="<?= set_value('qq') ?>" class="form-control" required autocomplete="off"></div>
             </div>
-            <input type="hidden" name="avatar" value="user_avatar_default.jpg">
+            <input type="hidden" name="avatar" value="mysdnu-user-avatar-default.jpg">
             <div class="row form-group">
                 <div class="col-lg-9 col-lg-offset-3 col-xs-9 col-xs-offset-3"><input type="submit" value="完善信息并登陆" class="form-control btn btn-primary"></div>
             </div>

@@ -8,7 +8,7 @@
         </div>
         <div class="row">
         <div class="col-lg-1 col-xs-2">
-            <?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
+            <?php $prefix = img_url() ?>
             <?php $suffix = '?imageView2/1/w/48/h/48' ?>
             <img src="<?= $prefix . $other_avatar . $suffix ?>" class="img-rounded">
         </div>

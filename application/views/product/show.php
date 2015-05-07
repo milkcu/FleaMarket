@@ -20,14 +20,13 @@
             </ol>
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
                 <?php $suffix = '?imageView2/1/w/555/h/555' ?>
                 <div class="item active">
-                    <img src="<?= $prefix . $product->images[0] . $suffix ?>" alt="First slide">
+                    <img src="<?= img_url() . $product->images[0] . $suffix ?>" alt="First slide">
                 </div>
                 <?php for($i = 1; $i < count($product->images); $i++) : ?>
                 <div class="item">
-                    <img src="<?= $prefix . $product->images[$i] . $suffix ?>" alt="Another slide">
+                    <img src="<?= img_url() . $product->images[$i] . $suffix ?>" alt="Another slide">
                 </div>
                 <?php endfor; ?>
             </div>
@@ -93,9 +92,8 @@
     <div class="col-lg-2 hidden-xs">
         <div class="alert alert-success product-user">
             <div>
-                <?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
                 <?php $suffix = '?imageView2/1/w/140/h/140' ?>
-                <img class="img-circle" src="<?= $prefix . $avatar . $suffix ?>" alt=".img-circle">
+                <img class="img-circle" src="<?= img_url() . $avatar . $suffix ?>" alt=".img-circle">
             </div>
             <div class="product-user-name">
                 <span><?= $sdnuinfo->name ?></span>
@@ -162,9 +160,8 @@
                 <div class="col-xs-5 product-user" style="height: 100%">
                     <div class="alert alert-success">
                     <div class="hidden">
-                        <?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
                         <?php $suffix = '?imageView2/1/w/140/h/140' ?>
-                        <img class="img-circle" src="<?= $prefix . $avatar . $suffix ?>" alt=".img-circle">
+                        <img class="img-circle" src="<?= img_url() . $avatar . $suffix ?>" alt=".img-circle">
                     </div>
                     宝贝主人信息
                     <div class="product-user-name">

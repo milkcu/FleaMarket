@@ -1,7 +1,7 @@
 <?php $this->load->view('layout/header', ['title' => '宝贝管理']) ?>
 <div class="row user-show-info hidden-xs">
     <div class="col-lg-2">
-        <?php $prefix = 'http://milkcu.qiniudn.com/sdnuflea/' ?>
+        <?php $prefix = img_url() ?>
         <?php $suffix = '?imageView2/1/w/140/h/140' ?>
         <img class="img-thumbnail" src="<?= $prefix . $avatar . $suffix ?>" alt=".img-thumbnail">
     </div>
