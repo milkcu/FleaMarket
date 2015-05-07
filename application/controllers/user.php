@@ -112,6 +112,22 @@ class User extends CI_Controller {
 			$data['contact'] = $contact;
 			$avatar = $this->aauth->get_user_var('avatar');
 			$data['avatar'] = $avatar;
+            // get qiniu token begin
+            $conf = array('ak' => 'A2o1e1u2qqPQECn3VWxL5BcGGmSWX3n2KhXgK7Rx',
+                            'sk' => 'EUkbMnHf2BNrqOx49-VGz7cUhiwd52Y82mne1zaL',
+                            'bucket' => 'mysdnu',
+                            'auth' => 'public');
+            $this->load->library('qiniu', $conf);
+            $this->qiniu->put_policy->init();
+            $arr = array(
+                Qiniu_put_policy::QINIU_PP_SCOPE => 'mysdnu',
+                Qiniu_put_policy::QINIU_PP_DEADLINE => time()+7200,
+                //Qiniu_put_policy::QINIU_PP_SAVE_KEY => 'mysdnutestbase64.jpg'
+                );
+            $this->qiniu->put_policy->set_policy_array($arr);
+            $token = $this->qiniu->put_policy->get_token();
+            // get qiniu token end
+            $data['token'] = $token;
 			$this->load->view('user/modify', $data);
 		}
 	}

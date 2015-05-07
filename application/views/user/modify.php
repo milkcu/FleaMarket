@@ -21,13 +21,14 @@
             <div class="row form-group">
                 <div class="col-xs-3 col-xs-3"><label>头像</label></div>
                 <div class="col-xs-9 col-xs-9">
-                    <?php $this->load->view('user/basic_upload') ?>
+                    <?php $this->load->view('user/html5_upload') ?>
                     <input name="avatar" value="<?= $avatar ?>" type="hidden" class="form-control">
                     <a class="form-control btn btn-primary" href="javascript:void(0)" onclick="javascript:document.getElementById('user-avatar-upload').click()">上传新头像</a>
                 </div>
             </div>
             <div class="row form-group">
-                <div class="col-lg-9 col-lg-offset-3 col-xs-9 col-xs-offset-3" id="user-avatar-preview"></div>
+                <div class="col-lg-9 col-lg-offset-3 col-xs-9 col-xs-offset-3" id="user-avatar-preview">
+                </div>
             </div>
             <div class="row form-group">
                 <div class="col-lg-9 col-lg-offset-3 col-xs-9 col-xs-offset-3"><input type="submit" value="修改信息" class="form-control btn btn-primary"></div>

@@ -65,7 +65,7 @@
                 -->
                 <div class="col-lg-12 col-xs-12">
                     <div class="form-group">
-                        <textarea name="detail" rows="8" class="form-control" placeholder="请输入宝贝描述"><?= set_value('detail') ?></textarea>
+                        <textarea name="detail" rows="15" class="form-control" placeholder="请输入宝贝描述"><?= set_value('detail') ?></textarea>
                     </div>
                 </div>
                 <!--
@@ -118,17 +118,14 @@
                 </div>
             </div>
             <div class="row" id="product-image-create">
-                <?php $this->load->view('product/basic_upload') ?>
+                <?php $this->load->view('product/html5_upload') ?>
                 <?php $images = set_value('images') ?>
                 <?php if($images != '') : ?>
                 <div class="col-lg-6 col-xs-6" id="<?= $images ?>">
-                    <div class="media alert alert-success">
-                        <a href="http://milkcu.qiniudn.com/sdnuflea/<?= $images ?>" class="pull-left" target="_blank">
-                            <img src="http://milkcu.qiniudn.com/sdnuflea/<?= $images ?>?imageView2/1/w/100/h/100">
-                        </a>
-                        <div class="media-body">
-                        <button class="close" data-dismiss="modal" type="button" onclick="deldiv('<?= $images ?>')">×</button>
-                            上传成功
+                    <div class="media alert alert-success" style="text-align: center;">
+                        <img src="<?= img_url($images, '?imageView2/1/w/100/h/100') ?>" alt="上传成功">
+                        <div class="media-body" style="margin-top: -10px; margin-right: -10px; float: right;">
+                            <button class="close" data-dismiss="modal" type="button" onclick="del_div('<?= $images ?>')">×</button>
                         </div>
                         <input type="hidden" name="images[]" value="<?= $images ?>">
                     </div>
