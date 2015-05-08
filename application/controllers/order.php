@@ -1,6 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Order extends CI_Controller {
+	function __construct() {
+		parent::__construct();
+		if( ! $this->aauth->is_loggedin()) {
+			redirect('user/login');
+		}
+	}
 	public function index() {
         if($this->uri->segment(3)) {
             $type = $this->uri->segment(3);

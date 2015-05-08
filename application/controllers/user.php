@@ -92,12 +92,18 @@ class User extends CI_Controller {
 		$this->load->view('user/collect', $data);
 	}
     public function addcollect() {
+        if( ! $this->aauth->is_loggedin()) {
+			redirect('user/login');
+        }
         $pid = $this->uri->segment(3);
         $this->load->model('collects');
         $this->collects->add_collect($pid, $this->aauth->get_user_id());
         redirect('product/show/' . $pid);
     }
     public function delcollect() {
+        if( ! $this->aauth->is_loggedin()) {
+			redirect('user/login');
+        }
         $pid = $this->uri->segment(3);
         $this->load->model('collects');
         $this->collects->del_collect($pid, $this->aauth->get_user_id());
