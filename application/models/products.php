@@ -7,12 +7,16 @@ class Products extends CI_Model {
 	}
 	public function get_product($pid, $cnt = false) {
 		$r = $this->db->get_where('products', ['pid' => $pid])->row();
-		if($r->isdel != 0) {
-			return false;
-		}
 		$r->images = json_decode($r->images);
 		$this->load->model('categories');
 		$r->category = $this->categories->get_category($r->cid);
+        $jsdnuinfo = $this->aauth->get_user_var('sdnuinfo', $r->uid);
+        $r->sdnuinfo = json_decode($jsdnuinfo);
+		if($r->isdel != 0) {
+            $r->hidden = true;
+        } else {
+            $r->hidden = false;
+        }
 		if($cnt) {
 			$this->update_view_count($pid);
 		}
@@ -99,7 +103,7 @@ class Products extends CI_Model {
         } else {
             return;
         }
-        $this->aauth->delete_pm_by_title($pid);
+        //$this->aauth->delete_pm_by_title($pid);
 		$this->db->where('pid', $pid);
 		$this->db->update('products', $data);
 	}

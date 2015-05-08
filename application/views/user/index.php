@@ -16,7 +16,8 @@
     <div class="col-xs-12">
         <div class="list-group">
             <a href="<?= site_url('product/create') ?>" class="list-group-item">发布宝贝</a>
-            <a href="<?= site_url('user/show') ?>" class="list-group-item">宝贝管理</a>
+            <a href="<?= site_url('user/show') ?>" class="list-group-item">个人中心</a>
+            <a href="<?= site_url('order/index/from') ?>" class="list-group-item">订单系统</a>
             <a href="<?= site_url('user/modify') ?>" class="list-group-item">资料修改</a>
             <a href="<?= site_url('user/info') ?>" class="list-group-item">信息查看</a>
             <a href="<?= site_url('user/logout') ?>" class="list-group-item">用户退出</a>

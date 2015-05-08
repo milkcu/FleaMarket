@@ -1566,13 +1566,15 @@ class Aauth {
         $query='';
 
         if ( $receiver_id != false){
-            $query = $this->CI->db->where('receiver_id', $receiver_id);
+            //$query = $this->CI->db->where('receiver_id', $receiver_id);
+            $query = $this->CI->db->where("receiver_id = $receiver_id and (isread = 0 or isread = 1)");
         }
 
         if( $sender_id != false ){
-            $query = $this->CI->db->where('sender_id', $sender_id);
+            //$query = $this->CI->db->where('sender_id', $sender_id);
+            $query = $this->CI->db->where("sender_id = $sender_id and (isread = 0 or isread = 1)");
         }
-        $query = $this->CI->db->where("isread = 0 or isread = 1");
+        //$query = $this->CI->db->where("isread = 0 or isread = 1");
 
         $query = $this->CI->db->order_by('id','DESC');
         $query = $this->CI->db->get( $this->config_vars['pms'], $limit, $offset);

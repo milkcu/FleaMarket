@@ -49,7 +49,7 @@ class Product extends CI_Controller {
 		$pid = $this->uri->segment(3);
 		$this->load->model('products');
 		$product = $this->products->get_product($pid, true);
-        if( ! $product) {
+        if($product->hidden) {
             $this->load->view('page/product_delete');
             return;
         }

@@ -67,7 +67,7 @@
                 <div class="product-key"><span class="label label-primary">商品分类<span></div>
                 <div class="product-value"><?= $product->category->name ?></div>
             </div>
-            <div class="row hidden-xs">
+            <div class="row hidden-xs hidden-lg">
                 <div class="product-jiathis">
                     <!-- JiaThis Button BEGIN -->
                     <div class="jiathis_style_32x32">
@@ -87,6 +87,24 @@
                     <!-- JiaThis Button END -->
                 </div>
             </div>  <!-- end of row jiathis -->
+            <div class="row" style="text-align: center">
+                <div class="col-lg-3 col-xs-3">
+                    <a href="#" class="btn btn-info">分享</a>
+                </div>
+                <div class="col-lg-3 col-xs-3">
+                    <a href="#" class="btn btn-primary">收藏</a>
+                </div>
+                <div class="col-lg-3 col-xs-3">
+                    <?php if($product->state == 0 && $product->uid != $this->aauth->get_user_id()) : ?>
+                    <a href="<?= site_url('order/create/' . $product->pid) ?>" class="btn btn-danger">订购</a>
+                    <?php else : ?>
+                    <span class="btn btn-default">订购</span>
+                    <?php endif; ?>
+                </div>
+                <div class="col-lg-3 col-xs-3">
+                    <a href="#" class="btn btn-warning">举报</a>
+                </div>
+            </div>
         </div>  <!-- end of alert -->
     </div>  <!-- end of col -->
     <div class="col-lg-2 hidden-xs">
@@ -126,78 +144,6 @@
             </div>
         </div>  <!-- end of alert -->
     </div>  <!-- end of col -->
-    <div class="col-xs-12 hidden-xs hidden-lg">
-        <div class="alert alert-info product-info-and-user">
-            <div class="row">
-                <div class="col-xs-7 product-info" style="height: 100%">
-                    <div class="product-title"><h2><?= $product->title ?></h2></div>
-                    <div class="product-price">
-                        <div class="product-current">
-                            <span class="label label-danger">￥ <?= $product->current ?></span>
-                        </div>
-                        <div class="product-original">
-                            <span class="label label-default">原价 <?= $product->original ?> 元</span>
-                        </div>
-                    </div>
-                    <div class="product-statistics">
-                        <p><?= $product->views ?> 次浏览 · <?php $product->state ? print('已经') : print('尚未') ?>成交</p>
-                    </div>
-
-                    <div class="product-line">
-                        <div class="product-key"><span class="label label-primary">交易地点</span></div>
-                        <div class="product-value"><?= $product->place ?></div>
-                    </div>
-                    <div class="product-line">
-                        <div class="product-key"><span class="label label-primary">发布时间</span></div>
-                        <?php $time_show = date('n月j日 H:i', strtotime($product->created)) ?>
-                        <div class="product-value"><?= $time_show ?></div>
-                    </div>
-                    <div class="product-line">
-                        <div class="product-key"><span class="label label-primary">商品分类<span></div>
-                        <div class="product-value"><?= $product->category->name ?></div>
-                    </div>
-                </div>  <!-- end of col -->
-                <div class="col-xs-5 product-user" style="height: 100%">
-                    <div class="alert alert-success">
-                    <div class="hidden">
-                        <?php $suffix = '?imageView2/1/w/140/h/140' ?>
-                        <img class="img-circle" src="<?= img_url() . $avatar . $suffix ?>" alt=".img-circle">
-                    </div>
-                    宝贝主人信息
-                    <div class="product-user-name">
-                        <span><?= $sdnuinfo->name ?></span>
-                    </div>
-                    <div class="product-user-type">
-                        <span class="label label-success">
-                            <?php if($sdnuinfo->user_type == 0) : ?>
-                            本科生
-                            <?php elseif($sdnuinfo->user_type == 1) : ?>
-                            研究生
-                            <?php elseif($sdnuinfo->user_type == 2) : ?>
-                            教职工
-                            <?php endif; ?>
-                        </span>
-                    </div>
-                    <div class="product-user-organization">
-                        <p><?= $sdnuinfo->organization_name ?></p>
-                    </div>
-                    <div class="product-user-contact">
-                        <?php if($this->aauth->is_loggedin()) : ?>
-                        <p><i class="fa fa-phone"></i><?= $contact->phone ?></p>
-                        <p><i class="fa fa-qq"></i><?= $contact->qq ?></p>
-                        <p><?= $contact->email ?></p>
-                        <?php else : ?>
-                        <p><i class="fa fa-phone"></i><?= substr($contact->phone, 0, 7) ?>****</p>
-                        <p><i class="fa fa-qq"></i><?= substr($contact->qq, 0, 6) ?>****</p>
-                        <p><?= substr($contact->email, 0, 3) ?>****<?= strstr($contact->email, '@') ?></p>
-                        <?php endif; ?>
-                        <p>（推荐使用私信）</p>
-                    </div>
-                    </div>
-                </div>  <!-- end of col -->
-            </div>  <!-- end of row -->
-        </div>
-    </div>
     <div class="col-lg-6 col-xs-12">
         <form method="post" action="<?= site_url('message/send/outbox') ?>">
             <div class="panel panel-warning product-user-chat">

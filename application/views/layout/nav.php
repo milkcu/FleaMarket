@@ -48,14 +48,15 @@
 						<b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="<?= site_url('product/create') ?>"><i class="fa fa-pencil"></i>发布宝贝</a></li>
-						<li><a href="<?= site_url('user/show') ?>"><i class="fa fa-book"></i>宝贝管理</a></li>
-						<li><a href="<?= site_url('message/index/inbox') ?>"><i class="fa fa-envelope"></i>我的私信</a></li>
-						<li><a href="<?= site_url('user/modify') ?>"><i class="fa fa-user"></i>资料修改</a></li>
+						<li><a href="<?= site_url('product/create') ?>"><i class="fa fa-pencil"></i> 发布宝贝</a></li>
+						<li><a href="<?= site_url('user/show') ?>"><i class="fa fa-book"></i> 个人中心</a></li>
+						<li><a href="<?= site_url('order/index/from') ?>"><i class="fa fa-reorder"></i> 订单系统</a></li>
+						<li><a href="<?= site_url('message/index/inbox') ?>"><i class="fa fa-envelope"></i> 我的私信</a></li>
+						<li><a href="<?= site_url('user/modify') ?>"><i class="fa fa-user"></i> 资料修改</a></li>
                         <?php if($this->aauth->is_admin()) : ?>
-						<li><a href="#modal-admin" data-toggle="modal"><i class="fa fa-line-chart"></i>后台管理</a></li>
+						<li><a href="#modal-admin" data-toggle="modal"><i class="fa fa-line-chart"></i> 后台管理</a></li>
                         <?php endif; ?>
-						<li><a href="<?= site_url('user/logout') ?>"><i class="fa fa-sign-out"></i>用户退出</a></li>
+						<li><a href="<?= site_url('user/logout') ?>"><i class="fa fa-sign-out"></i> 用户退出</a></li>
 					</ul>
 				</li>
 				<?php endif; ?>
