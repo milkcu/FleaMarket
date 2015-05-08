@@ -59,6 +59,8 @@ class Product extends CI_Controller {
 		$jsdnuinfo = $this->aauth->get_user_var('sdnuinfo', $product->uid);
 		$data['sdnuinfo'] = json_decode($jsdnuinfo);
 		$data['avatar'] = $this->aauth->get_user_var('avatar', $product->uid);
+        $this->load->model('collects');
+        $data['in_collect'] = $this->collects->in_collect($product->pid, $this->aauth->get_user_id());
 		$this->load->view('product/show', $data);
 	}
 	public function create() {

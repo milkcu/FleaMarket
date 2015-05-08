@@ -92,13 +92,17 @@
                     <a href="#" class="btn btn-info">分享</a>
                 </div>
                 <div class="col-lg-3 col-xs-3">
-                    <a href="#" class="btn btn-primary">收藏</a>
+                    <?php if( ! $in_collect) : ?>
+                    <a href="<?= site_url('user/addcollect/' . $product->pid) ?>" class="btn btn-primary">收藏</a>
+                    <?php else : ?>
+                    <span class="btn btn-default">已收藏</a>
+                    <?php endif; ?>
                 </div>
                 <div class="col-lg-3 col-xs-3">
                     <?php if($product->state == 0 && $product->uid != $this->aauth->get_user_id()) : ?>
                     <a href="<?= site_url('order/create/' . $product->pid) ?>" class="btn btn-danger">订购</a>
                     <?php else : ?>
-                    <span class="btn btn-default">订购</span>
+                    <span class="btn btn-default">已订购</span>
                     <?php endif; ?>
                 </div>
                 <div class="col-lg-3 col-xs-3">

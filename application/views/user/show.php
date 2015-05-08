@@ -1,4 +1,4 @@
-<?php $this->load->view('layout/header', ['title' => '宝贝管理']) ?>
+<?php $this->load->view('layout/header', ['title' => '我的宝贝']) ?>
 <div class="row user-show-info hidden-xs">
     <div class="col-lg-2">
         <?php $prefix = img_url() ?>
@@ -36,32 +36,26 @@
 </div>
 <div class="row" id='product-mng'>
     <div class="col-lg-12 col-xs-12">
-        <!--
+        <a href="<?= site_url('product/create') ?>" class="btn btn-primary btn-sm pull-right"><i class="fa fa-plus"></i> 发布宝贝</a>
         <ul class="nav nav-tabs">
             <li class="active">
-                <a>发布的宝贝<span class="badge"><?= $products_num ?></span></a>
+                <a href="<?= site_url('user/show') ?>">我的宝贝</a>
             </li>
-            <li><a href="<?= site_url('user/follow') ?>">关注的宝贝<span class="badge">21</span></a></li>
-            <li><a href="#">买到的宝贝<span class="badge">21</span></a></li>
+            <li>
+                <a href="<?= site_url('user/collect') ?>">我的收藏</a>
+            </li>
         </ul>
-        -->
-        <div class="panel panel-default">
-            <div class="panel-heading">宝贝管理</div>
-            <div class="panel-body">
-                <span>在这里可以管理你发布的宝贝。</span>
-                <a href="<?= site_url('product/create') ?>" class="btn btn-primary pull-right hidden-xs">发布宝贝</a>
-                <a href="<?= site_url('product/create') ?>" class="btn btn-primary btn-sm pull-right hidden-lg">发布宝贝</a>
-            </div>
+        <div>
             <table class="table table-hover" style="table-layout: fixed;">
                 <thead>
                     <tr>
                         <th class="col-lg-3 col-xs-6">宝贝名称</th>
-                        <th class="col-lg-2 hidden-xs">发布时间</th>
                         <th class="col-lg-2 hidden-xs">交易地点</th>
+                        <th class="col-lg-2 hidden-xs">发布时间</th>
                         <th class="col-lg-1 hidden-xs">宝贝分类</th>
                         <th class="col-lg-1 hidden-xs">现在价格</th>
                         <th class="col-lg-1 hidden-xs">浏览次数</th>
-                        <th class="col-lg-1 col-xs-3">宝贝状态</th>
+                        <th class="col-lg-1 col-xs-3">订购操作</th>
                         <th class="col-lg-1 col-xs-3">删除操作</th>
                     </tr>
                 </thead>
@@ -72,8 +66,8 @@
                     <?php foreach($products as $p) : ?>
                     <tr>
                         <td><a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>"><?= $p->title ?></a></td>
-                        <td class="hidden-xs"><?= $p->created ?></td>
                         <td class="hidden-xs"><?= $p->place ?></td>
+                        <td class="hidden-xs"><?= $p->created ?></td>
                         <td class="hidden-xs"><?= $p->category->name ?></td>
                         <td class="hidden-xs"><?= $p->current ?>元</td>
                         <td class="hidden-xs"><?= $p->views ?>次</td>

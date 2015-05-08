@@ -54,6 +54,55 @@ class User extends CI_Controller {
 		$data['avatar'] = $this->aauth->get_user_var('avatar', $this->aauth->get_user_id());
 		$this->load->view('user/show', $data);
 	}
+	public function collect() {
+		// show the user info and products
+		if( ! $this->aauth->is_loggedin()) {
+			redirect('user/login');
+		}
+		$uid = $this->aauth->get_user_id();
+		$jcontact = $this->aauth->get_user_var('contact', $uid);
+		$jsdnuinfo = $this->aauth->get_user_var('sdnuinfo', $uid);
+		$data['user'] = $this->aauth->get_user($uid);
+		$data['contact'] = json_decode($jcontact);
+		$data['sdnuinfo'] = json_decode($jsdnuinfo);
+		$this->load->model('collects');
+		$data['collects_num'] = $this->collects->get_num($uid);
+
+		$this->load->library('pagination');
+		$config['uri_segment'] = 3;
+		$config['base_url'] = site_url('user/collect/');
+		$config['total_rows'] = $this->collects->get_num($uid);
+		$config['per_page'] = 12;
+		$this->pagination->initialize($config);
+
+		$page = $this->uri->segment(3);
+		$offset = $page ? ($page - 1) * 12 : 0;
+		$collects = $this->collects->get_collects_by_page($uid, $config['per_page'], $offset);
+        $collects = array_reverse($collects);
+        $data['collects'] = $collects;
+		$data['avatar'] = $this->aauth->get_user_var('avatar', $this->aauth->get_user_id());
+        $i = 0;
+        $data['products'] = array();
+        $this->load->model('products');
+        foreach($collects as $c) {
+            $data['products'][$i] = $this->products->get_product($c->pid);
+            $data['products'][$i]->collect_created = $c->created;
+            $i++;
+        }
+		$this->load->view('user/collect', $data);
+	}
+    public function addcollect() {
+        $pid = $this->uri->segment(3);
+        $this->load->model('collects');
+        $this->collects->add_collect($pid, $this->aauth->get_user_id());
+        redirect('product/show/' . $pid);
+    }
+    public function delcollect() {
+        $pid = $this->uri->segment(3);
+        $this->load->model('collects');
+        $this->collects->del_collect($pid, $this->aauth->get_user_id());
+        redirect('user/collect');
+    }
 	public function follow() {
 		// show the user info and products
 		if( ! $this->aauth->is_loggedin()) {
