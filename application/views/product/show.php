@@ -143,15 +143,29 @@
                 <p><?= $sdnuinfo->organization_name ?></p>
             </div>
             <div class="product-user-contact">
-                <?php if($this->aauth->is_loggedin()) : ?>
-                <p><i class="fa fa-phone"></i><?= $contact->phone ?></p>
-                <p><i class="fa fa-qq"></i><?= $contact->qq ?></p>
-                <p><?= $contact->email ?></p>
-                <?php else : ?>
-                <p><i class="fa fa-phone"></i><?= substr($contact->phone, 0, 7) ?>****</p>
-                <p><i class="fa fa-qq"></i><?= substr($contact->qq, 0, 6) ?>****</p>
-                <p><?= substr($contact->email, 0, 3) ?>****<?= strstr($contact->email, '@') ?></p>
-                <?php endif; ?>
+                <p>
+                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('email', $contact->public)) : ?>
+                    <?= $contact->email ?>
+                    <?php else : ?>
+                    邮箱未公开
+                    <?php endif; ?>
+                </p>
+                <p>
+                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('phone', $contact->public)) : ?>
+                    <i class="fa fa-phone"></i>
+                    <?= $contact->phone ?>
+                    <?php else : ?>
+                    手机号未公开
+                    <?php endif; ?>
+                </p>
+                <p>
+                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('qq', $contact->public)) : ?>
+                    <i class="fa fa-qq"></i>
+                    <?= $contact->qq ?>
+                    <?php else : ?>
+                    QQ未公开
+                    <?php endif; ?>
+                </p>
                 <p>（推荐使用私信）</p>
             </div>
         </div>  <!-- end of alert -->
@@ -198,9 +212,30 @@
             <span class="list-group-item active" style="z-index: auto">主人信息</span>
             <span class="list-group-item">姓名： <?= $sdnuinfo->name ?></span>
             <span class="list-group-item">学院： <?= $sdnuinfo->organization_name ?></span>
-            <span class="list-group-item">邮箱： <?= $contact->email ?></span>
-            <span class="list-group-item">手机： <?= $contact->phone ?></span>
-            <span class="list-group-item">QQ： <?= $contact->qq ?></span>
+            <span class="list-group-item">
+                邮箱：
+                <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('email', $contact->public)) : ?>
+                <?= $contact->email ?>
+                <?php else : ?>
+                未公开
+                <?php endif; ?>
+            </span>
+            <span class="list-group-item">
+                手机：
+                <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('phone', $contact->public)) : ?>
+                <?= $contact->phone ?>
+                <?php else : ?>
+                未公开
+                <?php endif; ?>
+            </span>
+            <span class="list-group-item">
+                QQ：
+                <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('qq', $contact->public)) : ?>
+                <?= $contact->qq ?>
+                <?php else : ?>
+                未公开
+                <?php endif; ?>
+            </span>
         </div>
     </div>
 </div>
