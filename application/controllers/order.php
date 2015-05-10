@@ -89,6 +89,9 @@ class Order extends CI_Controller {
             $pid = $this->uri->segment(3);
             $this->load->model('products');
             $product = $this->products->get_product($pid);
+            if($product->uid == $this->aauth->get_user_id()) {
+                redirect('product/show/' . $product->pid);
+            }
             if($product->hidden) {
                 $this->load->view('page/product_delete');
             } else {
