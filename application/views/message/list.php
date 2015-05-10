@@ -57,7 +57,7 @@
                         <?php if(isset($pm->product)) : ?>
                         <a href="<?= site_url('product/show/' . $pm->product->pid) ?>"><?= $pm->product->title ?></a>
                         <?php else : ?>
-                        求购专区
+                        系统消息
                         <?php endif; ?>
                     </td>
                     <?php

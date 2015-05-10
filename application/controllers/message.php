@@ -48,6 +48,10 @@ class Message extends CI_Controller {
                 $data['new_title'] = '来自【求购信息' . $arr[1] . '】的会话';
             } elseif($arr[0] == 'report') {
                 $data['new_title'] = '来自【商品反馈' . $arr[1] . '】的会话';
+            } elseif($arr[0] == 'inform') {
+                if($arr[1] == 'complete') {
+                    $data['new_title'] = '来自【攻城狮】的会话';
+                }
             }
         }
 		$this->load->view('message/show', $data);
@@ -119,6 +123,10 @@ class Message extends CI_Controller {
                     $product = $this->products->get_product($arr[1]);
                     $pms[$i]->product = $product;
                     $title_key = '商品反馈' . $arr[1];
+                } elseif($arr[0] == 'inform') {
+                    if($arr[1] == 'complete') {
+                        $title_key = '攻城狮';
+                    }
                 }
             }
 

@@ -239,6 +239,8 @@ class User extends CI_Controller {
 				$this->aauth->set_user_var('contact', $jcontact, $id);
 				$this->aauth->set_user_var('sdnuinfo', $jsdnuinfo, $id);
 				$this->aauth->login($contact['email'], $sdnuinfo['user_id']);
+                // 发送注册成功通知
+                $this->inform_complete($id);
 				redirect('user/show');
 			} else {
 				// create user failure
@@ -277,4 +279,18 @@ class User extends CI_Controller {
             echo 'file process error.';
         }
 	}
+    private function inform_complete($id) {
+		$sender_id = admin_uid();
+		$receiver_id = $id;
+		$title = 'inform_complete';
+        $message = '您好，我是跳蚤市场的开发者刘新铜，非常欢迎您的加入。
+            跳蚤市场提供免费的山师校内二手信息发布，是闲置物品旧货出售求购交换、进行二手物品交易的最佳选择。
+            跳蚤市场基于智慧山师开放平台，仅限校内用户使用，同学交易更放心。
+            如果您有任何的意见和建议欢迎与我联系，再次感谢您对跳蚤市场的支持。';
+		$jsender_sdnuinfo = $this->aauth->get_user_var('sdnuinfo', $sender_id);
+		$sender_sdnuinfo = json_decode($jsender_sdnuinfo);
+		$send_date = date('Y-m-d H:i:s');
+		$new_message = '<b>' . $sender_sdnuinfo->name . ' 发送于 ' .$send_date . '</b><br>' . $message;
+		$this->aauth->send_pm($sender_id, $receiver_id, $title, $new_message);
+    }
 }

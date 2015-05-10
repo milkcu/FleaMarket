@@ -10,7 +10,7 @@
                 <div class="col-lg-2 col-xs-2"><label>邮箱</label></div>
                 <div class="col-lg-10 col-xs-10">
                     <div class="input-group">
-                        <input name="email" value="<?= $contact->email ?>" type="text" class="form-control" autocomplete="off">
+                        <input name="email" value="<?= $contact->email ?>" type="text" class="form-control" autocomplete="off" required>
                         <label class="input-group-addon"><input type="checkbox" name="public[]" value="email"
                             <?php if(isset($contact->public) && in_array('email', $contact->public)) echo 'checked'; ?>> 公开</label>
                     </div>
@@ -20,7 +20,7 @@
                 <div class="col-lg-2 col-xs-2"><label>手机</label></div>
                 <div class="col-lg-10 col-xs-10">
                     <div class="input-group">
-                        <input name="phone" value="<?= $contact->phone ?>" type="text" class="form-control" autocomplete="off">
+                        <input name="phone" value="<?= $contact->phone ?>" type="text" class="form-control" autocomplete="off" required>
                         <label class="input-group-addon"><input type="checkbox" name="public[]" value="phone"
                             <?php if(isset($contact->public) && in_array('phone', $contact->public)) echo 'checked'; ?>> 公开</label>
                     </div>

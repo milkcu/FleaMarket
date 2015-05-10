@@ -36,7 +36,7 @@
                 <div class="col-lg-3 col-xs-3"><label>QQ</label></div>
                 <div class="col-lg-9 col-xs-9">
                     <div class="input-group">
-                        <input name="qq" type="text" value="<?= set_value('qq') ?>" class="form-control" required autocomplete="off" placeholder="选填">
+                        <input name="qq" type="text" value="<?= set_value('qq') ?>" class="form-control" autocomplete="off" placeholder="选填">
                         <label class="input-group-addon"><input type="checkbox" name="public[]" value="qq"> 公开</label>
                     </div>
                 </div>
