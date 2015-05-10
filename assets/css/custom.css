@@ -12,10 +12,6 @@ table td {
 .product-image-progress {
     text-align: center;
 }
-#carousel img {
-	width: 100%;
-	height: 100%;
-}
 /*
  * product create
  */
@@ -53,6 +49,14 @@ table td {
 #carousel {
     margin-bottom: 20px;
     //height: 555px;
+}
+.product-show-carousel-pc  > .item > img {
+    width: 555px;
+    height: 555px;
+}
+.product-show-carousel-mobile  > .item > img {
+    width: 100%;
+    height: 100%;
 }
 .product-detail {
 	margin-top: 20px;
