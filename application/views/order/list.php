@@ -23,16 +23,16 @@
             <thead>
                 <tr>
                     <?php if($type == 'from') : ?>
-                    <th class="col-lg-1 col-xs-3">卖家</th>
+                    <th class="col-lg-1 hidden-xs">卖家</th>
                     <th class="col-lg-2 hidden-xs">卖家编号</th>
                     <?php elseif($type == 'to') : ?>
-                    <th class="col-lg-1 col-xs-3">买家</th>
+                    <th class="col-lg-1 hidden-xs">买家</th>
                     <th class="col-lg-2 hidden-xs">买家编号</th>
                     <?php endif; ?>
-                    <th class="col-lg-3 col-xs-6">订单标题</th>
+                    <th class="col-lg-3 col-xs-7">订单标题</th>
                     <th class="col-lg-2 hidden-xs">相关宝贝</th>
                     <th class="col-lg-2 hidden-xs">下单时间</th>
-                    <th class="col-lg-2 col-xs-3">订单状态</th>
+                    <th class="col-lg-2 col-xs-5">订单状态</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,10 +42,10 @@
                 <?php foreach($orders as $order) : ?>
                 <tr>
                     <?php if($type == 'from') : ?>
-                    <td><?= $order->to_sdnuinfo->name ?></td>
+                    <td class="hidden-xs"><?= $order->to_sdnuinfo->name ?></td>
                     <td class="hidden-xs"><?= $order->to_sdnuinfo->user_id ?></td>
                     <?php elseif($type == 'to') : ?>
-                    <td><?= $order->from_sdnuinfo->name ?></td>
+                    <td class="hidden-xs"><?= $order->from_sdnuinfo->name ?></td>
                     <td class="hidden-xs"><?= $order->from_sdnuinfo->user_id ?></td>
                     <?php endif; ?>
                     <td>
@@ -66,7 +66,7 @@
                         $time_show = date("n月j日", $t);
                     }
                     ?>
-                    <td>
+                    <td class="hidden-xs">
                         <span class="hidden-xs"><?= date("Y-m-d H:i", $t) ?></span>
                         <span class="hidden-lg"><?= $time_show ?></span>
                     </td>

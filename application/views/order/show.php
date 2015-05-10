@@ -2,8 +2,13 @@
 <div class="row">
     <div class="hidden-lg col-xs-12">
         <div class="alert alert-info">
-            该订单订购的宝贝为：
+            宝贝为：
             <a href="<?= site_url('product/show/' . $product->pid) ?>" class="alert-link"><?= $product->title ?></a>
+            (编号<?= $product->pid ?>)
+            <br>
+            买家为： <b><?= $order->from_sdnuinfo->name ?></b> (<?= $order->from_sdnuinfo->user_id ?>)
+            <br>
+            卖家为： <b><?= $order->to_sdnuinfo->name ?></b> (<?= $order->to_sdnuinfo->user_id ?>)
         </div>
     </div>
     <div class="col-lg-8 col-xs-12 product-create-form">
@@ -197,6 +202,15 @@
     </div>
     <div class="col-lg-4 col-xs-12">
         <div class="alert alert-info hidden-xs">
+            宝贝为：
+            <a href="<?= site_url('product/show/' . $product->pid) ?>" class="alert-link"><?= $product->title ?></a>
+            (编号<?= $product->pid ?>)
+            <br>
+            买家为： <b><?= $order->from_sdnuinfo->name ?></b> (<?= $order->from_sdnuinfo->user_id ?>)
+            <br>
+            卖家为： <b><?= $order->to_sdnuinfo->name ?></b> (<?= $order->to_sdnuinfo->user_id ?>)
+        </div>
+        <div class="alert alert-info hidden-lg hidden-xs">
             欢迎使用跳蚤市场订单系统！
             <br>
             该订单订购的宝贝为：
