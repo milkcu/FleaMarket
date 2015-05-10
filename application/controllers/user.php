@@ -146,12 +146,13 @@ class User extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('phone', '手机', 'required|integer|exact_length[11]');
-		$this->form_validation->set_rules('qq', 'QQ', 'required|integer|min_lenght[5]|max_length[10]');
+		$this->form_validation->set_rules('qq', 'QQ', 'integer|min_lenght[5]|max_length[10]');
 		$this->form_validation->set_rules('avatar', '头像', 'required');
 		if($this->input->post() && $this->form_validation->run()) {
 			$contact['email'] = $this->input->post('email');
 			$contact['phone'] = $this->input->post('phone');
 			$contact['qq'] = $this->input->post('qq');
+            $contact['public'] = $this->input->post('public');
 			$jcontact = json_encode($contact);
 			$this->aauth->set_user_var('contact', $jcontact);
 			$avatar = $this->input->post('avatar');
@@ -222,7 +223,7 @@ class User extends CI_Controller {
 		}
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('phone', '手机', 'required|integer|exact_length[11]');
-		$this->form_validation->set_rules('qq', 'QQ', 'required|integer|min_lenght[5]|max_lenght[10]');
+		$this->form_validation->set_rules('qq', 'QQ', 'integer|min_lenght[5]|max_lenght[10]');
 		if($this->input->post() && $this->form_validation->run()) {
 			// process the form
 			$contact['email'] = $this->input->post('email');

@@ -16,15 +16,30 @@
             </div>
             <div class="row form-group">
                 <div class="col-lg-3 col-xs-3"><label>邮箱</label></div>
-                <div class="col-lg-9 col-xs-9"><input name="email" type="text" value="<?= set_value('email') ?>" class="form-control" required autocomplete="off"></div>
+                <div class="col-lg-9 col-xs-9">
+                    <div class="input-group">
+                        <input name="email" type="text" value="<?= set_value('email') ?>" class="form-control" required autocomplete="off" placeholder="必填">
+                        <label class="input-group-addon"><input type="checkbox" name="public[]" value="email"> 公开</label>
+                    </div>
+                </div>
             </div>
             <div class="row form-group">
                 <div class="col-lg-3 col-xs-3"><label>手机</label></div>
-                <div class="col-lg-9 col-xs-9"><input name="phone" type="text" value="<?= set_value('phone') ?>" class="form-control" required autocomplete="off"></div>
+                <div class="col-lg-9 col-xs-9">
+                    <div class="input-group">
+                        <input name="phone" type="text" value="<?= set_value('phone') ?>" class="form-control" required autocomplete="off" placeholder="必填">
+                        <label class="input-group-addon"><input type="checkbox" name="public[]" value="phone"> 公开</label>
+                    </div>
+                </div>
             </div>
             <div class="row form-group">
                 <div class="col-lg-3 col-xs-3"><label>QQ</label></div>
-                <div class="col-lg-9 col-xs-9"><input name="qq" type="text" value="<?= set_value('qq') ?>" class="form-control" required autocomplete="off"></div>
+                <div class="col-lg-9 col-xs-9">
+                    <div class="input-group">
+                        <input name="qq" type="text" value="<?= set_value('qq') ?>" class="form-control" required autocomplete="off" placeholder="选填">
+                        <label class="input-group-addon"><input type="checkbox" name="public[]" value="qq"> 公开</label>
+                    </div>
+                </div>
             </div>
             <input type="hidden" name="avatar" value="mysdnu-user-avatar-default.jpg">
             <div class="row form-group">
