@@ -172,7 +172,8 @@ class Orders extends CI_Model {
         $c['content'] = $comment;
         $c['created'] = date("Y-m-d H:i:s");
         $oc = $order->comment;
-        $oc[count($oc) + 1] = $c;
+        $oc[] = $c;
+        $oc = array_values($oc);
         $data['comment'] = json_encode($oc);
         $this->db->where('oid', $oid);
         $this->db->update('orders', $data);
