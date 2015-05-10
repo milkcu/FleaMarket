@@ -11,11 +11,11 @@
 		<nav class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="<?= site_url('product/index/1') ?>">图书教材</a></li>
-				<li><a href="<?= site_url('product/index/2') ?>">手机数码</a></li>
-				<li><a href="<?= site_url('product/index/3') ?>">电脑配件</a></li>
+				<li><a href="<?= site_url('product/index/2') ?>">数码电子</a></li>
+				<li><a href="<?= site_url('product/index/6') ?>">生活娱乐</a></li>
 				<li><a href="<?= site_url('product/index/4') ?>">运动户外</a></li>
 				<li><a href="<?= site_url('product/index/5') ?>">衣物百货</a></li>
-				<li><a href="<?= site_url('product/index/6') ?>">生活娱乐</a></li>
+				<li><a href="<?= site_url('product/index/3') ?>">其他分类</a></li>
 			</ul>
 
 			<form class="navbar-form pull-left hidden-xs" action="<?= site_url('product/search') ?>" method="post">
