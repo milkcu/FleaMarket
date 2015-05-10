@@ -260,3 +260,16 @@ table td {
 .nav-user-manager i {
 	width: 20px;
 }
+.want-content-pc {
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 80px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.want-content-mobile {
+    word-wrap: break-word;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

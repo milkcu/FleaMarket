@@ -51,6 +51,7 @@
 						<li><a href="<?= site_url('product/create') ?>"><i class="fa fa-pencil"></i> 发布宝贝</a></li>
 						<li><a href="<?= site_url('user/show') ?>"><i class="fa fa-book"></i> 个人中心</a></li>
 						<li><a href="<?= site_url('order/index/from') ?>"><i class="fa fa-reorder"></i> 订单系统</a></li>
+						<li><a href="<?= site_url('want/index') ?>"><i class="fa fa-heart"></i> 求购专区</a></li>
 						<li><a href="<?= site_url('message/index/inbox') ?>"><i class="fa fa-envelope"></i> 我的私信</a></li>
 						<li><a href="<?= site_url('user/modify') ?>"><i class="fa fa-user"></i> 资料修改</a></li>
                         <?php if($this->aauth->is_admin()) : ?>

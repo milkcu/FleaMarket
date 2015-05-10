@@ -42,7 +42,12 @@ class Message extends CI_Controller {
 			$product = $this->products->get_product($pid);
 			//$data['new_title'] = '和' . $other_sdnuinfo->name . '关于宝贝的会话（' . $product->title . '）';
             $data['new_title'] = '来自【' . $product->title . '】的会话';
-		}
+        } else {
+            $arr = explode('_', $pm->title);
+            if($arr[0] == 'want') {
+                $data['new_title'] = '来自【求购信息'. $arr[1] . '】的会话';
+            }
+        }
 		$this->load->view('message/show', $data);
 	}
 	public function send() {
@@ -102,7 +107,13 @@ class Message extends CI_Controller {
 				$this->load->model('products');
 				$product = $this->products->get_product($pid);
 				$pms[$i]->product = $product;
-			}
+                $title_key = $product->title;
+            } else {
+                $arr = explode('_', $pms[$i]->title);
+                if($arr[0] == 'want') {
+                    $title_key = '求购信息' . $arr[1];
+                }
+            }
 
 			$loggedin_id = $this->aauth->get_user_id();
 			if($pms[$i]->receiver_id == $loggedin_id) {
@@ -114,7 +125,8 @@ class Message extends CI_Controller {
 			$pms[$i]->other_sdnuinfo = $other_sdnuinfo;
 
 			//$pms[$i]->new_title = '和' . $other_sdnuinfo->name . '关于宝贝的会话';
-            $pms[$i]->new_title = '来自【' . $pms[$i]->product->title . '】的会话';
+            //$pms[$i]->new_title = '来自【' . $pms[$i]->product->title . '】的会话';
+            $pms[$i]->new_title = '来自【' . $title_key . '】的会话';
 		}
 
 		$this->pagination->initialize($config);

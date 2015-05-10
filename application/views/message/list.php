@@ -53,7 +53,13 @@
                     <td class="hidden-xs"><?= $pm->sender_sdnuinfo->user_id ?></td>
                     <td><a href="<?= site_url('message/show/inbox/' . $pm->id) ?>" title="<?= $pm->new_title ?>"><?= $pm->new_title ?></a></td>
                     <?php endif; ?>
-                    <td class="hidden-xs"><a href="<?= site_url('product/show/' . $pm->product->pid) ?>"><?= $pm->product->title ?></a></td>
+                    <td class="hidden-xs">
+                        <?php if(isset($pm->product)) : ?>
+                        <a href="<?= site_url('product/show/' . $pm->product->pid) ?>"><?= $pm->product->title ?></a>
+                        <?php else : ?>
+                        求购专区
+                        <?php endif; ?>
+                    </td>
                     <?php
                     $t = strtotime($pm->date);
                     if(time() - $t < 86400) {

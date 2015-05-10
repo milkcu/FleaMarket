@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="row form-group">
-                <div class="col-lg-9 col-lg-offset-3 col-xs-9 col-xs-offset-3"><input type="submit" value="修改信息" class="form-control btn btn-primary"></div>
+                <div class="col-lg-12 col-xs-12"><input type="submit" value="修改信息" class="form-control btn btn-primary"></div>
             </div>
             <?php if(validation_errors() != '') : ?>
             <div class="alert alert-danger">

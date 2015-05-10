@@ -23,14 +23,13 @@ class Collects extends CI_Model {
             return false;
         }
         $collects = $this->get_collects($uid);
-        $i = 0;
-        foreach($collects as $c) {
-                $i++;
-            if($c->pid == $pid) {
+        foreach($collects as $k => $v) {
+            if($v->pid == $pid) {
+                unset($collects[$k]);
                 break;
             }
         }
-        unset($collects[$i - 1]);
+        $collects = array_values($collects);
         $jcollects = json_encode($collects);
         $this->aauth->set_user_var('collect', $jcollects, $uid);
     }

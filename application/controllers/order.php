@@ -88,8 +88,13 @@ class Order extends CI_Controller {
 		} else {
             $pid = $this->uri->segment(3);
             $this->load->model('products');
-            $data['product'] = $this->products->get_product($pid);
-			$this->load->view('order/create', $data);
+            $product = $this->products->get_product($pid);
+            if($product->hidden) {
+                $this->load->view('page/product_delete');
+            } else {
+                $data['product'] = $product;
+                $this->load->view('order/create', $data);
+            }
 		}
 	}
 	public function affirm() {
