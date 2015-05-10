@@ -45,7 +45,9 @@ class Message extends CI_Controller {
         } else {
             $arr = explode('_', $pm->title);
             if($arr[0] == 'want') {
-                $data['new_title'] = '来自【求购信息'. $arr[1] . '】的会话';
+                $data['new_title'] = '来自【求购信息' . $arr[1] . '】的会话';
+            } elseif($arr[0] == 'report') {
+                $data['new_title'] = '来自【商品反馈' . $arr[1] . '】的会话';
             }
         }
 		$this->load->view('message/show', $data);
@@ -112,6 +114,11 @@ class Message extends CI_Controller {
                 $arr = explode('_', $pms[$i]->title);
                 if($arr[0] == 'want') {
                     $title_key = '求购信息' . $arr[1];
+                } elseif($arr[0] == 'report') {
+                    $this->load->model('products');
+                    $product = $this->products->get_product($arr[1]);
+                    $pms[$i]->product = $product;
+                    $title_key = '商品反馈' . $arr[1];
                 }
             }
 

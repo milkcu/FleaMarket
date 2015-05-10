@@ -71,6 +71,9 @@ class Want extends CI_Controller {
     }
     public function sendpm() {
 		//$this->output->enable_profiler(TRUE);
+        if( ! $this->aauth->is_loggedin()) {
+            redirect('user/login');
+        }
         $wid = $this->uri->segment(3);
 		$sender_id = $this->aauth->get_user_id();
         $this->load->model('wants');

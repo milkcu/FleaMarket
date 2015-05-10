@@ -125,6 +125,25 @@ class Product extends CI_Controller {
 		$this->products->delete_product($pid);
 		redirect('user/show');
 	}
+    public function report() {
+		//$this->output->enable_profiler(TRUE);
+        if( ! $this->aauth->is_loggedin()) {
+            redirect('user/login');
+        }
+        $pid = $this->uri->segment(3);
+		$sender_id = $this->aauth->get_user_id();
+        $this->load->model('wants');
+        $want = $this->wants->get_want($wid);
+		$receiver_id = admin_uid();
+		$title = 'report_' . $pid;
+		$message = $this->input->post('message');
+		$jsender_sdnuinfo = $this->aauth->get_user_var('sdnuinfo', $sender_id);
+		$sender_sdnuinfo = json_decode($jsender_sdnuinfo);
+		$send_date = date('Y-m-d H:i:s');
+		$new_message = '<b>' . $sender_sdnuinfo->name . ' 发送于 ' .$send_date . '</b><br>' . $message;
+		$this->aauth->send_pm($sender_id, $receiver_id, $title, $new_message);
+		redirect('message/index/outbox');
+    }
 	public function upload() {
 		// ajax upload
 		if(! $this->aauth->is_loggedin()) {

@@ -8,6 +8,13 @@ if ( ! function_exists('img_url'))
 		return $prefix . $key . $suffix;
 	}
 }
+if ( ! function_exists('admin_uid'))
+{
+	function admin_uid()
+	{
+        return 3;
+	}
+}
 if ( ! function_exists('assets_url'))
 {
 	function assets_url($uri = '')
