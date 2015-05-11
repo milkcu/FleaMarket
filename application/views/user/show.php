@@ -8,9 +8,18 @@
     <div class="col-lg-3 col-md-3 col-sm-4">
         <p><?= $sdnuinfo->name ?> （第<?= $user->id ?>位用户）</p>
         <p>学院：<?= $sdnuinfo->organization_name ?></p>
-        <p>邮箱：<?= $contact->email ?></p>
-        <p>手机号：<?= $contact->phone ?></p>
-        <p>QQ：<?= $contact->qq ?></p>
+        <p>
+            邮箱：
+            <?= isset($contact->email) ? $contact->email : '未填写（<a href="' . site_url('user/modify') . '">点击填写</a>）' ?>
+        </p>
+        <p>
+            手机号：
+            <?= isset($contact->phone) ? $contact->phone : '未填写（<a href="' . site_url('user/modify') . '">点击填写</a>）' ?>
+        </p>
+        <p>
+            QQ：
+            <?= isset($contact->qq) ? $contact->qq : '未填写（<a href="' . site_url('user/modify') . '">点击填写</a>）' ?>
+        </p>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-5">
         <p>用户编号：<?= $sdnuinfo->user_id ?></p>

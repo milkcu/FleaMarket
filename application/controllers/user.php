@@ -145,7 +145,7 @@ class User extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		$this->form_validation->set_rules('phone', '手机', 'required|integer|exact_length[11]');
+		$this->form_validation->set_rules('phone', '手机', 'integer|exact_length[11]');
 		$this->form_validation->set_rules('qq', 'QQ', 'integer|min_lenght[5]|max_length[10]');
 		$this->form_validation->set_rules('avatar', '头像', 'required');
 		if($this->input->post() && $this->form_validation->run()) {
@@ -215,12 +215,34 @@ class User extends CI_Controller {
 	public function complete() {
 		// complete the registration when firt logged
 		$sdnuinfo = $this->session->userdata('sdnuinfo');
-		$this->load->helper('form');
-		$this->load->library('form_validation');
 		if(!$sdnuinfo) {
 			redirect('user/login');
 			return;
 		}
+        // 智慧山师账号直接登录，不再设置中间处理页面
+        $avatar = 'mysdnu-user-avatar-default.jpg';
+        $sdnuinfo = $this->session->userdata('sdnuinfo');
+        $contact = array();
+        $jcontact = json_encode($contact);
+        $jsdnuinfo = json_encode($sdnuinfo);
+        $email = $sdnuinfo['user_id'] . '@i.sdnu.edu.cn';
+        $id = $this->aauth->create_user($email, $sdnuinfo['user_id'], $sdnuinfo['user_id']);
+        if($id) {
+            $this->aauth->set_user_var('avatar', $avatar, $id);
+            $this->aauth->set_user_var('contact', $jcontact, $id);
+            $this->aauth->set_user_var('sdnuinfo', $jsdnuinfo, $id);
+            $this->aauth->login($email, $sdnuinfo['user_id']);
+            // 发送注册成功通知
+            $this->inform_complete($id);
+            redirect('user/show');
+        } else {
+            // create user failure
+            $this->load->view('page/complete_fail');
+        }
+        return;
+        // 下面是以前的完善信息页面
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('phone', '手机', 'required|integer|exact_length[11]');
 		$this->form_validation->set_rules('qq', 'QQ', 'integer|min_lenght[5]|max_lenght[10]');

@@ -26,9 +26,9 @@
             </span>
         </div>
         <div class="list-group">
-            <span class="list-group-item">邮箱： <?= $contact->email ?></span>
-            <span class="list-group-item">手机： <?= $contact->phone ?></span>
-            <span class="list-group-item">QQ： <?= $contact->qq ?></span>
+            <span class="list-group-item">邮箱： <?= isset($contact->email) ? $contact->email : '' ?></span>
+            <span class="list-group-item">手机： <?= isset($contact->phone) ? $contact->phone : '' ?></span>
+            <span class="list-group-item">QQ： <?= isset($contact->qq) ? $contact->qq : '' ?></span>
         </div>
         <div class="list-group">
             <span class="list-group-item">登录IP：<?= $user->ip_address ?></span>
