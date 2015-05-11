@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/header', ['title' => '私信列表']) ?>
 <div class="row">
-    <div class="col-lg-9 col-xs-12">
+    <div class="col-lg-9 col-md-12 col-xs-12">
         <ul class="nav nav-tabs">
             <?php if($type == 'outbox') : ?>
             <li>
@@ -23,15 +23,15 @@
             <thead>
                 <tr>
                     <?php if($type == 'inbox') : ?>
-                    <th class="col-lg-1 col-xs-3">发件人</th>
-                    <th class="col-lg-2 hidden-xs">发件人编号</th>
+                    <th class="col-lg-1 col-md-1 col-xs-3">发件人</th>
+                    <th class="col-lg-2 col-md-2 hidden-xs">发件人编号</th>
                     <?php elseif($type == 'outbox') : ?>
-                    <th class="col-lg-1 col-xs-3">收件人</th>
-                    <th class="col-lg-2 hidden-xs">收件人编号</th>
+                    <th class="col-lg-1 col-md-1 col-xs-3">收件人</th>
+                    <th class="col-lg-2 col-md-2 hidden-xs">收件人编号</th>
                     <?php endif; ?>
-                    <th class="col-lg-4 col-xs-6">会话标题</th>
-                    <th class="col-lg-2 hidden-xs">相关宝贝</th>
-                    <th class="col-lg-3 col-xs-3">发送时间</th>
+                    <th class="col-lg-4 col-md-4 col-xs-6">会话标题</th>
+                    <th class="col-lg-2 col-md-2 hidden-xs">相关宝贝</th>
+                    <th class="col-lg-3 col-md-3 col-xs-3">发送时间</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,7 +68,7 @@
                         $time_show = date("n月j日", $t);
                     }
                     ?>
-                    <td><span class="hidden-xs"><?= $pm->date ?></span><span class="hidden-lg"><?= $time_show ?></span></td>
+                    <td><span class="hidden-xs"><?= $pm->date ?></span><span class="visible-xs"><?= $time_show ?></span></td>
                 </tr>
                 <?php endforeach; ?>
                 <?php endif; ?>
@@ -83,7 +83,7 @@
             <?php echo $this->pagination->create_links() ?>
         </div>
     </div>
-    <div class="col-lg-3 col-xs-12 hidden-xs">
+    <div class="col-lg-3 hidden-md hidden-xs">
         <div class="alert alert-info">
             欢迎使用私信功能，私信交流能够有效保证交易安全哦！
         </div>

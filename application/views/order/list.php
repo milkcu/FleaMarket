@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/header', ['title' => '订单列表']) ?>
 <div class="row">
-    <div class="col-lg-9 col-xs-12">
+    <div class="col-lg-9 col-md-12 col-xs-12">
         <ul class="nav nav-tabs">
             <?php if($type == 'from') : ?>
             <li class="active">
@@ -23,16 +23,16 @@
             <thead>
                 <tr>
                     <?php if($type == 'from') : ?>
-                    <th class="col-lg-1 hidden-xs">卖家</th>
-                    <th class="col-lg-2 hidden-xs">卖家编号</th>
+                    <th class="col-lg-1 col-md-1 hidden-xs">卖家</th>
+                    <th class="col-lg-2 col-md-2 hidden-xs">卖家编号</th>
                     <?php elseif($type == 'to') : ?>
-                    <th class="col-lg-1 hidden-xs">买家</th>
-                    <th class="col-lg-2 hidden-xs">买家编号</th>
+                    <th class="col-lg-1 col-md-1 hidden-xs">买家</th>
+                    <th class="col-lg-2 col-md-2 hidden-xs">买家编号</th>
                     <?php endif; ?>
-                    <th class="col-lg-3 col-xs-7">订单标题</th>
-                    <th class="col-lg-2 hidden-xs">相关宝贝</th>
-                    <th class="col-lg-2 hidden-xs">下单时间</th>
-                    <th class="col-lg-2 col-xs-5">订单状态</th>
+                    <th class="col-lg-3 col-md-3 col-xs-7">订单标题</th>
+                    <th class="col-lg-2 col-md-2 hidden-xs">相关宝贝</th>
+                    <th class="col-lg-2 col-md-2 hidden-xs">下单时间</th>
+                    <th class="col-lg-2 col-md-2 col-xs-5">订单状态</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,7 +68,7 @@
                     ?>
                     <td class="hidden-xs">
                         <span class="hidden-xs"><?= date("Y-m-d H:i", $t) ?></span>
-                        <span class="hidden-lg"><?= $time_show ?></span>
+                        <span class="visible-xs"><?= $time_show ?></span>
                     </td>
                     <td>
                         <?php if($order->fromid == $this->aauth->get_user_id()) : ?>
@@ -111,13 +111,13 @@
         <div class="list-pagination hidden-xs">
             <?php echo $this->pagination->create_links() ?>
         </div>
-        <div class="list-pagination hidden-lg">
+        <div class="list-pagination visible-xs">
             <?php $config['display_pages'] = FALSE ?>
             <?php $this->pagination->initialize($config) ?>
             <?php echo $this->pagination->create_links() ?>
         </div>
     </div>
-    <div class="col-lg-3 col-xs-12 hidden-xs">
+    <div class="col-lg-3 hidden-md hidden-xs">
         <div class="alert alert-info">
             欢迎使用订单，订单系统能够有效保证交易安全哦！
             请点击订单标题，进入订单详情页面进行相关操作。

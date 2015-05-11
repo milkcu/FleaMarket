@@ -18,7 +18,7 @@
 				<li><a href="<?= site_url('product/index/6') ?>">其他分类</a></li>
 			</ul>
 
-			<form class="navbar-form pull-left hidden-xs" action="<?= site_url('product/search') ?>" method="post">
+			<form class="navbar-form pull-left hidden-md hidden-xs" action="<?= site_url('product/search') ?>" method="post">
 				<div class="input-group">
 					<input type="text" name="q" class="form-control" placeholder="宝贝搜索" required>
 					<span class="input-group-btn">

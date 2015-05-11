@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/header', ['title' => '浏览订单']) ?>
 <div class="row">
-    <div class="hidden-lg col-xs-12">
+    <div class="visible-xs col-xs-12">
         <div class="alert alert-info">
             宝贝为：
             <a href="<?= site_url('product/show/' . $product->pid) ?>" class="alert-link"><?= $product->title ?></a>
@@ -11,14 +11,14 @@
             卖家为： <b><?= $order->to_sdnuinfo->name ?></b> (<?= $order->to_sdnuinfo->user_id ?>)
         </div>
     </div>
-    <div class="col-lg-8 col-xs-12 product-create-form">
+    <div class="col-lg-8 col-md-8 col-xs-12 product-create-form">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">处理流程</h3>
             </div>
             <div class="panel-body">
                 <div class="row" style="text-align: center">
-                    <div class="col-lg-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-xs-12">
                         <div class="alert alert-warning">
                             <?php if($order->fromid == $this->aauth->get_user_id()) : ?>
                                 <!-- 作为买家 -->
@@ -64,12 +64,12 @@
                             <?php endif; ?>
                         </div>
                     </div>
-                    <div class="col-lg-offset-3 col-lg-2 col-xs-4">
+                    <div class="col-lg-offset-3 col-lg-2 col-md-4 col-xs-4">
                         <div class="alert alert-success">
                             买家提交订单
                         </div>
                     </div>
-                    <div class="col-lg-2 col-xs-4">
+                    <div class="col-lg-2 col-md-4 col-xs-4">
                         <?php if($order->state == 'cancel') : ?>
                         <div class="alert alert-danger">
                             卖家取消订单
@@ -88,7 +88,7 @@
                         </div>
                         <?php endif; ?>
                     </div>
-                    <div class="col-lg-2 col-xs-4">
+                    <div class="col-lg-2 col-md-4 col-xs-4">
                         <?php if($order->state == 'cancel' or $order->state == 'delete') : ?>
                         <div class="alert alert-danger">
                             交易无法完成
@@ -107,8 +107,8 @@
                 <table class="table" style="margin-bottom: 0px;">
                     <thead>
                         <tr>
-                            <th class="col-lg-3 col-xs-4">处理时间</th>
-                            <th class="col-lg-8 col-xs-8">处理信息</th>
+                            <th class="col-lg-3 col-md-4 col-xs-4">处理时间</th>
+                            <th class="col-lg-9 col-md-8 col-xs-8">处理信息</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -117,7 +117,7 @@
                         <tr>
                             <td>
                                 <span class="hidden-xs"><?= $key ?></span>
-                                <span class="hidden-lg"><?= $key_display ?></span>
+                                <span class="visible-xs"><?= $key_display ?></span>
                             </td>
                             <td>
                                 <?= $value ?>
@@ -157,17 +157,17 @@
                     break;
                 }
                 ?>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-6 col-xs-12">
                     <p>下单时间： <?= $order->created ?></p>
                     <p>支付方式： <?= $payment_display ?></p>
                     <p>配送方式： <?= $delivery_display ?></p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-6 col-xs-12">
                     <p>收货人： <?= $order->receiver ?></p>
                     <p>收货地址： <?= $order->address ?></p>
                     <p>联系方式： <?= $order->contact ?></p>
                 </div>
-                <div class="col-lg-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-xs-12">
                     <p>订单备注： <?= $order->remark ?></p>
                 </div>
             </div>
@@ -193,14 +193,13 @@
                         <input type="hidden" name="oid" value="<?= $order->oid ?>">
                     </div>
                     <div class="form-group">
-                        <span class="hidden-xs hidden-lg">想要补充的在这里告诉对方！</span>
                         <input type="submit" value="发送留言" class="btn btn-primary pull-right">
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-xs-12">
+    <div class="col-lg-4 col-md-4 col-xs-12">
         <div class="alert alert-info hidden-xs">
             宝贝为：
             <a href="<?= site_url('product/show/' . $product->pid) ?>" class="alert-link"><?= $product->title ?></a>

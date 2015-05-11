@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/header', ['title' => '求购列表']) ?>
 <div class="row">
-    <div class="col-lg-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-xs-12">
         <ul class="nav nav-tabs" style="margin-bottom: 20px;">
             <li class="active">
                 <a href="<?= site_url('want/index') ?>">求购圈</a>
@@ -24,17 +24,17 @@
         </ul>
     </div>
     <?php foreach($wants as $w) : ?>
-    <div class="col-lg-4 col-xs-12">
+    <div class="col-lg-4 col-md-6 col-xs-12">
         <div class="row">
-            <div class="col-lg-2 col-xs-2">
+            <div class="col-lg-2 col-md-2 col-xs-2">
                 <img src="<?= img_url($w->avatar . '?imageView2/1/w/48/h/48') ?>">
             </div>
-            <div class="col-lg-10 col-xs-10">
+            <div class="col-lg-10 col-md-10 col-xs-10">
                 <div class="well well-sm" >
                     <strong><?= $w->sdnuinfo->name ?> 求购于 <?= $w->created ?></strong>
                     <br>
                     <div class="want-content-pc hidden-xs"><?= $w->content ?></div>
-                    <div class="want-content-mobile hidden-lg"><?= $w->content ?></div>
+                    <div class="want-content-mobile visible-xs"><?= $w->content ?></div>
                     <?php if($w->state == 'wait') : ?>
                         <a class="btn btn-xs btn-success">正在求购</a>
                         <?php if($this->aauth->is_loggedin()) : ?>
@@ -102,7 +102,7 @@
     <div class="list-pagination hidden-xs">
         <?php echo $this->pagination->create_links() ?>
     </div>
-    <div class="list-pagination hidden-lg">
+    <div class="list-pagination visible-xs">
         <?php $config['display_pages'] = FALSE ?>
         <?php $this->pagination->initialize($config) ?>
         <?php echo $this->pagination->create_links() ?>

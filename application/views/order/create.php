@@ -1,20 +1,20 @@
 <?php $this->load->view('layout/header', ['title' => '创建订单']) ?>
 <div class="row">
     <form method="post" action="create" name="creator">
-        <div class="col-lg-8 col-xs-12 product-create-form">
+        <div class="col-lg-8 col-md-8 col-xs-12 product-create-form">
             <div class="row">
-                <div class="hidden-lg col-xs-12">
+                <div class="visible-xs col-xs-12">
                     <div class="alert alert-info">
                         您将要订购的宝贝为：
                         <a href="<?= site_url('product/show/' . $product->pid) ?>" class="alert-link"><?= $product->title ?></a>
                     </div>
                 </div>
-                <div class="col-lg-offset-3 col-lg-6 col-xs-offset-0 col-xs-12">
+                <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
                     <div class="row form-group">
-                        <div class="col-lg-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-xs-3">
                             <label>支付方式</label>
                         </div>
-                        <div class="col-lg-9 col-xs-9">
+                        <div class="col-lg-9 col-md-9 col-xs-9">
                             <select name="payment" class="form-control">
                                 <option value="cash">货到付款</option>
                                 <!--<option value="online">在线支付</option>-->
@@ -22,10 +22,10 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-lg-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-xs-3">
                             <label>配送方式</label>
                         </div>
-                        <div class="col-lg-9 col-xs-9">
+                        <div class="col-lg-9 col-md-9 col-xs-9">
                             <select name="delivery" class="form-control">
                                 <option value="deliver">送货上门</option>
                                 <option value="self">用户自提</option>
@@ -33,34 +33,34 @@
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-lg-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-xs-3">
                             <label>收货人</label>
                         </div>
-                        <div class="col-lg-9 col-xs-9">
+                        <div class="col-lg-9 col-md-9 col-xs-9">
                             <input type="text" name="receiver" class="form-control" required>
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-lg-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-xs-3">
                             <label>收件地址</label>
                         </div>
-                        <div class="col-lg-9 col-xs-9">
+                        <div class="col-lg-9 col-md-9 col-xs-9">
                             <input type="text" name="address" value="<?= set_value('address') ?>" class="form-control" required>
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-lg-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-xs-3">
                             <label>联系方式</label>
                         </div>
-                        <div class="col-lg-9 col-xs-9">
+                        <div class="col-lg-9 col-md-9 col-xs-9">
                             <input type="text" name="contact" value="<?= set_value('contact') ?>" class="form-control" required>
                         </div>
                     </div>
                     <div class="row form-group">
-                        <div class="col-lg-3 col-xs-3">
+                        <div class="col-lg-3 col-md-3 col-xs-3">
                             <label>订单备注</label>
                         </div>
-                        <div class="col-lg-9 col-xs-9">
+                        <div class="col-lg-9 col-md-9 col-xs-9">
                             <textarea name="remark" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                     </div>
                     -->
                     <div class="row form-group">
-                        <div class="col-lg-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
                             <input type="hidden" name="pid" value="<?= $product->pid ?>">
                             <input type="submit" value="提交订单" class="form-control btn btn-primary">
                         </div>
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-xs-12">
             <?php if(validation_errors() != '') : ?>
             <div class="alert alert-danger">
                 <div class="product-create-sidebar-title">

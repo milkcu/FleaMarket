@@ -1,19 +1,18 @@
 <?php $this->load->view('layout/header', ['title' => '首页']) ?>
 <div class="row hidden-xs">
-	<div class="col-lg-12 index-sdnu-head">
-        <img src="<?= img_url('mysdnu-index-head.jpg') ?>">
-		<span>跳蚤市场</span>
+	<div class="col-lg-12 col-md-12 index-sdnu-head">
+        <img src="<?= img_url('mysdnu-index-head-new.jpg') ?>">
 	</div>
 </div>
 <div class="row">
-	<div class="col-lg-9 col-xs-12">
+	<div class="col-lg-9 col-md-12 col-xs-12">
 		<div class="well hidden-xs">
 			<div class="row index-feature-all">
-				<div class="col-lg-7">
+				<div class="col-lg-7 col-md-7">
 					<p class="index-feature-first">闲置市场，最爱跳蚤</p>
 					<p class="index-feature-second">用着不对，卖了重配</p>
 				</div>
-				<div class="col-lg-5">
+				<div class="col-lg-5 col-md-5">
 					<ul>
 						<li class="list-unstyled index-feature-quick">
 							<i class="fa fa-clock-o"></i>
@@ -39,7 +38,7 @@
 			<?php $prefix = img_url() ?>
 			<?php $suffix = '?imageView2/1/w/100/h/100' ?>
 			<?php foreach($categories as $c) : ?>
-			<div class="col-lg-6 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-xs-12">
 				<div class="well index-category-all">
 					<a href="<?= site_url('product/index/' . $c->cid) ?>">
 						<img src="<?= $prefix . $c->icon . $suffix ?>">
@@ -51,7 +50,7 @@
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<div class="col-lg-3 col-xs-12 hidden-xs">
+	<div class="col-lg-3 hidden-md hidden-xs">
 		<div class="well index-welcome">
 			<h2>欢迎来到跳蚤市场</h2>
 			<p>一个接地气的二手市场，专注于闲置物品的校园交易。</p>
@@ -61,10 +60,7 @@
 			<a href="<?= site_url('user/login') ?>" class="btn btn-primary">使用智慧山师账号登录</a>
 			<?php endif; ?>
 		</div>
-		<div class="loggedin">
-
-		</div>
-		<div class="well index-qrcode-app hidden-xs">
+		<div class="well index-qrcode-app">
 			<h4>安卓客户端扫一扫下载</h4>
             <img src="<?= img_url('Fgxn7mlZq0qxSYeHzBBB_dKoWbOx') ?>?imageView2/1/h/208/w/208">
 		</div>

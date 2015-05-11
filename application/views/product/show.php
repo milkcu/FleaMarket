@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/header', ['title' => $product->title . ' - ' . $product->category->name]) ?>
 <div class="row">
-    <div class="col-lg-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-xs-12">
         <ul class="breadcrumb">
             <li><a href="<?= site_url() ?>">跳蚤市场</a></li>
             <li><a href="<?= site_url('product/index/' . $product->category->cid) ?>"><?= $product->category->name ?></a></li>
@@ -9,7 +9,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-6 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-xs-12">
         <div class="carousel slide" id="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -40,7 +40,7 @@
                 </a>
         </div>  <!-- end of div.carousel -->
     </div>  <!-- end of div.col -->
-    <div class="col-lg-4 col-xs-12">
+    <div class="col-lg-4 col-md-4 col-xs-12">
         <div class="alert alert-info product-info">
             <div class="product-title"><h2><?= $product->title ?></h2></div>
             <div class="product-price">
@@ -67,13 +67,11 @@
                 <div class="product-key"><span class="label label-primary">商品分类<span></div>
                 <div class="product-value"><?= $product->category->name ?></div>
             </div>
-            <div class="row hidden-xs hidden-lg">
-            </div>  <!-- end of row jiathis -->
             <div class="row" style="text-align: center">
-                <div class="col-lg-3 col-xs-3">
+                <div class="col-lg-3 col-md-3 col-xs-3">
                     <a href="#modal-share" data-toggle="modal" class="btn btn-info">分享</a>
                 </div>
-                <div class="col-lg-3 col-xs-3">
+                <div class="col-lg-3 col-md-3 col-xs-3">
                     <?php if($this->aauth->is_loggedin()) : ?>
                         <?php if( ! $in_collect) : ?>
                         <a href="<?= site_url('user/addcollect/' . $product->pid) ?>" class="btn btn-primary">收藏</a>
@@ -84,7 +82,7 @@
                         <a href="#modal-login" data-toggle="modal" class="btn btn-primary">收藏</a>
                     <?php endif; ?>
                 </div>
-                <div class="col-lg-3 col-xs-3">
+                <div class="col-lg-3 col-md-3 col-xs-3">
                     <?php if($this->aauth->is_loggedin()) : ?>
                         <?php if($product->state == 0 && $product->uid != $this->aauth->get_user_id()) : ?>
                         <a href="<?= site_url('order/create/' . $product->pid) ?>" class="btn btn-danger">订购</a>
@@ -95,7 +93,7 @@
                         <a href="#modal-login" data-toggle="modal" class="btn btn-danger">订购</a>
                     <?php endif; ?>
                 </div>
-                <div class="col-lg-3 col-xs-3">
+                <div class="col-lg-3 col-md-3 col-xs-3">
                     <?php if($this->aauth->is_loggedin()) : ?>
                         <a href="#modal-report" data-toggle="modal" class="btn btn-warning">举报</a>
                     <?php else : ?>
@@ -105,7 +103,7 @@
             </div>
         </div>  <!-- end of alert -->
     </div>  <!-- end of col -->
-    <div class="col-lg-2 hidden-xs">
+    <div class="col-lg-2 col-md-2 hidden-xs">
         <div class="alert alert-success product-user">
             <div>
                 <?php $suffix = '?imageView2/1/w/140/h/140' ?>
@@ -130,22 +128,21 @@
             </div>
             <div class="product-user-contact">
                 <p>
-                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('email', $contact->public)) : ?>
+                    <?php if($this->aauth->is_loggedin() && is_array($contact->public) && in_array('email', $contact->public)) : ?>
                     <?= $contact->email ?>
                     <?php else : ?>
                     邮箱未公开
                     <?php endif; ?>
                 </p>
                 <p>
-                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('phone', $contact->public)) : ?>
-                    <i class="fa fa-phone"></i>
-                    <?= $contact->phone ?>
+                    <?php if($this->aauth->is_loggedin() && is_array($contact->public) && in_array('phone', $contact->public)) : ?>
+                    <i class="fa fa-phone"></i><?= $contact->phone ?>
                     <?php else : ?>
                     手机号未公开
                     <?php endif; ?>
                 </p>
                 <p>
-                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('qq', $contact->public)) : ?>
+                    <?php if($this->aauth->is_loggedin() && is_array($contact->public) && in_array('qq', $contact->public)) : ?>
                     <i class="fa fa-qq"></i>
                     <?= $contact->qq ?>
                     <?php else : ?>
@@ -156,9 +153,17 @@
             </div>
         </div>  <!-- end of alert -->
     </div>  <!-- end of col -->
-    <div class="col-lg-6 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-xs-12">
+        <div class="alert alert-warning visible-md">
+            <span>有什么不明白的可以向卖家咨询哦</span>
+            <?php if($this->aauth->is_loggedin()) : ?>
+            <a href="#modal-chat" data-toggle="modal" class="btn btn-sm btn-success pull-right">私信聊聊</a>
+            <?php else : ?>
+            <a href="#modal-login" data-toggle="modal" class="btn btn-sm btn-success pull-right">私信聊聊</a>
+            <?php endif; ?>
+        </div>
         <form method="post" action="<?= site_url('message/send/outbox') ?>">
-            <div class="panel panel-warning product-user-chat">
+            <div class="panel panel-warning product-user-chat hidden-md">
                 <div class="panel-heading">
                     私信聊聊
                     <?php if($this->aauth->is_loggedin()) : ?>
@@ -176,13 +181,13 @@
                     <div class="product-user-chat-unloggedin">
                         <a href="#modal-login" data-toggle="modal">
                             <span class="label label-warning hidden-xs">登录后才可显示联系方式并使用私信功能</span>
-                            <span class="label label-warning hidden-lg">请登录使用私信功能</span>
+                            <span class="label label-warning visible-xs">请登录使用私信功能</span>
                         </a>
                     </div>
                     <?php endif; ?>
-                </div>
-            </div>  <!-- end of panel -->
-        </form>
+                </form>
+            </div>
+        </div>  <!-- end of panel -->
     </div>  <!-- end of col -->
 </div>
 <div class="row">
@@ -193,14 +198,14 @@
     </div>
 </div>
 <div class="row">
-    <div class="hidden-lg col-xs-12">
+    <div class="visible-xs col-xs-12">
         <div class="list-group">
             <span class="list-group-item active" style="z-index: auto">主人信息</span>
             <span class="list-group-item">姓名： <?= $sdnuinfo->name ?></span>
             <span class="list-group-item">学院： <?= $sdnuinfo->organization_name ?></span>
             <span class="list-group-item">
                 邮箱：
-                <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('email', $contact->public)) : ?>
+                <?php if($this->aauth->is_loggedin() && is_array($contact->public) && in_array('email', $contact->public)) : ?>
                 <?= $contact->email ?>
                 <?php else : ?>
                 未公开
@@ -208,7 +213,7 @@
             </span>
             <span class="list-group-item">
                 手机：
-                <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('phone', $contact->public)) : ?>
+                <?php if($this->aauth->is_loggedin() && is_array($contact->public) && in_array('phone', $contact->public)) : ?>
                 <?= $contact->phone ?>
                 <?php else : ?>
                 未公开
@@ -216,7 +221,7 @@
             </span>
             <span class="list-group-item">
                 QQ：
-                <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('qq', $contact->public)) : ?>
+                <?php if($this->aauth->is_loggedin() && is_array($contact->public) && in_array('qq', $contact->public)) : ?>
                 <?= $contact->qq ?>
                 <?php else : ?>
                 未公开
@@ -277,6 +282,34 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                    <input type="submit" value="发送" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="modal-chat" class="modal fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form action="<?= site_url('message/send/outbox') ?>" method="post">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" class="close">×</button>
+                    <h4 class="modal-title">私信聊聊</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label">收件人：</label>
+                        <input type="text" value="<?= $sdnuinfo->name ?> (<?= $sdnuinfo->user_id ?>)" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">私信内容：</label>
+                        <textarea name="message" rows="4" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="receiver_id" value="<?= $product->uid ?>">
+                    <input type="hidden" name="title" value="<?= $product->pid ?>">
                     <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
                     <input type="submit" value="发送" class="btn btn-primary">
                 </div>

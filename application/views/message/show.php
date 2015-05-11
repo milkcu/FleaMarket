@@ -1,18 +1,18 @@
 <?php $this->load->view('layout/header', ['title' => '私信详情']) ?>
 <div class="row">
-    <div class="col-lg-9 col-xs-12 pm-show">
+    <div class="col-lg-9 col-md-9 col-xs-12 pm-show">
         <?php //print_r($pm) ?>
         <div class="pm-title">
             <h3><?= $new_title ?></h3>
             <hr>
         </div>
         <div class="row">
-        <div class="col-lg-1 col-xs-2">
+        <div class="col-lg-1 col-md-1 col-xs-2">
             <?php $prefix = img_url() ?>
             <?php $suffix = '?imageView2/1/w/48/h/48' ?>
             <img src="<?= $prefix . $other_avatar . $suffix ?>" class="img-rounded">
         </div>
-        <div class="col-lg-11 col-xs-10">
+        <div class="col-lg-11 col-md-11 col-xs-10">
             <form method="post" action="<?= site_url('message/send/inbox') ?>">
                 <div class="pm-info">
                     <!--
@@ -49,7 +49,7 @@
         </div>
     </div>
     </div> <!-- end of row -->
-    <div class="col-lg-3 col-xs-12 hidden-xs">
+    <div class="col-lg-3 col-md-3 hidden-xs">
         <div class="alert alert-info">
             欢迎使用私信功能，私信交流能够有效保证交易安全哦！
         </div>
