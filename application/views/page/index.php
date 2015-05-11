@@ -66,32 +66,26 @@
 		</div>
 		<div class="well index-qrcode-app hidden-xs">
 			<h4>安卓客户端扫一扫下载</h4>
-            <img src="<?= img_url('mysdnu-index-weixin-sintune.jpg') ?>?imageView2/1/h/208/w/208">
+            <img src="<?= img_url('Fgxn7mlZq0qxSYeHzBBB_dKoWbOx') ?>?imageView2/1/h/208/w/208">
 		</div>
 		<div class="index-feedback">
-			<form>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						 技术支持
-                        <!--
-						<input class="btn btn-warning btn-xs pull-right" type="submit" value="发送">
-                        -->
-					</div>
-					<div class="panel-body">
-						<input type="hidden" value="3" name="receiver_id">
-						<input type="hidden" value="来自首页的用户反馈" name="title">
-                        <!--
-						<textarea class="form-control" placeholder="不足之处请反馈" name="message"></textarea>
-                        -->
-                        <!--
-                        <p><i class="fa fa-qq"></i> <a href="tencent://message/?uin=184324224" style="font-weight: 700; color: #8a6d3b">184324224</a><p>
-                        <p><i class="fa fa-home"></i> <a href="http://www.sintune.net/" target="_blank" style="font-weight: 700; color: #8a6d3b">www.sintune.net</a></p>
-                        -->
-                        <p><a href="http://www.sintune.net" target="_blank">攻城狮 & 程序猿</a>
-                        <p><a href="http://i.sdnu.edu.cn/" target="_blank">智慧山师开发小组</a>
-					</div>
-				</div>
-			</form>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                     技术支持
+                </div>
+                <div class="panel-body">
+                    <!--
+                    <p><i class="fa fa-qq"></i> <a href="tencent://message/?uin=184324224" style="font-weight: 700; color: #8a6d3b">184324224</a><p>
+                    <p><i class="fa fa-home"></i> <a href="http://www.sintune.net/" target="_blank" style="font-weight: 700; color: #8a6d3b">www.sintune.net</a></p>
+                    -->
+                    <p>
+                        <a href="http://www.sintune.net" target="_blank">攻城狮 && 程序猿</a>
+                    </p>
+                    <p>
+                        <a href="http://i.sdnu.edu.cn/" target="_blank">智慧山师开发小组</a>
+                    </p>
+                </div>
+            </div>
 		</div>
 	</div>
 </div>

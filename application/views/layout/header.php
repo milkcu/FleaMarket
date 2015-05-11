@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="renderer" content="webkit">
 <title><?= $title ?> - 跳蚤市场</title>
-<link rel="shortcut icon" href="img/favicon.png">
+<link rel="shortcut icon" href="<?= base_url('assets/img/favicon.png') ?>">
 <!-- CSS Library Begin -->
 <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet" media="screen">
 <link href="<?= base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet" media="screen">

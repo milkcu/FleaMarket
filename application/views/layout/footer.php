@@ -14,6 +14,11 @@
             <a href="<?= site_url('want/index') ?>" style="background: #222222">求购专区</a>
             <a href="#modal-login" data-toggle="modal" style="background: #222222">我的私信</a>
             <a href="#modal-login" data-toggle="modal" style="background: #222222">用户中心</a>
+        <?php elseif($tab == 3) : ?>
+            <a href="<?= site_url() ?>" style="background: #222222">宝贝浏览</a>
+            <a href="<?= site_url('want/index') ?>" style="background: #222222">求购专区</a>
+            <a href="#modal-login" data-toggle="modal" style="background: #222222">我的私信</a>
+            <a href="#modal-login" data-toggle="modal" style="background: #333333">用户中心</a>
         <?php elseif($tab == 4) : ?>
             <a href="<?= site_url() ?>" style="background: #222222">宝贝浏览</a>
             <a href="<?= site_url('want/index') ?>" style="background: #333333">求购专区</a>

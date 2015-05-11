@@ -20,11 +20,11 @@
                         <select name="cid" class="form-control">
                             <option value="0" <?= set_select('cid', '0', TRUE) ?>>选择分类</option>
                             <option value="1" <?= set_select('cid', '1') ?>>图书教材</option>
-                            <option value="2" <?= set_select('cid', '2') ?>>手机数码</option>
-                            <option value="3" <?= set_select('cid', '3') ?>>电脑配件</option>
+                            <option value="2" <?= set_select('cid', '2') ?>>数码电子</option>
+                            <option value="3" <?= set_select('cid', '3') ?>>生活娱乐</option>
                             <option value="4" <?= set_select('cid', '4') ?>>运动户外</option>
                             <option value="5" <?= set_select('cid', '5') ?>>衣物百货</option>
-                            <option value="6" <?= set_select('cid', '6') ?>>生活娱乐</option>
+                            <option value="6" <?= set_select('cid', '6') ?>>其他分类</option>
                         </select>
                     </div>
                 </div>

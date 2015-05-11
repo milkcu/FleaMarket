@@ -22,7 +22,7 @@ $("#product-image-upload").unbind("change").on("change",function(){
 });
 
 //定义照片的最大高度
-var MAX_HEIGHT = 1024;
+var MAX_HEIGHT = 1440;
 var render = function(file,src){
     var image = new Image();
     image.onload = function(){

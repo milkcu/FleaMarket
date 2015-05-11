@@ -14,11 +14,11 @@
             </li>
             <?php if($this->aauth->is_loggedin()) : ?>
             <a href="#modal-want-create" data-toggle="modal" class="btn btn-success btn-sm pull-right">
-                <i class="fa fa-plus"></i> 发布
+                <i class="fa fa-plus"></i> 发布求购
             </a>
             <?php else : ?>
             <a href="#modal-login" data-toggle="modal" class="btn btn-success btn-sm pull-right">
-                <i class="fa fa-plus"></i> 发布
+                <i class="fa fa-plus"></i> 发布求购
             </a>
             <?php endif; ?>
         </ul>

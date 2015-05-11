@@ -229,6 +229,7 @@ class User extends CI_Controller {
 			$contact['email'] = $this->input->post('email');
 			$contact['phone'] = $this->input->post('phone');
 			$contact['qq'] = $this->input->post('qq');
+            $contact['public'] = $this->input->post('public');
 			$avatar = $this->input->post('avatar');
 			$sdnuinfo = $this->session->userdata('sdnuinfo');
 			$jcontact = json_encode($contact);

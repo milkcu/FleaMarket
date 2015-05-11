@@ -55,8 +55,8 @@
                         <th class="col-lg-1 hidden-xs">宝贝分类</th>
                         <th class="col-lg-1 hidden-xs">现在价格</th>
                         <th class="col-lg-1 hidden-xs">浏览次数</th>
-                        <th class="col-lg-1 col-xs-3">宝贝订购</th>
-                        <th class="col-lg-1 col-xs-3">删除收藏</th>
+                        <th class="col-lg-1 col-xs-3">宝贝操作</th>
+                        <th class="col-lg-1 col-xs-3">收藏操作</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,7 +79,7 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            <a class="btn btn-danger btn-xs" href="#modal-collect-delete-<?= $p->pid ?>" data-toggle="modal">删除收藏</a>
+                            <a class="btn btn-danger btn-xs" href="#modal-collect-delete-<?= $p->pid ?>" data-toggle="modal">点击删除</a>
                         </td>
                     </tr>
                     <div id="modal-collect-delete-<?= $p->pid ?>" class="modal fade" style="display: none;" aria-hidden="true">

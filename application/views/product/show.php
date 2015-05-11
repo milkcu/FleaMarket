@@ -11,7 +11,6 @@
 <div class="row">
     <div class="col-lg-6 col-xs-12">
         <div class="carousel slide" id="carousel">
-            <div>
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <li class="active" data-slide-to="0" data-target="#carousel"></li>
@@ -20,19 +19,7 @@
                     <?php endfor; ?>
                 </ol>
                 <!-- Wrapper for slides on PC -->
-                <div class="carousel-inner product-show-carousel-pc hidden-xs">
-                    <?php $suffix = '?imageView2/1/w/555/h/555' ?>
-                    <div class="item active">
-                        <img src="<?= img_url() . $product->images[0] . $suffix ?>" alt="First slide">
-                    </div>
-                    <?php for($i = 1; $i < count($product->images); $i++) : ?>
-                    <div class="item">
-                        <img src="<?= img_url() . $product->images[$i] . $suffix ?>" alt="Another slide">
-                    </div>
-                    <?php endfor; ?>
-                </div>
-                <!-- Wrapper for slides on Mobile -->
-                <div class="carousel-inner product-show-carousel-mobile hidden-lg">
+                <div class="carousel-inner">
                     <?php $suffix = '?imageView2/1/w/555/h/555' ?>
                     <div class="item active">
                         <img src="<?= img_url() . $product->images[0] . $suffix ?>" alt="First slide">
@@ -51,7 +38,6 @@
                 <a class="right carousel-control" data-slide="next" href="#carousel">
                     <span class="icon-next"></span>
                 </a>
-            </div>
         </div>  <!-- end of div.carousel -->
     </div>  <!-- end of div.col -->
     <div class="col-lg-4 col-xs-12">

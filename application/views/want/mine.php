@@ -9,7 +9,7 @@
                 <a href="<?= site_url('want/mine') ?>">我的求购</a>
             </li>
             <a href="#modal-want-create" data-toggle="modal" class="btn btn-success btn-sm pull-right">
-                <i class="fa fa-plus"></i> 发布
+                <i class="fa fa-plus"></i> 发布求购
             </a>
         </ul>
     </div>

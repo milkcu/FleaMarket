@@ -95,5 +95,22 @@ $db['local']['dbcollat'] = 'utf8_general_ci';
 $db['local']['swap_pre'] = '';
 $db['local']['autoinit'] = TRUE;
 $db['local']['stricton'] = FALSE;
+
+$db['mysdnu']['hostname'] = 'localhost';
+$db['mysdnu']['username'] = 'milkcu_mysdnu';
+$db['mysdnu']['password'] = 'mysdnushare';
+$db['mysdnu']['database'] = 'milkcu_mysdnucom';
+$db['mysdnu']['dbdriver'] = 'mysql';
+$db['mysdnu']['dbprefix'] = 'sdnuflea_';
+$db['mysdnu']['pconnect'] = TRUE;
+$db['mysdnu']['db_debug'] = TRUE;
+$db['mysdnu']['cache_on'] = FALSE;
+$db['mysdnu']['cachedir'] = '';
+$db['mysdnu']['char_set'] = 'utf8';
+$db['mysdnu']['dbcollat'] = 'utf8_general_ci';
+$db['mysdnu']['swap_pre'] = '';
+$db['mysdnu']['autoinit'] = TRUE;
+$db['mysdnu']['stricton'] = FALSE;
+
 /* End of file database.php */
 /* Location: ./application/config/database.php */
