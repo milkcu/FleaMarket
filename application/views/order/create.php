@@ -1,7 +1,7 @@
 <?php $this->load->view('layout/header', ['title' => '创建订单']) ?>
 <div class="row">
     <form method="post" action="create" name="creator">
-        <div class="col-lg-8 col-md-8 col-xs-12 product-create-form">
+        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 product-create-form">
             <div class="row">
                 <div class="visible-xs col-xs-12">
                     <div class="alert alert-info">
@@ -9,7 +9,7 @@
                         <a href="<?= site_url('product/show/' . $product->pid) ?>" class="alert-link"><?= $product->title ?></a>
                     </div>
                 </div>
-                <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-xs-12">
+                <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
                     <div class="row form-group">
                         <div class="col-lg-3 col-md-3 col-xs-3">
                             <label>支付方式</label>
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
             <?php if(validation_errors() != '') : ?>
             <div class="alert alert-danger">
                 <div class="product-create-sidebar-title">

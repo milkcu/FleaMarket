@@ -18,7 +18,7 @@
 				<li><a href="<?= site_url('product/index/6') ?>">其他分类</a></li>
 			</ul>
 
-			<form class="navbar-form pull-left hidden-md hidden-xs" action="<?= site_url('product/search') ?>" method="post">
+			<form class="navbar-form pull-left hidden-md hidden-sm hidden-xs" action="<?= site_url('product/search') ?>" method="post">
 				<div class="input-group">
 					<input type="text" name="q" class="form-control" placeholder="宝贝搜索" required>
 					<span class="input-group-btn">
@@ -31,14 +31,14 @@
 				<?php if(! $this->aauth->is_loggedin()) : ?>
 				<li class="active"><a href="#modal-login" data-toggle="modal"><i class="fa fa-sign-in"></i>登录</a></li>
 				<?php else : ?>
-                <li class="">
-                <a href="<?= site_url('message/index/inbox') ?>">
-                    <i class="fa fa-envelope-o"></i>
-                    <?php $pmnum = $this->aauth->count_unread_pms() ?>
-                    <?php if($pmnum > 0) : ?>
-                    <span class="badge pm-nav"><?= $pmnum ?></span>
-                    <?php endif; ?>
-                </a>
+                <li class=" hidden-sm">
+                    <a href="<?= site_url('message/index/inbox') ?>">
+                        <i class="fa fa-envelope-o"></i>
+                        <?php $pmnum = $this->aauth->count_unread_pms() ?>
+                        <?php if($pmnum > 0) : ?>
+                        <span class="badge pm-nav"><?= $pmnum ?></span>
+                        <?php endif; ?>
+                    </a>
                 </li>
 				<li class="dropdown active">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">

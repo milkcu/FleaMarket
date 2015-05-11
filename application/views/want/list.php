@@ -24,7 +24,7 @@
         </ul>
     </div>
     <?php foreach($wants as $w) : ?>
-    <div class="col-lg-4 col-md-6 col-xs-12">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
         <div class="row">
             <div class="col-lg-2 col-md-2 col-xs-2">
                 <img src="<?= img_url($w->avatar . '?imageView2/1/w/48/h/48') ?>">

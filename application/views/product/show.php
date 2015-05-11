@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/header', ['title' => $product->title . ' - ' . $product->category->name]) ?>
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <ul class="breadcrumb">
             <li><a href="<?= site_url() ?>">跳蚤市场</a></li>
             <li><a href="<?= site_url('product/index/' . $product->category->cid) ?>"><?= $product->category->name ?></a></li>
@@ -9,7 +9,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-6 col-md-6 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
         <div class="carousel slide" id="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -40,7 +40,7 @@
                 </a>
         </div>  <!-- end of div.carousel -->
     </div>  <!-- end of div.col -->
-    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
         <div class="alert alert-info product-info">
             <div class="product-title"><h2><?= $product->title ?></h2></div>
             <div class="product-price">
@@ -103,7 +103,7 @@
             </div>
         </div>  <!-- end of alert -->
     </div>  <!-- end of col -->
-    <div class="col-lg-2 col-md-2 hidden-xs">
+    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
         <div class="alert alert-success product-user">
             <div>
                 <?php $suffix = '?imageView2/1/w/140/h/140' ?>
@@ -153,7 +153,7 @@
             </div>
         </div>  <!-- end of alert -->
     </div>  <!-- end of col -->
-    <div class="col-lg-6 col-md-6 col-xs-12">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="alert alert-warning visible-md">
             <span>有什么不明白的可以向卖家咨询哦</span>
             <?php if($this->aauth->is_loggedin()) : ?>
@@ -192,13 +192,13 @@
 </div>
 <div class="row">
     <div class="col-lg-12 col-xs-12">
-        <div class="well product-detail">
+        <div class="well product-detail" style="word-wrap: break-word;">
             <p><?= nl2br($product->detail) ?></p>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="visible-xs col-xs-12">
+    <div class="visible-sm col-sm-12 visible-xs col-xs-12">
         <div class="list-group">
             <span class="list-group-item active" style="z-index: auto">主人信息</span>
             <span class="list-group-item">姓名： <?= $sdnuinfo->name ?></span>

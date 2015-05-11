@@ -1,6 +1,6 @@
 <?php $this->load->view('layout/header', ['title' => '完成登录']) ?>
 <div class="row">
-    <div class="col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-xs-12">
+    <div class="col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12">
         <form method="post" action="complete">
             <div class="row form-group">
                 <div class="col-lg-2 col-xs-2"><label>学号</label></div>

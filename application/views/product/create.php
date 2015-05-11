@@ -1,21 +1,21 @@
 <?php $this->load->view('layout/header', ['title' => '发布宝贝']) ?>
 <div class="row">
     <form method="post" action="create" name="creator">
-        <div class="col-lg-8 col-md-12 col-xs-12 product-create-form">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 product-create-form">
             <div class="row">
-                <div class="col-lg-10 col-md-10 col-xs-12">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                     <div class=" form-group">
                         <input name="title" value="<?= set_value('title') ?>" type="text" class="form-control" placeholder="请输入宝贝名称" autocomplete="off" required>
                     </div>
                 </div>
                 <div class=" form-group">
-                    <div class="col-lg-2 col-md-2 hidden-xs">
+                    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                         <input type="submit" value="发布宝贝" class="form-control btn btn-primary">
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-xs-6">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                     <div class="form-group">
                         <select name="cid" class="form-control">
                             <option value="0" <?= set_select('cid', '0', TRUE) ?>>选择分类</option>
@@ -28,12 +28,12 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-xs-6">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                     <div class="form-group">
                         <input name="place" value="<?= set_value('place') ?>" type="text" class="form-control" placeholder="交易地点" autocomplete="off" required>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-2 col-xs-6">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                     <div class="form-group">
                         <div class="input-group">
                             <input name="original" value="<?= set_value('original') ?>" type="text" class="form-control" placeholder="原价" autocomplete="off" required>
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-2 col-xs-6">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                     <div class="form-group">
                         <div class="input-group">
                             <input name="current" value="<?= set_value('current') ?>" type="text" class="form-control" placeholder="现价" autocomplete="off" required>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-2 hidden-xs">
+                <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                     <div class="form-group">
                         <a class="form-control btn btn-primary" href="javascript:void(0)" onclick="javascript:document.getElementById('product-image-upload').click()">上传图片</a>
                     </div>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 -->
-                <div class="col-lg-12 col-md-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <textarea name="detail" rows="15" class="form-control" placeholder="请输入宝贝描述"><?= set_value('detail') ?></textarea>
                     </div>
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-12 col-xs-12">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
             <?php if(validation_errors() != '') : ?>
             <div class="alert alert-danger">
                 <div class="product-create-sidebar-title">
@@ -121,7 +121,7 @@
                 <?php $this->load->view('product/html5_upload') ?>
                 <?php $images = set_value('images') ?>
                 <?php if($images != '') : ?>
-                <div class="col-lg-6 col-md-4 col-xs-6" id="<?= $images ?>">
+                <div class="col-lg-6 col-md-4 col-sm-4 col-xs-6" id="<?= $images ?>">
                     <div class="media alert alert-success" style="text-align: center;">
                         <img src="<?= img_url($images, '?imageView2/1/w/100/h/100') ?>" alt="上传成功">
                         <div class="media-body" style="margin-top: -10px; margin-right: -10px; float: right;">

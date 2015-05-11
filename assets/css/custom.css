@@ -110,14 +110,14 @@ table td {
 	margin-left: 15px;
 }
 .product-info {
-	height: 385px;
+	height: 405px;
 }
 .product-info-and-user {
     margin-top: 20px;
 }
 .product-user {
 	text-align: center;
-	height: 385px;
+	height: 405px;
 }
 .product-user img {
     width: 100%;
@@ -129,7 +129,7 @@ table td {
 	margin-bottom: 0px;
 }
 .product-user-chat {
-	height: 150px;
+	height: 130px;
 }
 .product-user-chat-unloggedin {
 	font-size: 24px;

@@ -2,7 +2,7 @@
 <?php $prefix = img_url() ?>
 <?php $suffix = '?imageView2/1/w/245/h/245' ?>
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <ul class="breadcrumb">
             <li><a href="<?= site_url() ?>">跳蚤市场</a></li>
             <li class="active"><?= $category->name ?></li>
@@ -11,7 +11,7 @@
 </div>
 <div class="row">
     <?php foreach($products as $p) : ?>
-    <div class="col-lg-3 col-md-4 col-xs-6">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
         <div class="thumbnail list-product-item">
             <a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>">
                 <img src="<?= $prefix . $p->images[0] . $suffix ?>" alt="thumbnail">
@@ -35,7 +35,7 @@
     <?php endforeach; ?>
 </div>
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="list-pagination hidden-xs">
             <?php echo $this->pagination->create_links() ?>
         </div>

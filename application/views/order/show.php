@@ -11,7 +11,7 @@
             卖家为： <b><?= $order->to_sdnuinfo->name ?></b> (<?= $order->to_sdnuinfo->user_id ?>)
         </div>
     </div>
-    <div class="col-lg-8 col-md-8 col-xs-12 product-create-form">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 product-create-form">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">处理流程</h3>
@@ -157,12 +157,15 @@
                     break;
                 }
                 ?>
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <p>下单时间： <?= $order->created ?></p>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <p>下单时间：
+                        <span class="hidden-sm"><?= $order->created ?></span>
+                        <span class="visible-sm-inline"><?= date('m月d日H:i', strtotime($order->created)) ?></span>
+                    </p>
                     <p>支付方式： <?= $payment_display ?></p>
                     <p>配送方式： <?= $delivery_display ?></p>
                 </div>
-                <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <p>收货人： <?= $order->receiver ?></p>
                     <p>收货地址： <?= $order->address ?></p>
                     <p>联系方式： <?= $order->contact ?></p>
@@ -199,7 +202,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-xs-12">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <div class="alert alert-info hidden-xs">
             宝贝为：
             <a href="<?= site_url('product/show/' . $product->pid) ?>" class="alert-link"><?= $product->title ?></a>

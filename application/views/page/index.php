@@ -1,18 +1,19 @@
 <?php $this->load->view('layout/header', ['title' => '首页']) ?>
 <div class="row hidden-xs">
-	<div class="col-lg-12 col-md-12 index-sdnu-head">
+	<div class="col-lg-12 col-md-12 col-sm-12 index-sdnu-head">
         <img src="<?= img_url('mysdnu-index-head-new.jpg') ?>">
 	</div>
 </div>
 <div class="row">
-	<div class="col-lg-9 col-md-12 col-xs-12">
+	<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
 		<div class="well hidden-xs">
 			<div class="row index-feature-all">
-				<div class="col-lg-7 col-md-7">
+				<div class="col-lg-7 col-md-7 col-sm-6">
 					<p class="index-feature-first">闲置市场，最爱跳蚤</p>
-					<p class="index-feature-second">用着不对，卖了重配</p>
+					<p class="index-feature-second hidden-sm">用着不对，卖了重配</p>
+					<p class="index-feature-first visible-sm">用着不对，卖了重配</p>
 				</div>
-				<div class="col-lg-5 col-md-5">
+				<div class="col-lg-5 col-md-5 col-sm-6">
 					<ul>
 						<li class="list-unstyled index-feature-quick">
 							<i class="fa fa-clock-o"></i>
@@ -38,7 +39,7 @@
 			<?php $prefix = img_url() ?>
 			<?php $suffix = '?imageView2/1/w/100/h/100' ?>
 			<?php foreach($categories as $c) : ?>
-			<div class="col-lg-6 col-md-6 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="well index-category-all">
 					<a href="<?= site_url('product/index/' . $c->cid) ?>">
 						<img src="<?= $prefix . $c->icon . $suffix ?>">
@@ -50,7 +51,7 @@
 			<?php endforeach; ?>
 		</div>
 	</div>
-	<div class="col-lg-3 hidden-md hidden-xs">
+	<div class="col-lg-3 hidden-md hidden-sm hidden-xs">
 		<div class="well index-welcome">
 			<h2>欢迎来到跳蚤市场</h2>
 			<p>一个接地气的二手市场，专注于闲置物品的校园交易。</p>

@@ -65,7 +65,7 @@ function putb64(pic){
     </div>\
 	<input type="hidden" name="images[]" value="' + filename + '">\
 </div>';
-            $('<div class="col-lg-6 col-md-4 col-xs-6" id="' + divid + '"/>').text('').appendTo(document.getElementById('product-image-create'));
+            $('<div class="col-lg-6 col-md-4 col-sm-4 col-xs-6" id="' + divid + '"/>').text('').appendTo(document.getElementById('product-image-create'));
             document.getElementById(divid).innerHTML = tmp;
             $('#progress .bar').css('width', '100%');
 		}
