@@ -37,7 +37,11 @@
                     <div class="want-content-mobile hidden-lg"><?= $w->content ?></div>
                     <?php if($w->state == 'wait') : ?>
                         <a class="btn btn-xs btn-success">正在求购</a>
+                        <?php if($this->aauth->is_loggedin()) : ?>
                         <a href="#modal-want-pm-<?= $w->wid ?>" data-toggle="modal" class="btn btn-xs btn-primary pull-right">点击私信</a>
+                        <?php else : ?>
+                        <a href="#modal-login" data-toggle="modal" class="btn btn-xs btn-primary pull-right">点击私信</a>
+                        <?php endif; ?>
                     <?php else : ?>
                         <a class="btn btn-xs btn-danger">求购完成</a>
                         <a class="btn btn-xs btn-default pull-right">私信聊聊</a>
