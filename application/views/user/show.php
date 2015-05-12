@@ -1,48 +1,5 @@
 <?php $this->load->view('layout/header', ['title' => '我的宝贝']) ?>
-<div class="row user-show-info hidden-xs">
-    <div class="col-lg-2 col-md-2 col-sm-3">
-        <?php $prefix = img_url() ?>
-        <?php $suffix = '?imageView2/1/w/140/h/140' ?>
-        <img class="img-thumbnail" src="<?= $prefix . $avatar . $suffix ?>" alt=".img-thumbnail">
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-4">
-        <p><?= $sdnuinfo->name ?> （第<?= $user->id ?>位用户）</p>
-        <p>学院：<?= $sdnuinfo->organization_name ?></p>
-        <p>
-            邮箱：
-            <?= isset($contact->email) ? $contact->email : '未填写（<a href="' . site_url('user/modify') . '">点击填写</a>）' ?>
-        </p>
-        <p>
-            手机号：
-            <?= isset($contact->phone) ? $contact->phone : '未填写（<a href="' . site_url('user/modify') . '">点击填写</a>）' ?>
-        </p>
-        <p>
-            QQ：
-            <?= isset($contact->qq) ? $contact->qq : '未填写（<a href="' . site_url('user/modify') . '">点击填写</a>）' ?>
-        </p>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-5">
-        <p>用户编号：<?= $sdnuinfo->user_id ?></p>
-        <p>用户类别：
-            <?php if($sdnuinfo->user_type == 0) : ?>
-            本科生
-            <?php elseif($sdnuinfo->user_type == 1) : ?>
-            研究生
-            <?php elseif($sdnuinfo->user_type == 2) : ?>
-            教职工
-            <?php endif; ?>
-        </p>
-        <p>登录IP：<?= $user->ip_address ?></p>
-        <p>注册时间：<?= $user->created_on ?></p>
-        <p>上次登录：<?= $user->last_login ?></p>
-    </div>
-    <div class="col-lg-4 col-md-4 hidden-sm">
-        <div class="alert alert-info" style="margin-bottom: 0px;">
-            <h4>欢迎使用跳蚤市场</h4>
-            <p>跳蚤市场（www.mysdnu.com）是专门为山师同胞打造的校内二手交易平台，用户身份均已认证，请放心使用，并在使用过程中遵守相关规定。</p>
-        </div>
-    </div>
-</div>
+<?php $this->load->view('user/show_info') ?>
 <div class="row" id='product-mng'>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <a href="<?= site_url('product/create') ?>" class="btn btn-primary btn-sm pull-right">

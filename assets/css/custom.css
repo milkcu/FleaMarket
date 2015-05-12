@@ -158,6 +158,16 @@ table td {
 .user-show-info {
 	margin-bottom: 20px;
 }
+.user-show-info img {
+    height: 120px;
+    width: 120px;
+}
+.user-show-info h4 {
+    margin-bottom: 5px;
+}
+.user-show-info .alert {
+    padding: 15px;
+}
 /*
  * message show
  */
