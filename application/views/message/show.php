@@ -25,24 +25,6 @@
                     <input type="submit" value="继续追问" class="btn btn-primary form-group">
                     <?php endif; ?>
                 </div>
-                <!--
-                <?php if($type == 'inbox') : ?>
-                <input type="hidden" name="receiver_id" value="<?= $pm->sender_id ?>">
-                <?php elseif($type == 'outbox') : ?>
-                <input type="hidden" name="receiver_id" value="<?= $pm->receiver_id ?>">
-                <?php endif; ?>
-                -->
-                <?php
-                if($type == 'inbox') {
-                    $new_receiver_id = $pm->sender_id;
-                } elseif($type == 'outbox') {
-                    $new_receiver_id = $pm->receiver_id;
-                }
-                ?>
-                <input type="hidden" name="receiver_id" value="<?= $new_receiver_id ?>">
-                <input type="hidden" name="title" value="<?= $pm->title ?>">
-                <input type="hidden" name="old_id" value="<?= $pm->id ?>">
-                <input type="hidden" name="old_message" value="<?= $pm->message ?>">
                 <textarea name="message" rows="4" class="form-control form-group" placeholder="请输入信息内容"></textarea>
             </form>
             <div class="well well-sm"><?= $pm->message ?></div>
