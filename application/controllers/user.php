@@ -107,6 +107,12 @@ class User extends CI_Controller {
         $pid = $this->uri->segment(3);
         $this->load->model('collects');
         $this->collects->del_collect($pid, $this->aauth->get_user_id());
+        if($this->uri->segment(4)) {
+            $to = $this->uri->segment(4);
+            if($to == show) {
+                redirect('product/show/' . $pid);
+            }
+        }
         redirect('user/collect');
     }
 	public function follow() {

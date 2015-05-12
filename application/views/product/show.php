@@ -67,37 +67,27 @@
                 <div class="product-key"><span class="label label-primary">商品分类<span></div>
                 <div class="product-value"><?= $product->category->name ?></div>
             </div>
-            <div class="row" style="text-align: center">
-                <div class="col-lg-3 col-md-3 col-xs-3">
+            <div class="row">
+                <div class="col-xs-12 product-show-button">
                     <a href="#modal-share" data-toggle="modal" class="btn btn-info">分享</a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-3">
-                    <?php if($this->aauth->is_loggedin()) : ?>
-                        <?php if( ! $in_collect) : ?>
-                        <a href="<?= site_url('user/addcollect/' . $product->pid) ?>" class="btn btn-primary">收藏</a>
-                        <?php else : ?>
-                        <span class="btn btn-default">已收藏</a>
-                        <?php endif; ?>
-                    <?php else : ?>
+                    <?php if( ! $this->aauth->is_loggedin()) : ?>
                         <a href="#modal-login" data-toggle="modal" class="btn btn-primary">收藏</a>
-                    <?php endif; ?>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-3">
-                    <?php if($this->aauth->is_loggedin()) : ?>
-                        <?php if($product->state == 0 && $product->uid != $this->aauth->get_user_id()) : ?>
-                        <a href="<?= site_url('order/create/' . $product->pid) ?>" class="btn btn-danger">订购</a>
-                        <?php else : ?>
-                        <span class="btn btn-default">已订购</span>
-                        <?php endif; ?>
-                    <?php else : ?>
                         <a href="#modal-login" data-toggle="modal" class="btn btn-danger">订购</a>
-                    <?php endif; ?>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-3">
-                    <?php if($this->aauth->is_loggedin()) : ?>
-                        <a href="#modal-report" data-toggle="modal" class="btn btn-warning">举报</a>
-                    <?php else : ?>
                         <a href="#modal-login" data-toggle="modal" class="btn btn-warning">举报</a>
+                    <?php else : ?>
+                        <?php if( ! $in_collect) : ?>
+                            <a href="<?= site_url('user/addcollect/' . $product->pid) ?>" class="btn btn-primary">收藏</a>
+                        <?php else : ?>
+                            <a href="#modal-collect-delete" data-toggle="modal" class="btn btn-primary">取消收藏</a>
+                        <?php endif; ?>
+                        <?php if($product->state == 0 && $product->uid != $this->aauth->get_user_id()) : ?>
+                            <a href="<?= site_url('order/create/' . $product->pid) ?>" class="btn btn-danger">订购</a>
+                        <?php else : ?>
+                            <a class="btn btn-danger">已拥有</a>
+                        <?php endif; ?>
+                        <?php if($this->aauth->is_loggedin()) : ?>
+                            <a href="#modal-report" data-toggle="modal" class="btn btn-warning">举报</a>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
             </div>
@@ -154,12 +144,12 @@
         </div>  <!-- end of alert -->
     </div>  <!-- end of col -->
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <div class="alert alert-warning visible-md">
+        <div class="alert alert-warning visible-md product-user-chat-md">
             <span>有什么不明白的可以向卖家咨询哦</span>
             <?php if($this->aauth->is_loggedin()) : ?>
-            <a href="#modal-chat" data-toggle="modal" class="btn btn-sm btn-success pull-right">私信聊聊</a>
+            <a href="#modal-chat" data-toggle="modal" class="btn btn-xs btn-success pull-right">私信聊聊</a>
             <?php else : ?>
-            <a href="#modal-login" data-toggle="modal" class="btn btn-sm btn-success pull-right">私信聊聊</a>
+            <a href="#modal-login" data-toggle="modal" class="btn btn-xs btn-success pull-right">私信聊聊</a>
             <?php endif; ?>
         </div>
         <form method="post" action="<?= site_url('message/send/outbox') ?>">
@@ -192,7 +182,7 @@
 </div>
 <div class="row">
     <div class="col-lg-12 col-xs-12">
-        <div class="well product-detail" style="word-wrap: break-word;">
+        <div class="well product-detail">
             <p><?= nl2br($product->detail) ?></p>
         </div>
     </div>
@@ -314,6 +304,23 @@
                     <input type="submit" value="发送" class="btn btn-primary">
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+<div id="modal-collect-delete" class="modal fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" class="close">×</button>
+                <h4 class="modal-title">删除提示</h4>
+            </div>
+            <div class="modal-body">
+                确认删除收藏吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                <a href="<?= site_url('user/delcollect/' . $product->pid . '/show') ?>" class="btn btn-primary">删除</a>
+            </div>
         </div>
     </div>
 </div>

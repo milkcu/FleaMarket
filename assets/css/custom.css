@@ -137,8 +137,20 @@ table td {
 	vertical-align: middle;
 	margin-top: 10px;
 }
+.product-user-chat-md {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 .product-detail {
     margin-top: 0px;
+    word-wrap: break-word;
+}
+.product-show-button {
+    margin-top: 15px;
+    text-align: center;
+}
+.product-show-button a {
+    margin-right: 5px;
 }
 /*
  * user show
