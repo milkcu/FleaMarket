@@ -11,7 +11,7 @@
 </div>
 <div class="row">
     <?php foreach($products as $p) : ?>
-    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
         <div class="thumbnail list-product-item">
             <a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>">
                 <img src="<?= $prefix . $p->images[0] . $suffix ?>" alt="thumbnail">

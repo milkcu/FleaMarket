@@ -1,4 +1,18 @@
 <?php $this->load->view('layout/header', ['title' => '首页']) ?>
+<div class="row visible-sm visible-xs">
+    <div class="col-xs-12">
+        <div class="well well-sm">
+            <form action="<?= site_url('product/search') ?>" method="post">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="宝贝搜索" required>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="row hidden-xs">
 	<div class="col-lg-12 col-md-12 col-sm-12 index-sdnu-head">
         <img src="<?= img_url('mysdnu-index-head-new.jpg') ?>">
@@ -6,8 +20,8 @@
 </div>
 <div class="row">
 	<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-		<div class="well hidden-xs">
-			<div class="row index-feature-all">
+		<div class="well hidden-xs index-feature-all">
+			<div class="row">
 				<div class="col-lg-7 col-md-7 col-sm-6">
 					<p class="index-feature-first">闲置市场，最爱跳蚤</p>
 					<p class="index-feature-second hidden-sm">用着不对，卖了重配</p>
