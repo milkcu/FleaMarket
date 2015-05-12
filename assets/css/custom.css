@@ -214,6 +214,11 @@ table td {
 	left: 700px;
 }
 */
+.index-category-all a {
+    display: block;
+    color: #000000;
+}
+
 .index-category-all img {
 	margin-right: 15px;
 	//margin-bottom: ;

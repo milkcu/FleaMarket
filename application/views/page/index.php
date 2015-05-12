@@ -53,14 +53,14 @@
 			<?php $prefix = img_url() ?>
 			<?php $suffix = '?imageView2/1/w/100/h/100' ?>
 			<?php foreach($categories as $c) : ?>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<div class="well index-category-all">
-					<a href="<?= site_url('product/index/' . $c->cid) ?>">
-						<img src="<?= $prefix . $c->icon . $suffix ?>">
-					</a>
-					<h2><?= $c->name ?></h2>
-					<p><?= $c->detail ?></p>
-				</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 index-category-all">
+                <a href="<?= site_url('product/index/' . $c->cid) ?>">
+                    <div class="well">
+                        <img src="<?= $prefix . $c->icon . $suffix ?>">
+                        <h2><?= $c->name ?></h2>
+                        <p><?= $c->detail ?></p>
+                    </div>
+                </a>
 			</div>
 			<?php endforeach; ?>
 		</div>
