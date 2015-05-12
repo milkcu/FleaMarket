@@ -31,7 +31,7 @@
 				<?php if(! $this->aauth->is_loggedin()) : ?>
 				<li class="active"><a href="#modal-login" data-toggle="modal"><i class="fa fa-sign-in"></i>登录</a></li>
 				<?php else : ?>
-                <li class="pm-nav">
+                <li>
                     <a href="<?= site_url('message/index/inbox') ?>" style="padding-right: 5px;">
                         <i class="fa fa-envelope-o"></i>
                         <?php $pmnum = $this->aauth->count_unread_pms() ?>

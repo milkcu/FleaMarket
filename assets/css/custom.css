@@ -171,10 +171,7 @@ table td {
 /*
  * message show
  */
-.pm-nav > a {
-    padding-right: 10px;
-}
-.pm-nav span {
+.pm-nav {
     background: #D8582B;
     padding: 2px 4px;
     margin: 0 -10px 0 0;
