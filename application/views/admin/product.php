@@ -1,17 +1,22 @@
 <?php $this->load->view('layout/header', ['title' => '后台管理']) ?>
-<div class="col-xs-12">
-    <ul class="breadcrumb">
-        <li>
-            <a href="<?= site_url() ?>">跳蚤市场</a>
-        </li>
-        <li class="active">
-            后台管理
-        </li>
-    </ul>
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="breadcrumb">
+            <li>
+                <a href="<?= site_url() ?>">跳蚤市场</a>
+            </li>
+            <li>
+                <a href="<?= site_url('admin/index') ?>">后台管理</a>
+            </li>
+            <li class="active">
+                宝贝管理
+            </li>
+        </ul>
+    </div>
 </div>
 <div class="col-xs-12">
     <div class="panel panel-default">
-        <div class="panel-heading">后台管理</div>
+        <div class="panel-heading">宝贝管理</div>
         <div class="panel-body">
             <span>在这里可以管理所有用户及其发布的宝贝，若只需要要对自己发布的宝贝进行管理请使用【宝贝管理】功能！</span>
         </div>

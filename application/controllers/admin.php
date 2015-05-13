@@ -6,6 +6,9 @@ class Admin extends CI_Controller {
 			redirect();
 		}
 	}
+    public function index() {
+        $this->load->view('admin/index');
+    }
     public function product() {
 		$this->load->model('products');
 		$data['products_num'] = $this->products->get_num_all();
@@ -22,6 +25,45 @@ class Admin extends CI_Controller {
 		$data['products'] = $this->products->get_products_all($config['per_page'], $offset);
 
         $this->load->view('admin/product', $data);
+    }
+    public function category() {
+        $this->load->model('categories');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('name', 'required');
+        $this->form_validation->set_rules('detail', 'required');
+        $this->form_validation->set_rules('icon', 'required');
+        if($this->input->post() && $this->form_validation->run()) {
+            // modify category
+            $cid = $this->uri->segment(3);
+            $data = $this->input->post();
+            $this->categories->modify_category($cid, $data);
+            redirect('admin/category');
+        } else {
+            // show category
+            // get qiniu token begin
+            $conf = array('ak' => 'A2o1e1u2qqPQECn3VWxL5BcGGmSWX3n2KhXgK7Rx',
+                            'sk' => 'EUkbMnHf2BNrqOx49-VGz7cUhiwd52Y82mne1zaL',
+                            'bucket' => 'mysdnu',
+                            'auth' => 'public');
+            $this->load->library('qiniu', $conf);
+            $this->qiniu->put_policy->init();
+            $arr = array(
+                Qiniu_put_policy::QINIU_PP_SCOPE => 'mysdnu',
+                Qiniu_put_policy::QINIU_PP_DEADLINE => time()+7200,
+                //Qiniu_put_policy::QINIU_PP_SAVE_KEY => 'mysdnutestbase64.jpg'
+                );
+            $this->qiniu->put_policy->set_policy_array($arr);
+            $token = $this->qiniu->put_policy->get_token();
+            // get qiniu token end
+            $data['token'] = $token;
+            $cats = $this->categories->get_categories();
+            $data['categories'] = $cats;
+            $this->load->view('admin/category', $data);
+        }
+    }
+    public function setting() {
+        // system setting
     }
 	public function delete() {
 		$pid = $this->uri->segment(3);

@@ -8,4 +8,9 @@ class Categories extends CI_Model {
 		$r = $this->db->get('categories')->result();
 		return $r;
 	}
+    public function modify_category($cid, $data) {
+		$this->db->where('cid', $cid);
+		$this->db->update('categories', $data);
+        return;
+    }
 }
