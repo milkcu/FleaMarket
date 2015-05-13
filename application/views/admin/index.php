@@ -12,13 +12,17 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-4">
         <div class="well">
             <a href="<?= site_url('admin/product') ?>">宝贝管理</a>
         </div>
+    </div>
+    <div class="col-xs-4">
         <div class="well">
             <a href="<?= site_url('admin/category') ?>">目录管理</a>
         </div>
+    </div>
+    <div class="col-xs-4">
         <div class="well">
             <a href="<?= site_url('admin/setting') ?>">系统设置</a>
         </div>

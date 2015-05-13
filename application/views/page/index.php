@@ -15,7 +15,7 @@
 </div>
 <div class="row hidden-xs">
 	<div class="col-lg-12 col-md-12 col-sm-12 index-sdnu-head">
-        <img src="<?= img_url('mysdnu-index-head-new.jpg') ?>">
+        <img src="<?= img_url($imghead) ?>">
 	</div>
 </div>
 <div class="row">
@@ -77,7 +77,7 @@
 		</div>
 		<div class="well index-qrcode-app">
 			<h4>安卓客户端扫一扫下载</h4>
-            <img src="<?= img_url('Fgxn7mlZq0qxSYeHzBBB_dKoWbOx') ?>?imageView2/1/h/208/w/208">
+            <img src="<?= img_url($imgqrcode) ?>?imageView2/1/h/208/w/208">
 		</div>
 		<div class="index-feedback">
             <div class="panel panel-default">

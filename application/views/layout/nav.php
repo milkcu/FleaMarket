@@ -94,7 +94,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
-                <a href="<?= site_url('admin/product') ?>" class="btn btn-primary">进入</a>
+                <a href="<?= site_url('admin/index') ?>" class="btn btn-primary">进入</a>
             </div>
         </div>
     </div>

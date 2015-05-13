@@ -64,6 +64,45 @@ class Admin extends CI_Controller {
     }
     public function setting() {
         // system setting
+        $this->load->model('settings');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('img', 'required');
+        if($this->input->post() && $this->form_validation->run()) {
+            // process form
+            $from = $this->uri->segment(3);
+            if($from == 'head') {
+                $imghead = $this->input->post('img');
+                $this->settings->set_var('imghead', $imghead);
+            } elseif($from = 'qrcode') {
+                $imgqrcode = $this->input->post('img');
+                $this->settings->set_var('imgqrcode', $imgqrcode);
+            }
+            redirect('admin/setting');
+        } else {
+            // show settings
+            // get qiniu token begin
+            $conf = array('ak' => 'A2o1e1u2qqPQECn3VWxL5BcGGmSWX3n2KhXgK7Rx',
+                            'sk' => 'EUkbMnHf2BNrqOx49-VGz7cUhiwd52Y82mne1zaL',
+                            'bucket' => 'mysdnu',
+                            'auth' => 'public');
+            $this->load->library('qiniu', $conf);
+            $this->qiniu->put_policy->init();
+            $arr = array(
+                Qiniu_put_policy::QINIU_PP_SCOPE => 'mysdnu',
+                Qiniu_put_policy::QINIU_PP_DEADLINE => time()+7200,
+                //Qiniu_put_policy::QINIU_PP_SAVE_KEY => 'mysdnutestbase64.jpg'
+                );
+            $this->qiniu->put_policy->set_policy_array($arr);
+            $token = $this->qiniu->put_policy->get_token();
+            // get qiniu token end
+            $data['token'] = $token;
+            $data['imghead'] = $this->settings->get_var('imghead');
+            $data['imgqrcode'] = $this->settings->get_var('imgqrcode');
+            $settings = $this->settings->list_var();
+            $data['settings'] = $settings;
+            $this->load->view('admin/setting', $data);
+        }
     }
 	public function delete() {
 		$pid = $this->uri->segment(3);
