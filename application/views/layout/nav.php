@@ -73,7 +73,7 @@
                 <h4 class="modal-title">登录提示</h4>
             </div>
             <div class="modal-body">
-                跳蚤市场仅限校内用户使用，请点击登录跳转到授权页面，使用智慧山师账号登录！
+                欢迎使用跳蚤市场，目前仅限校内用户使用，请使用智慧山师账号登录！
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>

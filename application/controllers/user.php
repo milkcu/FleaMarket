@@ -211,7 +211,7 @@ class User extends CI_Controller {
                 redirect('page/ban');
             }
 			$user = $this->aauth->get_user($id);
-			$this->aauth->login($user->email, $sdnuinfo['user_id']);
+			$this->aauth->login($user->email, $sdnuinfo['user_id'], true);
 			redirect('user/show');
 		} else {
 			// first logged in
