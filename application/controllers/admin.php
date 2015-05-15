@@ -104,6 +104,48 @@ class Admin extends CI_Controller {
             $this->load->view('admin/setting', $data);
         }
     }
+    public function disclaimer() {
+        $this->load->model('settings');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('txt', 'required');
+        if($this->input->post() && $this->form_validation->run()) {
+            $txtdisclaimer = $this->input->post('txt');
+            $this->settings->set_var('txtdisclaimer', $txtdisclaimer);
+            redirect('admin/disclaimer');
+        } else {
+            $data['txt'] = $this->settings->get_var('txtdisclaimer');
+            $this->load->view('admin/disclaimer', $data);
+        }
+    }
+    public function service() {
+        $this->load->model('settings');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('txt', 'required');
+        if($this->input->post() && $this->form_validation->run()) {
+            $txtservice = $this->input->post('txt');
+            $this->settings->set_var('txtservice', $txtservice);
+            redirect('admin/service');
+        } else {
+            $data['txt'] = $this->settings->get_var('txtservice');
+            $this->load->view('admin/service', $data);
+        }
+    }
+    public function initpm() {
+        $this->load->model('settings');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('txt', 'required');
+        if($this->input->post() && $this->form_validation->run()) {
+            $txtinitpm = $this->input->post('txt');
+            $this->settings->set_var('txtinitpm', $txtinitpm);
+            redirect('admin/initpm');
+        } else {
+            $data['txt'] = $this->settings->get_var('txtinitpm');
+            $this->load->view('admin/initpm', $data);
+        }
+    }
 	public function delete() {
 		$pid = $this->uri->segment(3);
 		$this->load->model('products');

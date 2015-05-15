@@ -16,4 +16,14 @@ class Page extends CI_Controller {
     public function ban() {
         $this->load->view('page/ban');
     }
+    public function disclaimer() {
+        $this->load->model('settings');
+        $data['txtdisclaimer'] = $this->settings->get_var('txtdisclaimer');
+        $this->load->view('page/disclaimer', $data);
+    }
+    public function service() {
+        $this->load->model('settings');
+        $data['txtservice'] = $this->settings->get_var('txtservice');
+        $this->load->view('page/service', $data);
+    }
 }

@@ -82,7 +82,7 @@
 		<div class="index-feedback">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                     技术支持
+                     帮助中心
                 </div>
                 <div class="panel-body">
                     <!--
@@ -90,7 +90,8 @@
                     <p><i class="fa fa-home"></i> <a href="http://www.sintune.net/" target="_blank" style="font-weight: 700; color: #8a6d3b">www.sintune.net</a></p>
                     -->
                     <p>
-                        <a href="http://www.sintune.net" target="_blank">攻城狮 && 程序猿</a>
+                        <a href="<?= site_url('page/service') ?>" target="_blank">服务条款</a> &&
+                        <a href="<?= site_url('page/disclaimer') ?>" target="_blank">免责声明</a>
                     </p>
                     <p>
                         <a href="http://i.sdnu.edu.cn/" target="_blank">智慧山师开发小组</a>

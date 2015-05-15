@@ -27,5 +27,20 @@
             <a href="<?= site_url('admin/setting') ?>">系统设置</a>
         </div>
     </div>
+    <div class="col-xs-4">
+        <div class="well">
+            <a href="<?= site_url('admin/service') ?>">服务条款</a>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="well">
+            <a href="<?= site_url('admin/disclaimer') ?>">免责声明</a>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="well">
+            <a href="<?= site_url('admin/initpm') ?>">欢迎私信</a>
+        </div>
+    </div>
 </div>
 <?php $this->load->view('layout/footer') ?>
