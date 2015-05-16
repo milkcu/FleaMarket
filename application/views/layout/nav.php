@@ -110,7 +110,8 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="control-label">请输入您遇到的问题：</label>
-                        <textarea name="message" rows="4" class="form-control"></textarea>
+                        <textarea name="message" rows="4" class="form-control" required></textarea>
+                        <span>更多问题请联系 <i class="fa fa-qq"></i>184324224</span>
                     </div>
                 </div>
                 <div class="modal-footer">

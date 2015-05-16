@@ -146,6 +146,34 @@ class Admin extends CI_Controller {
             $this->load->view('admin/initpm', $data);
         }
     }
+    public function footer() {
+        $this->load->model('settings');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('txt', 'required');
+        if($this->input->post() && $this->form_validation->run()) {
+            $txtfooter = $this->input->post('txt');
+            $this->settings->set_var('txtfooter', $txtfooter);
+            redirect('admin/footer');
+        } else {
+            $data['txt'] = $this->settings->get_var('txtfooter');
+            $this->load->view('admin/footer', $data);
+        }
+    }
+    public function helper() {
+        $this->load->model('settings');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('txt', 'required');
+        if($this->input->post() && $this->form_validation->run()) {
+            $txt = $this->input->post('txt');
+            $this->settings->set_var('txthelper', $txt);
+            redirect('admin/helper');
+        } else {
+            $data['txt'] = $this->settings->get_var('txthelper');
+            $this->load->view('admin/helper', $data);
+        }
+    }
 	public function delete() {
 		$pid = $this->uri->segment(3);
 		$this->load->model('products');

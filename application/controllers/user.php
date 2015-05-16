@@ -142,6 +142,12 @@ class User extends CI_Controller {
 		$data['products'] = $this->products->get_products_by_uid($uid, $config['per_page'], $offset);
 		$this->load->view('user/follow', $data);
 	}
+    public function help() {
+        if( ! $this->aauth->is_loggedin()) {
+            redirect('user/login');
+        }
+        $this->load->view('user/help');
+    }
 	public function modify() {
 		// modify the info of user
 		if( ! $this->aauth->is_loggedin()) {

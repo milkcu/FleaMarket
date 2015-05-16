@@ -267,7 +267,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="control-label">请输入您遇到的问题：</label>
-                        <textarea name="message" rows="4" class="form-control"></textarea>
+                        <textarea name="message" rows="4" class="form-control" required></textarea>
                         <span>（反馈信息将发送给系统管理员而不是宝贝主人）</span>
                     </div>
                 </div>
@@ -294,7 +294,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">私信内容：</label>
-                        <textarea name="message" rows="4" class="form-control"></textarea>
+                        <textarea name="message" rows="4" class="form-control" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

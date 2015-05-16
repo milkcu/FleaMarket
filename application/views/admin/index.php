@@ -42,5 +42,15 @@
             <a href="<?= site_url('admin/initpm') ?>">欢迎私信</a>
         </div>
     </div>
+    <div class="col-xs-4">
+        <div class="well">
+            <a href="<?= site_url('admin/footer') ?>">页脚编辑</a>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="well">
+            <a href="<?= site_url('admin/helper') ?>">帮助中心编辑</a>
+        </div>
+    </div>
 </div>
 <?php $this->load->view('layout/footer') ?>

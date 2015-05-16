@@ -20,6 +20,7 @@
             <a href="<?= site_url('order/index/from') ?>" class="list-group-item">订单系统</a>
             <a href="<?= site_url('user/modify') ?>" class="list-group-item">资料修改</a>
             <a href="<?= site_url('user/info') ?>" class="list-group-item">信息查看</a>
+            <a href="<?= site_url('user/help') ?>" class="list-group-item">帮助中心</a>
             <a href="<?= site_url('user/logout') ?>" class="list-group-item">用户退出</a>
         </div>
     </div>
