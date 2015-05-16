@@ -10,12 +10,10 @@
 		</div>
 		<nav class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="<?= site_url('product/index/1') ?>">图书教材</a></li>
-				<li><a href="<?= site_url('product/index/2') ?>">数码电子</a></li>
-				<li><a href="<?= site_url('product/index/3') ?>">生活娱乐</a></li>
-				<li><a href="<?= site_url('product/index/4') ?>">运动户外</a></li>
-				<li><a href="<?= site_url('product/index/5') ?>">衣物百货</a></li>
-				<li><a href="<?= site_url('product/index/6') ?>">其他分类</a></li>
+                <?php $cats = $this->categories->get_categories() ?>
+                <?php foreach($cats as $cat) : ?>
+                <li><a href="<?= site_url('product/index/' . $cat->cid) ?>"><?= $cat->name ?></a></li>
+                <?php endforeach; ?>
 			</ul>
 
 			<form class="navbar-form pull-left hidden-sm hidden-xs" action="<?= site_url('product/search') ?>" method="post">
