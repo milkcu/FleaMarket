@@ -52,6 +52,8 @@ class Message extends CI_Controller {
                 if($arr[1] == 'complete') {
                     $data['new_title'] = '来自【攻城狮】的会话';
                 }
+            } elseif($arr[0] == 'feedback') {
+                $data['new_title'] = '来自【用户反馈' . $arr[1] . '】的会话';
             }
         }
         // 私信回复需要的信息放在session
@@ -144,6 +146,8 @@ class Message extends CI_Controller {
                     if($arr[1] == 'complete') {
                         $title_key = '攻城狮';
                     }
+                } elseif($arr[0] == 'feedback') {
+                    $title_key = '用户反馈' . $arr[1];
                 }
             }
 

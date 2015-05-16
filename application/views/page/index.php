@@ -90,6 +90,11 @@
                     <p><i class="fa fa-home"></i> <a href="http://www.sintune.net/" target="_blank" style="font-weight: 700; color: #8a6d3b">www.sintune.net</a></p>
                     -->
                     <p>
+                        <?php if($this->aauth->is_loggedin()) : ?>
+                        <a href="#modal-feedback" data-toggle="modal">用户反馈</a> &&
+                        <?php else : ?>
+                        <a href="#modal-login" data-toggle="modal">用户反馈</a> &&
+                        <?php endif; ?>
                         <a href="<?= site_url('page/service') ?>" target="_blank">服务条款</a> &&
                         <a href="<?= site_url('page/disclaimer') ?>" target="_blank">免责声明</a>
                     </p>

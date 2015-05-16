@@ -99,3 +99,25 @@
         </div>
     </div>
 </div>
+<div id="modal-feedback" class="modal fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <form action="<?= site_url('page/feedback') ?>" method="post">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" class="close">×</button>
+                    <h4 class="modal-title">用户反馈</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label">请输入您遇到的问题：</label>
+                        <textarea name="message" rows="4" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default">取消</button>
+                    <input type="submit" value="发送" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
