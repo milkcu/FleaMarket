@@ -20,14 +20,14 @@
                 <div class="list-product-title"><h3><?= $p->title ?></h3></div>
                 <p>
                     <?php if($p->state) : ?>
-                    <a class="btn btn-warning"><span class="hidden-xs">已</span>成交</a>
+                    <a class="btn btn-warning hidden-xs">已成交</a>
+                    <a class="btn btn-sm btn-warning visible-xs-inline-block">成交</a>
                     <?php else : ?>
-                    <a class="btn btn-danger">￥<?= $p->current ?><span class="hidden-xs">元</span></a>
+                    <a class="btn btn-danger hidden-xs">￥<?= $p->current ?>元</a>
+                    <a class="btn btn-sm btn-danger visible-xs-inline-block">￥<?= $p->current ?></a>
                     <?php endif; ?>
-                    <!--
-                    <a class="btn btn-default pull-right" href="#">关注 (<?= $p->follows ?>)</a>
-                    -->
-                    <a class="btn btn-primary  pull-right" href="<?= site_url('product/show/' . $p->pid) ?>">浏览<span class="hidden-xs"> (<?= $p->views ?>)</span></a>
+                    <a class="btn btn-primary hidden-xs pull-right" href="<?= site_url('product/show/' . $p->pid) ?>">浏览 (<?= $p->views ?>)</a>
+                    <a class="btn btn-sm btn-primary visible-xs-inline-block pull-right" href="<?= site_url('product/show/' . $p->pid) ?>">浏览</a>
                 </p>
             </div>
         </div>

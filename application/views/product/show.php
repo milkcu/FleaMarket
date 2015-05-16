@@ -68,7 +68,7 @@
                 <div class="product-value"><?= $product->category->name ?></div>
             </div>
             <div class="row">
-                <div class="col-xs-12 product-show-button">
+                <div class="col-xs-12 product-show-button hidden-xs">
                     <a href="#modal-share" data-toggle="modal" class="btn btn-info">分享</a>
                     <?php if( ! $this->aauth->is_loggedin()) : ?>
                         <a href="#modal-login" data-toggle="modal" class="btn btn-primary">收藏</a>
@@ -87,6 +87,28 @@
                         <?php endif; ?>
                         <?php if($this->aauth->is_loggedin()) : ?>
                             <a href="#modal-report" data-toggle="modal" class="btn btn-warning">举报</a>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
+                <div class="col-xs-12 product-show-button visible-xs">
+                    <a href="#modal-share" data-toggle="modal" class="btn btn-sm btn-info">分享</a>
+                    <?php if( ! $this->aauth->is_loggedin()) : ?>
+                        <a href="#modal-login" data-toggle="modal" class="btn btn-sm btn-primary">收藏</a>
+                        <a href="#modal-login" data-toggle="modal" class="btn btn-sm btn-danger">订购</a>
+                        <a href="#modal-login" data-toggle="modal" class="btn btn-sm btn-warning">举报</a>
+                    <?php else : ?>
+                        <?php if( ! $in_collect) : ?>
+                            <a href="<?= site_url('user/addcollect/' . $product->pid) ?>" class="btn btn-sm btn-primary">收藏</a>
+                        <?php else : ?>
+                            <a href="#modal-collect-delete" data-toggle="modal" class="btn btn-sm btn-primary">取消收藏</a>
+                        <?php endif; ?>
+                        <?php if($product->state == 0 && $product->uid != $this->aauth->get_user_id()) : ?>
+                            <a href="<?= site_url('order/create/' . $product->pid) ?>" class="btn btn-sm btn-danger">订购</a>
+                        <?php else : ?>
+                            <a class="btn btn-sm btn-danger">已拥有</a>
+                        <?php endif; ?>
+                        <?php if($this->aauth->is_loggedin()) : ?>
+                            <a href="#modal-report" data-toggle="modal" class="btn btn-sm btn-warning">举报</a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
