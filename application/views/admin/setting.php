@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-xs-9">
-                            <label>在这里更换首页顶部图片（图片原始尺寸为1140*230）：</label>
+                            <label>在这里更换首页顶部图片（图片原始宽度为1140）：</label>
                         </div>
                         <div class="col-xs-1">
                             <a href="javascript:void(0)" onclick="javascript:myclick(1)" class="btn btn-primary">上传图片</a>

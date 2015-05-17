@@ -11,33 +11,33 @@
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
         <div class="carousel slide" id="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li class="active" data-slide-to="0" data-target="#carousel"></li>
-                    <?php for($i = 1; $i < count($product->images); $i++) : ?>
-                    <li data-slide-to="<?= $i ?>" data-target="#carousel"></li>
-                    <?php endfor; ?>
-                </ol>
-                <!-- Wrapper for slides on PC -->
-                <div class="carousel-inner">
-                    <?php $suffix = '?imageView2/1/w/555/h/555' ?>
-                    <div class="item active">
-                        <img src="<?= img_url() . $product->images[0] . $suffix ?>" alt="First slide">
-                    </div>
-                    <?php for($i = 1; $i < count($product->images); $i++) : ?>
-                    <div class="item">
-                        <img src="<?= img_url() . $product->images[$i] . $suffix ?>" alt="Another slide">
-                    </div>
-                    <?php endfor; ?>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#carousel"></li>
+                <?php for($i = 1; $i < count($product->images); $i++) : ?>
+                <li data-slide-to="<?= $i ?>" data-target="#carousel"></li>
+                <?php endfor; ?>
+            </ol>
+            <!-- Wrapper for slides on PC -->
+            <div class="carousel-inner">
+                <?php $suffix = '?imageView2/1/w/555/h/555' ?>
+                <div class="item active">
+                    <img src="<?= img_url() . $product->images[0] . $suffix ?>" alt="First slide">
                 </div>
+                <?php for($i = 1; $i < count($product->images); $i++) : ?>
+                <div class="item">
+                    <img src="<?= img_url() . $product->images[$i] . $suffix ?>" alt="Another slide">
+                </div>
+                <?php endfor; ?>
+            </div>
 
-                <!-- Controls -->
-                <a class="left carousel-control" data-slide="prev" href="#carousel">
-                    <span class="icon-prev"></span>
-                </a>
-                <a class="right carousel-control" data-slide="next" href="#carousel">
-                    <span class="icon-next"></span>
-                </a>
+            <!-- Controls -->
+            <a class="left carousel-control" data-slide="prev" href="#carousel">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" data-slide="next" href="#carousel">
+                <span class="icon-next"></span>
+            </a>
         </div>  <!-- end of div.carousel -->
     </div>  <!-- end of div.col -->
     <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">

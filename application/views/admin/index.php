@@ -24,7 +24,7 @@
     </div>
     <div class="col-xs-4">
         <div class="well">
-            <a href="<?= site_url('admin/setting') ?>">系统设置</a>
+            <a href="<?= site_url('admin/setting') ?>">首页设置</a>
         </div>
     </div>
     <div class="col-xs-4">
@@ -50,6 +50,11 @@
     <div class="col-xs-4">
         <div class="well">
             <a href="<?= site_url('admin/helper') ?>">帮助中心编辑</a>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="well">
+            <a href="<?= site_url('admin/carousel') ?>">首页滚动图片设置</a>
         </div>
     </div>
 </div>

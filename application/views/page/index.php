@@ -14,8 +14,38 @@
     </div>
 </div>
 <div class="row hidden-xs">
-	<div class="col-lg-12 col-md-12 col-sm-12 index-sdnu-head">
-        <img src="<?= img_url($imghead) ?>">
+	<div class="col-lg-12 col-md-12 col-sm-12">
+        <!--
+        <img src="<?= img_url($imghead) ?>" class="index-sdnu-head-img">
+        -->
+        <?php $imgshead = json_decode($this->settings->get_var('imgshead')) ?>
+        <div class="carousel slide" id="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#carousel"></li>
+                <?php for($i = 1; $i < count($imgshead); $i++) : ?>
+                <li data-slide-to="<?= $i ?>" data-target="#carousel"></li>
+                <?php endfor; ?>
+            </ol>
+            <!-- Wrapper for slides on PC -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="<?= img_url($imgshead[0]) ?>" alt="First slide">
+                </div>
+                <?php for($i = 1; $i < count($imgshead); $i++) : ?>
+                <div class="item">
+                    <img src="<?= img_url($imgshead[$i]) ?>" alt="Another slide">
+                </div>
+                <?php endfor; ?>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" data-slide="prev" href="#carousel">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" data-slide="next" href="#carousel">
+                <span class="icon-next"></span>
+            </a>
+        </div>  <!-- end of div.carousel -->
 	</div>
 </div>
 <div class="row">
