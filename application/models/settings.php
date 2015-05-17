@@ -1,7 +1,7 @@
 <?php
 class Settings extends CI_Model {
     public function set_var($key, $value) {
-        if($this->get_var($key) == false) {
+        if($this->get_var($key) === false) {
             $data = array(
                 'setkey' => $key,
                 'value' => $value
@@ -17,10 +17,11 @@ class Settings extends CI_Model {
     }
     public function get_var($key) {
         $this->db->where('setkey', $key);
-        $r = $this->db->get('settings')->row();
-        if(empty($key)) {
+        $q = $this->db->get('settings');
+        if($q->num_rows < 1) {
             return false;
         } else {
+            $r = $q->row();
             return $r->value;
         }
     }

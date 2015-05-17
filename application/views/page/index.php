@@ -1,4 +1,15 @@
 <?php $this->load->view('layout/header', ['title' => '首页']) ?>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="alert alert-info">
+            <?php if($this->aauth->is_loggedin()) : ?>
+            <p>跳蚤市场测试版上线啦，欢迎<a href="#modal-feedback" data-toggle="modal" class="alert-link">用户反馈</a>。</p>
+            <?php else : ?>
+            <p>跳蚤市场测试版上线啦，欢迎<a href="#modal-feedback" data-toggle="modal" class="alert-link">用户反馈</a>。</p>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
 <div class="row visible-sm visible-xs">
     <div class="col-xs-12">
         <div class="well well-sm">
