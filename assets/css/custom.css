@@ -212,6 +212,9 @@ table td {
 	left: 700px;
 }
 */
+.index-category-all .well {
+    height: 140px;
+}
 .index-category-all a {
     display: block;
     color: #000000;
@@ -223,15 +226,21 @@ table td {
 	float: left;
 }
 .index-category-all h2 {
-	margin-top: 10px;
+	margin-top: 5px;
 	font-size: 22px;
 	font-weight: bold;
 }
 .index-category-all p {
 	//float: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0px;
 }
 .index-feature-all {
-    padding-bottom: 9px;
+    //padding-bottom: 9px;
+}
+.index-feature-all ul {
+    margin-bottom: 0px;
 }
 .index-feature-all p {
 	font-size: 30px;
@@ -252,6 +261,9 @@ table td {
 .index-feature-all i {
 	margin-right: 8px;
 	width: 20px;
+}
+.index-feature-slogan {
+    height: 100px;
 }
 .index-feature-first {
 	padding-left: 10px;
@@ -276,6 +288,21 @@ table td {
 .index-feature-chance {
 	color: orange;
 }
+.index-product-latest {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.index-product-latest img {
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+}
+.index-product-latest p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
 
 .index-welcome h2 {
 	font-size: 18px;
@@ -289,8 +316,11 @@ table td {
 	text-align: center;
 }
 .index-qrcode-app img {
-	width: 208px;
-	height: 208px;
+	width: 220px;
+	height: 220px;
+}
+.index-feedback  .panel-body {
+    height: 97px;
 }
 .index-feedback textarea {
 	height: 61px;

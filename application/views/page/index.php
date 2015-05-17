@@ -50,35 +50,49 @@
 </div>
 <div class="row">
 	<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-		<div class="well hidden-xs index-feature-all">
-			<div class="row">
-				<div class="col-lg-7 col-md-7 col-sm-6">
-					<p class="index-feature-first">闲置市场，最爱跳蚤</p>
-					<p class="index-feature-second hidden-sm">用着不对，卖了重配</p>
-					<p class="index-feature-first visible-sm">用着不对，卖了重配</p>
-				</div>
-				<div class="col-lg-5 col-md-5 col-sm-6">
-					<ul>
-						<li class="list-unstyled index-feature-quick">
-							<i class="fa fa-clock-o"></i>
-							快速：一键发布告别蹲点守候
-						</li>
-						<li class="list-unstyled index-feature-secure">
-							<i class="fa fa-shield"></i>
-							安全：身份认证保证交易安全
-						</li>
-						<li class="list-unstyled index-feature-profession">
-							<i class="fa fa-graduation-cap"></i>
-							专业：专注于闲置物品的交易
-						</li>
-						<li class="list-unstyled index-feature-chance">
-							<i class="fa fa-institution"></i>
-							机会：给你一次当老板的机会
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+        <div class="row hidden">
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs">
+                <div class="well">
+                    <div class="row index-feature-all hidden">
+                        <div class="col-lg-7 col-md-7 col-sm-6 index-feature-slogan">
+                            <p class="index-feature-first">闲置市场，最爱跳蚤</p>
+                            <p class="index-feature-second hidden-sm">用着不对，卖了重配</p>
+                            <p class="index-feature-first visible-sm">用着不对，卖了重配</p>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6">
+                            <ul>
+                                <li class="list-unstyled index-feature-quick">
+                                    <i class="fa fa-clock-o"></i>
+                                    快速：随手发布告别蹲点守候
+                                </li>
+                                <li class="list-unstyled index-feature-secure">
+                                    <i class="fa fa-shield"></i>
+                                    安全：学号登录保证交易安全
+                                </li>
+                                <li class="list-unstyled index-feature-profession">
+                                    <i class="fa fa-graduation-cap"></i>
+                                    专业：专注于闲置物品的交易
+                                </li>
+                                <li class="list-unstyled index-feature-chance">
+                                    <i class="fa fa-institution"></i>
+                                    机会：给你一次当老板的机会
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row index-product-latest">
+                        <div class="col-lg-12 col-md-2 col-sm-2">
+                        <p class="pull-left">最<br>新<br>宝<br>贝</p>
+                        <?php foreach($products as $p) : ?>
+                            <a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>">
+                                <img src="<?= img_url($p->images[0] . '?imageView2/1/w/100/h/100') ?>" class="img-rounded">
+                            </a>
+                        <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 		<div class="row">
 			<?php $prefix = img_url() ?>
 			<?php $suffix = '?imageView2/1/w/100/h/100' ?>
@@ -94,6 +108,22 @@
 			</div>
 			<?php endforeach; ?>
 		</div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 hidden-xs">
+                <div class="well">
+                    <div class="row index-product-latest">
+                        <div class="col-lg-12 col-md-2 col-sm-2">
+                        <p class="pull-left">最<br>新<br>宝<br>贝</p>
+                        <?php foreach($products as $p) : ?>
+                            <a href="<?= site_url('product/show/' . $p->pid) ?>" title="<?= $p->title ?>">
+                                <img src="<?= img_url($p->images[0] . '?imageView2/1/w/100/h/100') ?>" class="img-rounded">
+                            </a>
+                        <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 	<div class="col-lg-3 hidden-md hidden-sm hidden-xs">
 		<div class="well index-welcome">
@@ -106,8 +136,8 @@
 			<?php endif; ?>
 		</div>
 		<div class="well index-qrcode-app">
-			<h4>安卓客户端扫一扫下载</h4>
-            <img src="<?= img_url($imgqrcode) ?>?imageView2/1/h/208/w/208">
+			<h4>扫一扫下载Android客户端</h4>
+            <img src="<?= img_url($imgqrcode) ?>?imageView2/1/h/220/w/220">
 		</div>
 		<div class="index-feedback">
             <div class="panel panel-default">

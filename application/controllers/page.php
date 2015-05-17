@@ -8,6 +8,8 @@ class Page extends CI_Controller {
 		$this->load->model('categories');
 		$data['categories'] = $this->categories->get_categories();
         $data['tab'] = 1;
+        $this->load->model('products');
+        $data['products'] = $this->products->get_products_all(7, 0);
 		$this->load->view('page/index', $data);
 	}
     public function phone() {
