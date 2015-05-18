@@ -140,21 +140,21 @@
             </div>
             <div class="product-user-contact">
                 <p>
-                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('email', $contact->public)) : ?>
+                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && $contact->public != false && in_array('email', $contact->public)) : ?>
                     <?= $contact->email ?>
                     <?php else : ?>
                     邮箱未公开
                     <?php endif; ?>
                 </p>
                 <p>
-                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('phone', $contact->public)) : ?>
+                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && $contact->public != false && in_array('phone', $contact->public)) : ?>
                     <i class="fa fa-phone"></i><?= $contact->phone ?>
                     <?php else : ?>
                     手机号未公开
                     <?php endif; ?>
                 </p>
                 <p>
-                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('qq', $contact->public)) : ?>
+                    <?php if($this->aauth->is_loggedin() && isset($contact->public) && $contact->public != false && in_array('qq', $contact->public)) : ?>
                     <i class="fa fa-qq"></i>
                     <?= $contact->qq ?>
                     <?php else : ?>
@@ -217,7 +217,7 @@
             <span class="list-group-item">学院： <?= $sdnuinfo->organization_name ?></span>
             <span class="list-group-item">
                 邮箱：
-                <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('email', $contact->public)) : ?>
+                <?php if($this->aauth->is_loggedin() && isset($contact->public) && $contact->public != false && in_array('email', $contact->public)) : ?>
                 <?= $contact->email ?>
                 <?php else : ?>
                 未公开
@@ -225,7 +225,7 @@
             </span>
             <span class="list-group-item">
                 手机：
-                <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('phone', $contact->public)) : ?>
+                <?php if($this->aauth->is_loggedin() && isset($contact->public) && $contact->public != false && in_array('phone', $contact->public)) : ?>
                 <?= $contact->phone ?>
                 <?php else : ?>
                 未公开
@@ -233,7 +233,7 @@
             </span>
             <span class="list-group-item">
                 QQ：
-                <?php if($this->aauth->is_loggedin() && isset($contact->public) && in_array('qq', $contact->public)) : ?>
+                <?php if($this->aauth->is_loggedin() && isset($contact->public) && $contact->public != false && in_array('qq', $contact->public)) : ?>
                 <?= $contact->qq ?>
                 <?php else : ?>
                 未公开

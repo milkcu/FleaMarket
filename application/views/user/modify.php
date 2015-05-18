@@ -12,7 +12,7 @@
                     <div class="input-group">
                         <input name="email" value="<?= isset($contact->email) ? $contact->email : '' ?>" type="text" class="form-control" autocomplete="off" placeholder="必填" required>
                         <label class="input-group-addon"><input type="checkbox" name="public[]" value="email"
-                            <?php if(isset($contact->public) && in_array('email', $contact->public)) echo 'checked'; ?>> 公开</label>
+                            <?php if(isset($contact->public) && $contact->public != false && in_array('email', $contact->public)) echo 'checked'; ?>> 公开</label>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     <div class="input-group">
                         <input name="phone" value="<?= isset($contact->phone) ? $contact->phone : '' ?>" type="text" class="form-control" autocomplete="off" placeholder="选填">
                         <label class="input-group-addon"><input type="checkbox" name="public[]" value="phone"
-                            <?php if(isset($contact->public) && in_array('phone', $contact->public)) echo 'checked'; ?>> 公开</label>
+                            <?php if(isset($contact->public) && $contact->public != false && in_array('phone', $contact->public)) echo 'checked'; ?>> 公开</label>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     <div class="input-group">
                         <input name="qq" value="<?= isset($contact->qq) ? $contact->qq : ''  ?>" type="text" class="form-control" autocomplete="off" placeholder="选填">
                         <label class="input-group-addon"><input type="checkbox" name="public[]" value="qq"
-                            <?php if(isset($contact->public) && in_array('qq', $contact->public)) echo 'checked'; ?>> 公开</label>
+                            <?php if(isset($contact->public) && $contact->public != false && in_array('qq', $contact->public)) echo 'checked'; ?>> 公开</label>
                     </div>
                 </div>
             </div>
