@@ -62,23 +62,29 @@ class Message extends CI_Controller {
         } elseif($type == 'outbox') {
             $new_receiver_id = $pm->receiver_id;
         }
+        $data['new_receiver_id'] = $new_receiver_id;
+        /*
         $userdate = array(
             'pm_title' => $pm->title,
             'pm_old_id' => $pm->id,
             'pm_old_message' => $pm->message,
-            'pm_receiver_id' => $new_receiver_id
+            //'pm_receiver_id' => $new_receiver_id
+            'pm_receiver_id' => $other_id
         );
         $this->session->set_userdata($userdate);
+         */
 		$this->load->view('message/show', $data);
 	}
 	public function send() {
-		//$this->output->enable_profiler(TRUE);
 		$to = $this->uri->segment(3);
 		$sender_id = $this->aauth->get_user_id();
-		$receiver_id = $this->session->userdata('pm_receiver_id');
-		$title = $this->session->userdata('pm_title');
+		//$receiver_id = $this->session->userdata('pm_receiver_id');
+        $receiver_id = $this->input->post('receiver_id');
+		//$title = $this->session->userdata('pm_title');
+        $title = $this->input->post('title');
 		$message = $this->input->post('message');
-		$old_message = $this->session->userdata('pm_old_message');
+		//$old_message = $this->session->userdata('pm_old_message');
+        $old_message = $this->input->post('old_message');
 		$jsender_sdnuinfo = $this->aauth->get_user_var('sdnuinfo', $sender_id);
 		$sender_sdnuinfo = json_decode($jsender_sdnuinfo);
 		$send_date = date('Y-m-d H:i:s');
@@ -89,14 +95,22 @@ class Message extends CI_Controller {
 		}
 		$new_message = '<b>' . $sender_sdnuinfo->name . ' 发送于 ' .$send_date . '</b><br>' . $message . $old_data;
 		$this->aauth->send_pm($sender_id, $receiver_id, $title, $new_message);
+        /*
 		if($this->session->userdata('pm_old_id')) {
 			$old_id = $this->session->userdata('pm_old_id');
 			$this->aauth->delete_pm($old_id);
 		}
+         */
+        if($this->input->post('old_id')) {
+            $old_id = $this->input->post('old_id');
+            $this->aauth->delete_pm($old_id);
+        }
+        /*
         $this->session->unset_userdata('pm_title');
         $this->session->unset_userdata('pm_oid_id');
         $this->session->unset_userdata('pm_old_message');
         $this->session->unset_userdata('pm_receiver_id');
+         */
 		redirect('message/index/' . $to);
 	}
 	public function index() {
