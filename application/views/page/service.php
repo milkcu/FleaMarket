@@ -3,4 +3,4 @@
 <div>
     <?= $txtservice ?>
 </div>
-<?php $this->load->view('layout/footer', ['footer' => 3]) ?>
+<?php $this->load->view('layout/footer', ['tab' => 3]) ?>
